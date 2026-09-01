@@ -2,7 +2,7 @@
 # =============================================================================
 # 換網域用：把整站寫死的網域一次改掉。
 #
-#   ./set-base-url.sh https://order.tripdaynday.com https://新網域
+#   ./set-base-url.sh https://structaly.com https://新網域
 #
 # 第一個參數是「現在的網域」，第二個是「要換成的網域」，兩個都不要加結尾斜線。
 # 會改到的檔案：index.html、privacy.html、terms.html、trades/*/index.html、
@@ -26,13 +26,19 @@ set -eu
 
 if [ $# -ne 2 ]; then
   echo "用法: $0 <舊網域> <新網域>" >&2
-  echo "例:   $0 https://order.tripdaynday.com https://order.example.com" >&2
+  echo "例:   $0 https://structaly.com https://www.example.com" >&2
   exit 1
 fi
 
 OLD=$1
 NEW=$2
 DIR=$(cd "$(dirname "$0")" && pwd)
+
+# 除了帶 scheme 的絕對網址，註解裡還會出現「裸網域」（例如 robots.txt 第一行的
+# 「# 訂單秘書 — 舊網域.com」那種）。只換帶 https:// 的會漏掉它，
+# 所以這裡把主機名也單獨抓出來一起換。
+OLD_HOST=${OLD#*://}
+NEW_HOST=${NEW#*://}
 
 FILES="index.html privacy.html terms.html robots.txt sitemap.xml"
 for f in $FILES; do
@@ -41,9 +47,9 @@ done
 
 TOUCHED=0
 for f in $FILES $(cd "$DIR" && ls trades/*/index.html 2>/dev/null); do
-  if grep -q "$OLD" "$DIR/$f" 2>/dev/null; then
+  if grep -q "$OLD_HOST" "$DIR/$f" 2>/dev/null; then
     # macOS 與 GNU 的 sed -i 參數不同，先寫暫存檔再覆蓋，兩邊都能跑
-    sed "s|$OLD|$NEW|g" "$DIR/$f" > "$DIR/$f.tmp" && mv "$DIR/$f.tmp" "$DIR/$f"
+    sed -e "s|$OLD|$NEW|g" -e "s|$OLD_HOST|$NEW_HOST|g" "$DIR/$f" > "$DIR/$f.tmp" && mv "$DIR/$f.tmp" "$DIR/$f"
     n=$(grep -c "$NEW" "$DIR/$f" || true)
     echo "改好 $f（$n 處）"
     TOUCHED=$((TOUCHED + 1))
@@ -52,4 +58,4 @@ done
 
 echo "---"
 echo "共改了 $TOUCHED 個檔案。剩下這些地方還提到舊網域（應該要是 0）："
-grep -rn "$OLD" "$DIR" --include='*.html' --include='*.txt' --include='*.xml' || echo "（沒有了）"
+grep -rn "$OLD_HOST" "$DIR" --include='*.html' --include='*.txt' --include='*.xml' || echo "（沒有了）"

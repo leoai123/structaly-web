@@ -1,0 +1,30 @@
+{
+  // 訂單秘書官網 — Cloudflare Workers Static Assets（純靜態，沒有 Worker 程式碼）
+  //
+  //   npx wrangler deploy        部署
+  //   npx wrangler dev           本機預覽（也可以直接用 python3 -m http.server，見 README）
+  //
+  // 為什麼是 Workers 不是 Pages：Pages 已進入維護模式，Cloudflare 現在把
+  // Workers Static Assets 當成靜態站的正規做法（版本歷史、rollback、之後要加
+  // 動態邏輯時直接補一個 main 進來就好）。
+  "name": "structaly-web",
+  "compatibility_date": "2026-08-25",
+
+  "assets": {
+    // 整個 repo 根目錄就是網站根目錄；不該上線的檔案列在 .assetsignore。
+    "directory": ".",
+
+    // ── 這一行是整份設定裡最要緊的 ──────────────────────────────────────
+    // 全站的內部連結與 canonical 都是「不帶結尾斜線」的形式（/trades/meat），
+    // 而 Cloudflare 的預設值 auto-trailing-slash 會把資料夾索引頁導向
+    // /trades/meat/（帶斜線），六個產業頁就會全部變成 307 轉址、canonical 與
+    // 實際 200 的網址對不上。drop-trailing-slash 才是與現有網址一致的模式。
+    // 改這個值以前先確認 canonical 也要跟著改。
+    "html_handling": "drop-trailing-slash",
+
+    // 找不到的路徑就回 404（本站沒有 SPA、也沒有自訂 404 頁）。
+    "not_found_handling": "none"
+  },
+
+  "observability": { "enabled": true }
+}

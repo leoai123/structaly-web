@@ -15,22 +15,26 @@
      整站要一起換的還有：robots.txt 的 Sitemap 行、sitemap.xml 的 <loc>，
      以及 index / privacy / terms 各自的同一區。
      根目錄的 set-base-url.sh 可以一次改完全部（用法寫在腳本裡）。
+     ※ 隱私權/服務條款的網址是 /privacy、/terms（沒有 .html）。檔案本身仍叫
+       privacy.html / terms.html，但 Cloudflare Workers Static Assets 一律把 .html
+       結尾的請求 307 導向去掉副檔名的網址；canonical 必須寫「真的回 200 的那個」，
+       所以這裡不能寫 .html。詳見 wrangler.jsonc 的 html_handling 註解。
      ========================================================================= -->
-<link rel="canonical" href="https://order.tripdaynday.com/trades/supplies" />
-<meta property="og:url" content="https://order.tripdaynday.com/trades/supplies" />
-<meta property="og:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
-<meta property="og:image:secure_url" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
-<meta name="twitter:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<link rel="canonical" href="https://structaly.com/trades/supplies" />
+<meta property="og:url" content="https://structaly.com/trades/supplies" />
+<meta property="og:image" content="https://structaly.com/assets/order-flow-poster.png" />
+<meta property="og:image:secure_url" content="https://structaly.com/assets/order-flow-poster.png" />
+<meta name="twitter:image" content="https://structaly.com/assets/order-flow-poster.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://order.tripdaynday.com/#organization",
+      "@id": "https://structaly.com/#organization",
       "name": "訂單秘書",
-      "url": "https://order.tripdaynday.com/",
-      "logo": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "url": "https://structaly.com/",
+      "logo": "https://structaly.com/assets/order-flow-poster.png",
       "email": "leo@tripdaynday.com",
       "parentOrganization": {
         "@type": "Organization",
@@ -40,19 +44,19 @@
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://order.tripdaynday.com/trades/supplies#breadcrumb",
+      "@id": "https://structaly.com/trades/supplies#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "訂單秘書",
-          "item": "https://order.tripdaynday.com/"
+          "item": "https://structaly.com/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "餐飲耗材・包材行",
-          "item": "https://order.tripdaynday.com/trades/supplies"
+          "item": "https://structaly.com/trades/supplies"
         }
       ]
     }
@@ -435,7 +439,7 @@
 <footer>
   <div class="wrap">
     <span>訂單秘書 © 2026</span>
-    <span><a href="/">首頁</a>　·　<a href="/privacy.html">隱私政策</a>　·　<a href="/terms.html">服務條款</a></span>
+    <span><a href="/">首頁</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span>
     <span>a tripdaynday service</span>
   </div>
 </footer>

@@ -15,25 +15,29 @@
      整站要一起換的還有：robots.txt 的 Sitemap 行、sitemap.xml 的 <loc>、
      六個 /trades/*/index.html 以及 privacy.html / terms.html 各自的同一區。
      根目錄的 set-base-url.sh 可以一次改完全部（用法寫在腳本裡）。
+     ※ 隱私權/服務條款的網址是 /privacy、/terms（沒有 .html）。檔案本身仍叫
+       privacy.html / terms.html，但 Cloudflare Workers Static Assets 一律把 .html
+       結尾的請求 307 導向去掉副檔名的網址；canonical 必須寫「真的回 200 的那個」，
+       所以這裡不能寫 .html。詳見 wrangler.jsonc 的 html_handling 註解。
 
      JSON-LD 的內容必須跟頁面上看得到的文字一致——價格、常見問題的問答，
      改頁面的時候要一起改這裡，不然 Google 會當成結構化資料造假。
      ========================================================================= -->
-<link rel="canonical" href="https://order.tripdaynday.com/" />
-<meta property="og:url" content="https://order.tripdaynday.com/" />
-<meta property="og:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
-<meta property="og:image:secure_url" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
-<meta name="twitter:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<link rel="canonical" href="https://structaly.com/" />
+<meta property="og:url" content="https://structaly.com/" />
+<meta property="og:image" content="https://structaly.com/assets/order-flow-poster.png" />
+<meta property="og:image:secure_url" content="https://structaly.com/assets/order-flow-poster.png" />
+<meta name="twitter:image" content="https://structaly.com/assets/order-flow-poster.png" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://order.tripdaynday.com/#organization",
+      "@id": "https://structaly.com/#organization",
       "name": "訂單秘書",
-      "url": "https://order.tripdaynday.com/",
-      "logo": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "url": "https://structaly.com/",
+      "logo": "https://structaly.com/assets/order-flow-poster.png",
       "email": "leo@tripdaynday.com",
       "parentOrganization": {
         "@type": "Organization",
@@ -43,16 +47,16 @@
     },
     {
       "@type": "SoftwareApplication",
-      "@id": "https://order.tripdaynday.com/#software",
+      "@id": "https://structaly.com/#software",
       "name": "訂單秘書",
-      "url": "https://order.tripdaynday.com/",
+      "url": "https://structaly.com/",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "訂單管理",
       "operatingSystem": "LINE（iOS、Android）、網頁瀏覽器",
       "inLanguage": "zh-Hant-TW",
-      "image": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "image": "https://structaly.com/assets/order-flow-poster.png",
       "description": "客人照常在 LINE 群叫貨，訂單自動整理成出貨總表與對帳表。沒把握的它會標起來問你一句，絕不亂猜。給食材行、材料行、耗材行的接單幫手。",
-      "publisher": { "@id": "https://order.tripdaynday.com/#organization" },
+      "publisher": { "@id": "https://structaly.com/#organization" },
       "audience": {
         "@type": "Audience",
         "audienceType": "食材行、材料行、耗材行等在 LINE 群裡接單的批發供應商"
@@ -73,12 +77,12 @@
         "name": "早鳥試點價（每月）",
         "description": "早鳥試點・限量 10 家，每月 NT$799；正式價 NT$1,499。",
         "availability": "https://schema.org/LimitedAvailability",
-        "url": "https://order.tripdaynday.com/"
+        "url": "https://structaly.com/"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://order.tripdaynday.com/#faq",
+      "@id": "https://structaly.com/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -1289,7 +1293,7 @@
         </details>
         <details>
           <summary>我的客戶資料會不會被別人看到？</summary>
-          <p class="faq-a">不會。每個客戶群的資料嚴格隔離，A 客戶永遠看不到 B 客戶的訂單、價格或叫貨紀錄，你這邊也不會回錯群。群組裡的照片和語音只留紀錄，內容不下載保存。詳細寫在<a href="/privacy.html">隱私政策</a>。</p>
+          <p class="faq-a">不會。每個客戶群的資料嚴格隔離，A 客戶永遠看不到 B 客戶的訂單、價格或叫貨紀錄，你這邊也不會回錯群。群組裡的照片和語音只留紀錄，內容不下載保存。詳細寫在<a href="/privacy">隱私政策</a>。</p>
         </details>
         <details>
           <summary>要換掉現在的 LINE 群嗎？</summary>
@@ -1340,7 +1344,7 @@
 <footer>
   <div class="wrap">
     <span>訂單秘書 © 2026</span>
-    <span><a href="/privacy.html">隱私政策</a>　·　<a href="/terms.html">服務條款</a></span>
+    <span><a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span>
     <span>a tripdaynday service</span>
   </div>
 </footer>

@@ -8,57 +8,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://order.tripdaynday.com/</loc>
+    <loc>https://structaly.com/</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://order.tripdaynday.com/trades/vegetable</loc>
+    <loc>https://structaly.com/trades/vegetable</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/trades/meat</loc>
+    <loc>https://structaly.com/trades/meat</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/trades/hardware</loc>
+    <loc>https://structaly.com/trades/hardware</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/trades/supplies</loc>
+    <loc>https://structaly.com/trades/supplies</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/trades/bakery</loc>
+    <loc>https://structaly.com/trades/bakery</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/trades/beverage</loc>
+    <loc>https://structaly.com/trades/beverage</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://order.tripdaynday.com/privacy.html</loc>
+    <loc>https://structaly.com/privacy</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://order.tripdaynday.com/terms.html</loc>
+    <loc>https://structaly.com/terms</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

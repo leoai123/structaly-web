@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  訂單秘書 — sitemap
+  這裡的 <loc> 必須是絕對網址（sitemap 協定規定），而且要跟每一頁 <head> 裡的
+  canonical 完全一致。換網域時整份的網域要一起換（set-base-url.sh 會處理）。
+  改了頁面內容記得同步 <lastmod>。
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://order.tripdaynday.com/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://order.tripdaynday.com/trades/vegetable</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/trades/meat</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/trades/hardware</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/trades/supplies</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/trades/bakery</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/trades/beverage</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://order.tripdaynday.com/privacy.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://order.tripdaynday.com/terms.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>

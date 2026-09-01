@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- =========================================================================
+     絕對網址區（換網域時只改這一區）
+
+     頁面上的內部連結都是相對路徑，搬家時不用動。真正寫死網域的只有下面這幾行。
+     整站要一起換的還有：index.html、六個 /trades/*/index.html、robots.txt、sitemap.xml。
+     根目錄的 set-base-url.sh 可以一次改完全部。
+     ========================================================================= -->
+<link rel="canonical" href="https://order.tripdaynday.com/terms.html" />
+<meta property="og:url" content="https://order.tripdaynday.com/terms.html" />
+<meta property="og:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta property="og:image:secure_url" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta name="twitter:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://order.tripdaynday.com/#organization",
+  "name": "訂單秘書",
+  "url": "https://order.tripdaynday.com/",
+  "logo": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+  "email": "leo@tripdaynday.com",
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "tripdaynday",
+    "url": "https://www.tripdaynday.com/"
+  }
+}
+</script>
+<!-- ===================== 絕對網址區到此為止 ===================== -->
+
+<title>服務條款｜訂單秘書</title>
+<meta name="description" content="訂單秘書試點服務條款：早鳥價格、隨時可取消、資料可攜，以及訂單以老闆確認為準的責任界定。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="服務條款｜訂單秘書" />
+<meta property="og:description" content="訂單秘書試點服務條款：早鳥價格、隨時可取消、資料可攜，以及訂單以老闆確認為準的責任界定。" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="訂單秘書" />
+<meta property="og:locale" content="zh_TW" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="服務條款｜訂單秘書" />
+<meta name="twitter:description" content="訂單秘書試點服務條款：早鳥價格、隨時可取消、資料可攜，以及訂單以老闆確認為準的責任界定。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E4D3B'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23EDF0EA' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0d1512;
+    --ink-2: #142019;
+    --ink-line: #24352c;
+    --pine: #1e4d3b;
+    --leaf: #3fa878;
+    --leaf-strong: #46b985;
+    --paper: #edf0ea;
+    --paper-2: #ffffff;
+    --paper-line: #d4dbd1;
+    --text-on-paper: #16241e;
+    --muted-on-paper: #55645c;
+    --text-on-ink: #e8efe9;
+    --muted-on-ink: #93a69b;
+    --cinnabar: #c05b4a;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--text-on-paper);
+    line-height: 1.8;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+  header {
+    background: var(--ink);
+    border-bottom: 1px solid var(--ink-line);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text-on-ink); text-decoration: none; }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 6px; background: var(--pine);
+    display: inline-grid; place-items: center; flex: none;
+  }
+  .brand-mark svg { display: block; }
+  .brand-name { font-weight: 900; font-size: 17px; letter-spacing: 0.06em; }
+  .nav-back {
+    font-size: 14px; font-weight: 700; color: var(--text-on-ink);
+    text-decoration: none; border: 1px solid var(--ink-line);
+    padding: 8px 16px; border-radius: 8px; white-space: nowrap;
+  }
+  .nav-back:hover { border-color: var(--muted-on-ink); }
+
+  .page-head { background: var(--ink); color: var(--text-on-ink); padding: 48px 0 52px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em;
+    color: var(--leaf); margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 900; line-height: 1.3; }
+  .page-sub { margin-top: 12px; color: var(--muted-on-ink); max-width: 40ch; }
+  .updated { margin-top: 18px; font-family: var(--mono); font-size: 13px; color: var(--muted-on-ink); }
+
+  main { padding: 48px 0 64px; }
+  .plain-box {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-left: 4px solid var(--leaf); border-radius: 12px;
+    padding: 20px 22px; margin-bottom: 40px;
+  }
+  .plain-box h2 { font-size: 16px; font-weight: 700; color: var(--pine); margin-bottom: 8px; }
+  .plain-box p { font-size: 15px; }
+  .plain-box p + p { margin-top: 8px; }
+
+  .key-box {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-left: 4px solid var(--cinnabar); border-radius: 12px;
+    padding: 18px 20px; margin: 12px 0 4px;
+  }
+  .key-box p { margin: 0; }
+  .key-box strong { color: var(--cinnabar); }
+
+  article section { margin-bottom: 36px; }
+  article h2 {
+    font-size: 21px; font-weight: 900; line-height: 1.4;
+    padding-top: 6px; margin-bottom: 12px;
+  }
+  article h2 .sec-no {
+    font-family: var(--mono); font-weight: 600; font-size: 15px;
+    color: var(--pine); margin-right: 8px;
+  }
+  article p { margin-bottom: 10px; }
+  article p.note { font-size: 14px; color: var(--muted-on-paper); }
+  article ul { margin: 8px 0 12px; padding-left: 0; list-style: none; }
+  article li {
+    position: relative; padding-left: 24px; margin-bottom: 8px;
+  }
+  article li::before {
+    content: ""; position: absolute; left: 4px; top: 12px;
+    width: 8px; height: 8px; border-radius: 2px; background: var(--leaf);
+  }
+  article strong { font-weight: 700; }
+  article a { color: var(--pine); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  article a:hover { color: var(--leaf-strong); }
+  .contact-card {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 12px; padding: 18px 20px; margin-top: 6px;
+  }
+
+  footer {
+    background: var(--ink); color: var(--muted-on-ink);
+    border-top: 1px solid var(--ink-line);
+    padding: 24px 0; font-size: 13px;
+  }
+  footer .wrap { max-width: 1000px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  footer a { color: var(--muted-on-ink); text-decoration: none; }
+  footer a:hover { color: var(--text-on-ink); }
+  .foot-links { display: flex; gap: 16px; }
+
+  a:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-name">訂單秘書</span>
+    </a>
+    <a class="nav-back" href="/">回首頁</a>
+  </div>
+</header>
+
+<div class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">TERMS OF SERVICE</p>
+    <h1>服務條款（試點期）</h1>
+    <p class="page-sub">訂單秘書目前是試點服務。條款不長，最重要的一條我們特別標出來了：訂單以你的確認為準。</p>
+    <p class="updated">最後更新：2026-08-24</p>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <div class="plain-box">
+      <h2>先講白話版</h2>
+      <p>早鳥月費 <strong>NT$799</strong>（正式價 NT$1,499），隨時可以取消，資料隨時可以匯出帶走。AI 解析難免有錯，所以每筆訂單都要經過你按「接單」確認——<strong>出貨依據是你確認過的訂單，不是 AI 的解析結果</strong>。</p>
+    </div>
+
+    <article>
+
+      <section>
+        <h2><span class="sec-no">01</span>服務內容</h2>
+        <p>「訂單秘書」由 tripdaynday（下稱「我們」）提供，透過 LINE 機器人協助供應商（下稱「你」）：</p>
+        <ul>
+          <li>接收客戶群組中的叫貨訊息，解析為訂單確認卡</li>
+          <li>經你確認後，彙整成出貨總表與對帳表</li>
+          <li>提供訂單查詢與資料匯出</li>
+        </ul>
+        <p>使用本服務即表示你同意本條款與<a href="/privacy.html">隱私政策</a>。把機器人加入客戶群前，請確認你有該群組的管理權限，並讓群組成員知道機器人的存在與用途（入群時機器人也會自我介紹）。</p>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">02</span>訂單以你的確認為準</h2>
+        <div class="key-box">
+          <p><strong>這是本條款最重要的一條。</strong>AI 解析可能出錯——品項、數量、單位都有可能認錯或漏認。因此每筆訂單都設計為須經你（供應商）確認後才成立；<strong>出貨與對帳的依據，是你確認過的訂單內容，而非系統的原始解析結果</strong>。對於未經你確認、或你確認時未更正的解析錯誤所生的損失（例如錯出貨、漏出貨），我們不負賠償責任。</p>
+        </div>
+        <p class="note">白話說：系統是幫你抄單的助手，不是替你做決定的人。按下「接單」前多看一眼，就是最後一道防線。</p>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">03</span>費用與付款</h2>
+        <ul>
+          <li>試點早鳥價：<strong>NT$799／月</strong>（正式價 NT$1,499／月），限量名額。</li>
+          <li>早鳥價適用於你持續訂閱的期間；試點結束後若調整方案，我們會提前通知，你可自由決定是否續用。</li>
+          <li>費用按月收取，已收取的當月費用不按比例退還（當月服務會提供到期滿）。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">04</span>隨時可取消</h2>
+        <ul>
+          <li>你可以<strong>隨時取消</strong>訂閱，不需任何理由，也沒有違約金。取消後服務提供至該付款週期結束。</li>
+          <li>取消方式：透過 LINE 官方帳號告知，或寫信至 <a class="num" href="mailto:leo@tripdaynday.com">leo@tripdaynday.com</a>。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">05</span>你的資料可以帶走</h2>
+        <ul>
+          <li>訂單資料歸你所有。你可以<strong>隨時匯出</strong>全部訂單資料（通用表格格式），不限於取消時。</li>
+          <li>取消後 30 天內我們保留你的資料供匯出，期滿即刪除；你也可以要求立即刪除。詳見<a href="/privacy.html">隱私政策</a>。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">06</span>服務水準：盡力而為</h2>
+        <p>本服務目前為試點階段，我們以「盡力而為」為原則提供服務：</p>
+        <ul>
+          <li>我們不保證解析零錯誤、不保證服務不中斷（LINE 平台、網路或系統維護都可能造成暫時無法使用）。</li>
+          <li>服務中斷時，群組裡的原始訊息仍在 LINE 中，不會因此遺失；恢復後你可以手動補登。</li>
+          <li>我們對任何間接損失、預期利益損失不負責任；在法律允許的最大範圍內，我們的賠償責任總額以你最近三個月支付的服務費用為上限。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">07</span>合理使用</h2>
+        <ul>
+          <li>請將機器人用於自己有管理權限的客戶群，勿用於騷擾、蒐集與訂貨無關的個資，或任何違法用途。</li>
+          <li>若有濫用情形，我們得於通知後暫停或終止服務。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">08</span>條款變更與準據法</h2>
+        <ul>
+          <li>試點期間條款可能調整；重大變更（例如價格、責任條款）會提前透過 LINE 官方帳號或 email 通知你，你若不同意可隨時取消。</li>
+          <li>本條款依中華民國法律解釋，如有爭議以台灣台北地方法院為第一審管轄法院。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">09</span>聯絡我們</h2>
+        <div class="contact-card">
+          <p style="margin:0">聯絡窗口：<a class="num" href="mailto:leo@tripdaynday.com">leo@tripdaynday.com</a></p>
+          <p class="note" style="margin:6px 0 0">試點期間有任何問題，直接寫信，我們會盡快回覆。</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>訂單秘書 © 2026</span>
+    <span class="foot-links">
+      <a href="/privacy.html">隱私政策</a>
+      <a href="/terms.html">服務條款</a>
+    </span>
+    <span>a tripdaynday service</span>
+  </div>
+</footer>
+
+</body>
+</html>

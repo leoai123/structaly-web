@@ -1,0 +1,1461 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- =========================================================================
+     絕對網址區（換網域時只改這一區）
+
+     整站的內部連結一律是相對路徑（/trades/vegetable、/privacy.html、/assets/…），
+     搬家時完全不用動。真正把網域寫死的只有下面這幾行：
+       · <link rel="canonical">
+       · og:url / og:image / og:image:secure_url / twitter:image
+       · JSON-LD 裡的 @id、url、item、image
+     整站要一起換的還有：robots.txt 的 Sitemap 行、sitemap.xml 的 <loc>、
+     六個 /trades/*/index.html 以及 privacy.html / terms.html 各自的同一區。
+     根目錄的 set-base-url.sh 可以一次改完全部（用法寫在腳本裡）。
+
+     JSON-LD 的內容必須跟頁面上看得到的文字一致——價格、常見問題的問答，
+     改頁面的時候要一起改這裡，不然 Google 會當成結構化資料造假。
+     ========================================================================= -->
+<link rel="canonical" href="https://order.tripdaynday.com/" />
+<meta property="og:url" content="https://order.tripdaynday.com/" />
+<meta property="og:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta property="og:image:secure_url" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta name="twitter:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://order.tripdaynday.com/#organization",
+      "name": "訂單秘書",
+      "url": "https://order.tripdaynday.com/",
+      "logo": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "email": "leo@tripdaynday.com",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "tripdaynday",
+        "url": "https://www.tripdaynday.com/"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://order.tripdaynday.com/#software",
+      "name": "訂單秘書",
+      "url": "https://order.tripdaynday.com/",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "訂單管理",
+      "operatingSystem": "LINE（iOS、Android）、網頁瀏覽器",
+      "inLanguage": "zh-Hant-TW",
+      "image": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "description": "客人照常在 LINE 群叫貨，訂單自動整理成出貨總表與對帳表。沒把握的它會標起來問你一句，絕不亂猜。給食材行、材料行、耗材行的接單幫手。",
+      "publisher": { "@id": "https://order.tripdaynday.com/#organization" },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "食材行、材料行、耗材行等在 LINE 群裡接單的批發供應商"
+      },
+      "featureList": [
+        "把 LINE 群裡的口語叫貨訊息整理成訂單卡",
+        "不確定的品項標「？」請老闆確認，不自行猜測",
+        "教一次別名就記住，客人的叫法自動對回你的品項",
+        "一句「總表」把同一個品項的備貨量加總",
+        "自訂截單時間，之後進來的另外標成「加單」",
+        "選一段期間匯出 CSV 對帳",
+        "每一次改動都留紀錄"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "799",
+        "priceCurrency": "TWD",
+        "name": "早鳥試點價（每月）",
+        "description": "早鳥試點・限量 10 家，每月 NT$799；正式價 NT$1,499。",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://order.tripdaynday.com/"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://order.tripdaynday.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "我的客人要不要學新東西？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "幾乎不用。他們照常在原本的群裡用自己的講法叫貨就好——「明天老樣子再加兩箱」這種也可以。整個過程唯一多出來的動作，是看到整理好的訂單卡按一下「✓ 沒錯」，跟按貼圖差不多。不用下載 App、不用註冊帳號、不用記任何指令。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "它要是弄錯了怎麼辦？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它的做法是「沒把握就不猜」：不確定的那一筆會標「？」請你看一眼，而不是挑一個最像的品項填進去。加上客人自己也要按「✓ 沒錯」確認一次，等於有兩道關卡。真的還是錯了，到訂單台上改一下就好，每一次改動都留紀錄。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我的客戶資料會不會被別人看到？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不會。每個客戶群的資料嚴格隔離，A 客戶永遠看不到 B 客戶的訂單、價格或叫貨紀錄，你這邊也不會回錯群。群組裡的照片和語音只留紀錄，內容不下載保存。詳細寫在隱私政策。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "要換掉現在的 LINE 群嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不用，就用現在這個群。把小助手拉進去就開始了，你和客人之前的聊天、叫貨習慣都不受影響。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "我不太會用電腦，會不會很難？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "每天要做的就是在 LINE 裡打「待接單」，然後按「全部接單」。手機就能做完。訂單台網頁是給你有空坐下來改單、對帳、匯出用的，不是每天都得開。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以隨時停用嗎？資料還在嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以，隨時停。停用前把訂單和對帳資料匯出帶走就好，資料本來就是你的。我們不會用綁約或把資料鎖住來留人。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ===================== 絕對網址區到此為止 ===================== -->
+
+<title>訂單秘書｜讓你晚上十點不用再抄單</title>
+<meta name="description" content="客人照常在 LINE 群叫貨，訂單自動整理成出貨總表與對帳表。沒把握的它會標起來問你一句，絕不亂猜。給食材行、材料行、耗材行的接單幫手。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="訂單秘書｜讓你晚上十點不用再抄單" />
+<meta property="og:description" content="客人照常在 LINE 群叫貨，訂單自動整理好。沒把握的標起來問你一句，絕不亂猜。" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="訂單秘書" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="750" />
+<meta property="og:image:alt" content="客戶在 LINE 群裡的叫貨訊息，自動整理成一張出貨總表" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="訂單秘書｜讓你晚上十點不用再抄單" />
+<meta name="twitter:description" content="客人照常在 LINE 群叫貨，訂單自動整理好。沒把握的標起來問你一句，絕不亂猜。" />
+<meta name="twitter:image:alt" content="客戶在 LINE 群裡的叫貨訊息，自動整理成一張出貨總表" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E4D3B'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23EDF0EA' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0d1512;
+    --ink-2: #142019;
+    --ink-line: #24352c;
+    --pine: #1e4d3b;
+    --leaf: #3fa878;
+    --leaf-strong: #46b985;
+    --paper: #edf0ea;
+    --paper-2: #ffffff;
+    --paper-line: #d4dbd1;
+    --text-on-paper: #16241e;
+    --muted-on-paper: #55645c;
+    --text-on-ink: #e8efe9;
+    --muted-on-ink: #93a69b;
+    --cinnabar: #c05b4a;
+    --amber: #d8a03d;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+    /* 線條、紋理、動效用的衍生 token（沒有新色系，都是既有色的低透明版本） */
+    --hairline-ink: rgba(232, 239, 233, 0.055);
+    --paper-line-strong: #bcc9b9;
+    --lift-shadow: 0 10px 26px rgba(13, 21, 18, 0.09);
+    --lift-shadow-ink: 0 10px 26px rgba(0, 0, 0, 0.28);
+    --glow-leaf: rgba(63, 168, 120, 0.26);
+    --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--text-on-paper);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header {
+    background: var(--ink);
+    border-bottom: 1px solid var(--ink-line);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--text-on-ink); text-decoration: none; }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 6px; background: var(--pine);
+    display: inline-grid; place-items: center; flex: none;
+  }
+  .brand-mark svg { display: block; }
+  .brand-name { font-weight: 900; font-size: 17px; letter-spacing: 0.06em; }
+  .nav-cta {
+    font-size: 14px; font-weight: 700; color: var(--ink); background: var(--leaf);
+    text-decoration: none; padding: 8px 16px; border-radius: 8px; white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--leaf-strong); }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--ink); color: var(--text-on-ink); padding: 56px 0 64px; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em;
+    color: var(--leaf); margin-bottom: 18px;
+  }
+  h1 {
+    font-size: clamp(30px, 7vw, 52px); font-weight: 900; line-height: 1.25;
+    letter-spacing: 0.01em; max-width: 22ch;
+  }
+  .hero-sub {
+    margin-top: 16px; font-size: clamp(16px, 4vw, 19px);
+    color: var(--muted-on-ink); max-width: 38ch;
+  }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700;
+    padding: 14px 26px; border-radius: 10px; font-size: 16px; text-align: center;
+  }
+  .btn-primary { background: var(--leaf); color: var(--ink); }
+  .btn-primary:hover { background: var(--leaf-strong); }
+  .btn-ghost { color: var(--text-on-ink); border: 1px solid var(--ink-line); background: transparent; }
+  .btn-ghost:hover { border-color: var(--muted-on-ink); }
+
+  /* signature: message -> table */
+  .demo { margin-top: 48px; display: grid; gap: 0; max-width: 640px; }
+  .chat {
+    background: var(--ink-2); border: 1px solid var(--ink-line);
+    border-radius: 14px; padding: 16px 18px;
+  }
+  .chat-meta {
+    font-family: var(--mono); font-size: 12px; color: var(--muted-on-ink);
+    display: flex; justify-content: space-between; gap: 12px; margin-bottom: 8px;
+  }
+  .chat-bubble {
+    background: #1c2d24; border-radius: 4px 14px 14px 14px;
+    padding: 10px 14px; font-size: 15px; color: var(--text-on-ink);
+    display: inline-block;
+  }
+  .demo-arrow {
+    justify-self: center; padding: 10px 0;
+    font-family: var(--mono); font-size: 13px; color: var(--leaf);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .demo-note {
+    margin-top: 14px; font-size: 14px; color: var(--muted-on-ink); max-width: 46ch;
+  }
+  .sheet {
+    background: var(--paper-2); border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--paper-line); color: var(--text-on-paper);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+  .sheet-lite { box-shadow: 0 10px 24px rgba(13, 21, 18, 0.08); }
+  .sheet-lite table { font-size: 13.5px; }
+  .sheet-lite th, .sheet-lite td { padding-left: 12px; padding-right: 12px; }
+  .sheet-lite td:first-child { white-space: nowrap; }
+  .sheet-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 16px; background: var(--pine); color: #dcebe2;
+    font-size: 13px; font-weight: 700;
+  }
+  .sheet-head .num { font-weight: 400; font-size: 12px; color: #a9c9b8; }
+  .sheet table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .sheet th {
+    text-align: left; font-weight: 500; color: var(--muted-on-paper);
+    font-size: 12px; padding: 8px 16px; border-bottom: 1px solid var(--paper-line);
+    background: #f6f8f4;
+  }
+  .sheet td { padding: 9px 16px; border-bottom: 1px solid #e8ece5; }
+  .sheet tr:last-child td { border-bottom: none; }
+  .sheet .qty { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .sheet-foot {
+    padding: 12px 16px; border-top: 1px solid var(--paper-line); background: #f6f8f4;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .sheet-foot small { font-size: 12px; color: var(--muted-on-paper); }
+  .mock-btn {
+    display: inline-block; background: var(--pine); color: #e7f0ea;
+    font-size: 13px; font-weight: 700; border-radius: 8px; padding: 8px 18px;
+  }
+  .tag-ok {
+    font-size: 12px; font-weight: 700; color: var(--pine);
+    background: #e2efe7; border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+  }
+  .tag-wait {
+    font-size: 12px; font-weight: 700; color: var(--muted-on-paper);
+    background: #ecefe9; border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+  }
+  .tag-ask {
+    font-size: 12px; font-weight: 700; color: #8a5a12;
+    background: #f7ecd4; border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+  }
+
+  /* ---------- sections on paper ---------- */
+  section { padding: 64px 0; }
+  .sec-label {
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em;
+    color: var(--pine); margin-bottom: 10px;
+  }
+  h2 { font-size: clamp(24px, 5.5vw, 34px); font-weight: 900; line-height: 1.35; }
+  .sec-sub { margin-top: 10px; color: var(--muted-on-paper); max-width: 46ch; }
+  .band {
+    background: var(--paper-2);
+    border-top: 1px solid var(--paper-line); border-bottom: 1px solid var(--paper-line);
+  }
+
+  /* pain */
+  .pain-grid { display: grid; gap: 14px; margin-top: 32px; grid-template-columns: 1fr; }
+  .pain {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 14px; padding: 22px 22px 20px;
+  }
+  .pain h3 { font-size: 18px; font-weight: 700; line-height: 1.5; }
+  .pain p { margin-top: 8px; font-size: 15px; color: var(--muted-on-paper); }
+  .pain p.pain-time {
+    font-family: var(--mono); font-size: 13px; color: var(--cinnabar);
+    font-weight: 600; margin: 0 0 10px;
+  }
+
+  /* steps */
+  .steps { display: grid; gap: 14px; margin-top: 32px; grid-template-columns: 1fr; }
+  .step {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 14px; padding: 22px; display: flex; gap: 16px; align-items: flex-start;
+  }
+  .step-no {
+    font-family: var(--mono); font-weight: 600; font-size: 15px;
+    color: var(--paper); background: var(--pine); width: 34px; height: 34px;
+    border-radius: 8px; display: grid; place-items: center; flex: none; margin-top: 2px;
+  }
+  .step h3 { font-size: 17px; font-weight: 700; line-height: 1.5; }
+  .step p { margin-top: 6px; font-size: 15px; color: var(--muted-on-paper); }
+
+  /* ---------- 判斷規矩（ink 區塊） ---------- */
+  .rule { background: var(--ink); color: var(--text-on-ink); }
+  .rule .sec-label { color: var(--leaf); }
+  .rule .sec-sub { color: var(--muted-on-ink); max-width: 50ch; }
+  .judge-list { margin-top: 32px; display: grid; gap: 12px; }
+  .judge {
+    background: var(--ink-2); border: 1px solid var(--ink-line);
+    border-radius: 14px; padding: 16px 18px; display: grid; gap: 12px;
+  }
+  .judge-say .chat-bubble { font-size: 15px; }
+  .judge-ctx { display: block; margin-top: 8px; font-size: 13px; color: var(--muted-on-ink); }
+  .judge-do { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; }
+  .judge-do p { color: var(--muted-on-ink); }
+  .judge-do strong { color: var(--text-on-ink); font-weight: 700; display: block; }
+  .flag {
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    border-radius: 6px; padding: 3px 9px; white-space: nowrap; flex: none; margin-top: 3px;
+  }
+  .flag-ok { background: #1d4436; color: #86dcb3; }
+  .flag-ask { background: #3a2f18; color: var(--amber); }
+  .flag-mute { background: #22302a; color: var(--muted-on-ink); }
+  .verified {
+    margin-top: 26px; padding: 16px 18px; border: 1px dashed var(--ink-line);
+    border-radius: 12px; font-size: 15px; color: var(--muted-on-ink); max-width: 52ch;
+  }
+  .verified strong { color: var(--leaf); font-family: var(--mono); font-weight: 600; }
+
+  /* ---------- 教一次就記得 ---------- */
+  .teach {
+    margin-top: 30px; background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 14px; padding: 8px 20px; max-width: 580px;
+  }
+  .teach-row { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #e8ece5; }
+  .teach-row:last-child { border-bottom: none; }
+  .teach-who {
+    font-family: var(--mono); font-size: 12px; color: var(--muted-on-paper);
+    width: 52px; flex: none; padding-top: 3px;
+  }
+  .teach-say { font-size: 15px; }
+  .teach-say em { font-style: normal; color: var(--muted-on-paper); font-size: 13px; }
+  .teach-row.me .teach-who { color: var(--pine); font-weight: 600; }
+  .after-note { margin-top: 20px; font-size: 15px; color: var(--muted-on-paper); max-width: 48ch; }
+
+  /* ---------- 每天的動作 ---------- */
+  .split { display: grid; gap: 28px; margin-top: 30px; }
+  .split ul { list-style: none; display: grid; gap: 14px; }
+  .split li { display: flex; gap: 12px; font-size: 15px; color: var(--muted-on-paper); }
+  .split li strong { color: var(--text-on-paper); }
+  .dot {
+    flex: none; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--leaf); margin-top: 9px;
+  }
+  .kbd {
+    font-family: var(--mono); font-size: 13px; background: #eef2ec;
+    border: 1px solid var(--paper-line); border-radius: 6px; padding: 1px 8px;
+    white-space: nowrap; color: var(--text-on-paper);
+  }
+
+  /* ---------- 各行各業 ---------- */
+  .trades { display: grid; gap: 14px; margin-top: 32px; grid-template-columns: 1fr; }
+  .trade {
+    background: var(--paper); border: 1px solid var(--paper-line);
+    border-radius: 14px; padding: 20px; display: flex; flex-direction: column;
+  }
+  .trade h3 { font-size: 17px; font-weight: 700; line-height: 1.5; }
+  .trade-units {
+    margin-top: 3px; font-family: var(--mono); font-size: 12px;
+    color: var(--muted-on-paper); letter-spacing: 0.04em;
+  }
+  .trade-who { margin-top: 10px; font-size: 14.5px; color: var(--muted-on-paper); }
+  .trade-msg {
+    margin-top: 14px; background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 4px 12px 12px 12px; padding: 9px 13px; font-size: 14.5px;
+    overflow-wrap: anywhere;
+  }
+  .trade-turn { font-family: var(--mono); font-size: 12px; color: var(--pine); margin-top: 10px; }
+  .trade-out { list-style: none; display: grid; gap: 8px; margin: 8px 0 16px; }
+  .trade-out li {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 10px; font-size: 14.5px;
+  }
+  .trade-out .u {
+    font-family: var(--mono); font-variant-numeric: tabular-nums;
+    color: var(--muted-on-paper); white-space: nowrap; flex: none;
+  }
+  .trade-out .note { display: block; font-size: 12.5px; color: var(--muted-on-paper); }
+  .trade-out .skip { color: var(--muted-on-paper); font-size: 13.5px; }
+  .trade-win {
+    margin-top: auto; padding-top: 14px; border-top: 1px solid var(--paper-line);
+    font-size: 14px; color: var(--muted-on-paper);
+  }
+  .trade-win strong { display: block; color: var(--pine); font-weight: 700; }
+  .trade-more {
+    margin-top: 22px; padding: 20px 22px; border: 1px dashed var(--paper-line);
+    border-radius: 14px; background: var(--paper);
+  }
+  .trade-more h3 { font-size: 16px; font-weight: 700; }
+  .trade-more p { margin-top: 8px; font-size: 15px; color: var(--muted-on-paper); max-width: 56ch; }
+
+  /* ---------- 其他能力 ---------- */
+  .feat-grid { display: grid; gap: 14px; margin-top: 32px; grid-template-columns: 1fr; }
+  .feat {
+    background: var(--paper-2); border: 1px solid var(--paper-line);
+    border-radius: 14px; padding: 22px;
+  }
+  .feat h3 { font-size: 17px; font-weight: 700; line-height: 1.5; }
+  .feat p { margin-top: 8px; font-size: 15px; color: var(--muted-on-paper); }
+
+  /* trust */
+  .trust-list { margin-top: 28px; display: grid; gap: 0; }
+  .trust-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 18px 0; border-bottom: 1px solid #e8ece5;
+  }
+  .trust-item:last-child { border-bottom: none; }
+  .trust-check {
+    flex: none; width: 26px; height: 26px; border-radius: 50%;
+    background: #e2efe7; color: var(--pine); display: grid; place-items: center; margin-top: 4px;
+  }
+  .trust-item h3 { font-size: 17px; font-weight: 700; }
+  .trust-item p { margin-top: 4px; font-size: 15px; color: var(--muted-on-paper); }
+  .nope {
+    margin-top: 28px; padding: 20px 22px; border: 1px dashed var(--paper-line);
+    border-radius: 14px; background: #f6f8f4;
+  }
+  .nope h3 { font-size: 16px; font-weight: 700; }
+  .nope p { margin-top: 8px; font-size: 15px; color: var(--muted-on-paper); max-width: 54ch; }
+
+  /* faq */
+  .faq { margin-top: 30px; border-top: 1px solid var(--paper-line); }
+  .faq details { border-bottom: 1px solid var(--paper-line); }
+  .faq summary {
+    list-style: none; cursor: pointer; padding: 18px 40px 18px 0;
+    font-weight: 700; font-size: 17px; position: relative; line-height: 1.6;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "＋"; position: absolute; right: 2px; top: 17px;
+    font-family: var(--mono); font-size: 17px; color: var(--pine);
+  }
+  .faq details[open] summary::after { content: "－"; }
+  .faq summary:hover { color: var(--pine); }
+  .faq .faq-a { padding: 0 0 20px; font-size: 15px; color: var(--muted-on-paper); max-width: 58ch; }
+  .faq .faq-a a {
+    color: var(--pine); font-weight: 700;
+    text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px;
+  }
+
+  /* pricing */
+  .price-card {
+    margin-top: 32px; background: var(--ink); color: var(--text-on-ink);
+    border-radius: 18px; padding: 32px 26px; max-width: 460px;
+  }
+  .price-badge {
+    display: inline-block; font-size: 13px; font-weight: 700;
+    color: var(--ink); background: var(--leaf); border-radius: 999px;
+    padding: 4px 14px;
+  }
+  .price-line { margin-top: 18px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .price-now { font-family: var(--mono); font-size: 44px; font-weight: 600; letter-spacing: -0.02em; }
+  .price-unit { font-size: 15px; color: var(--muted-on-ink); }
+  .price-was {
+    font-family: var(--mono); font-size: 15px; color: var(--cinnabar);
+    text-decoration: line-through; text-decoration-thickness: 1.5px;
+  }
+  .price-note { margin-top: 10px; font-size: 14px; color: var(--muted-on-ink); }
+  .price-note strong { color: var(--text-on-ink); font-family: var(--mono); font-weight: 600; }
+  .price-card .btn { display: block; margin-top: 24px; }
+
+  /* final cta */
+  .final { background: var(--ink); color: var(--text-on-ink); padding: 72px 0; }
+  .final h2 { max-width: 20ch; }
+  .final p { margin-top: 12px; color: var(--muted-on-ink); max-width: 36ch; }
+
+  footer {
+    background: var(--ink); color: var(--muted-on-ink);
+    border-top: 1px solid var(--ink-line);
+    padding: 24px 0; font-size: 13px;
+  }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  footer a { color: var(--muted-on-ink); text-decoration: none; }
+  footer a:hover { color: var(--text-on-ink); }
+
+  a:focus-visible, .btn:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--leaf); outline-offset: 3px;
+  }
+
+  @media (min-width: 720px) {
+    .pain-grid { grid-template-columns: repeat(3, 1fr); }
+    .trades { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(2, 1fr); }
+    .step { flex-direction: column; }
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+    .judge { grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+    .hero { padding: 80px 0 88px; }
+  }
+
+  @media (min-width: 940px) {
+    .steps { grid-template-columns: repeat(4, 1fr); }
+    .trades { grid-template-columns: repeat(3, 1fr); }
+    .split { grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    /* 首屏的主標、說明與主 CTA 一律「預設就看得見」——只做位移，不做淡入。
+       之前是從 opacity:0 開始，載入慢的時候主標會有一瞬間是空的。 */
+    .fade-up { transform: translateY(14px); animation: fadeUp 0.6s var(--ease-out) forwards; }
+    .fade-up.d1 { animation-delay: 0.08s; }
+    .fade-up.d2 { animation-delay: 0.16s; }
+    .fade-up.d3 { animation-delay: 0.30s; }
+    @keyframes fadeUp { to { transform: none; } }
+  }
+
+  /* =========================================================================
+     視覺層：線條、紋理、圖示、動效。
+     所有「會動」的東西都掛在 .js-anim 底下——這個 class 只有在使用者沒有開啟
+     「減少動態」、而且瀏覽器支援 IntersectionObserver 時，才會由 <head> 裡的
+     小 script 加到 <html> 上。
+     也就是說：關掉動效的人、或沒有 JS 的人，看到的是完整、靜態、不位移的頁面。
+     ========================================================================= */
+
+  /* ---------- 區塊標籤前的細線（工程圖紙感） ---------- */
+  .sec-label { display: flex; align-items: center; gap: 10px; }
+  .sec-label::before {
+    content: ""; flex: none; width: 22px; height: 1px;
+    background: currentColor; opacity: 0.5;
+  }
+
+  /* ---------- 深色區塊的極淡格線紋理（方格紙／帳冊的意象） ---------- */
+  .hero, .rule, .final { position: relative; overflow: hidden; }
+  .hero > .wrap, .rule > .wrap, .final > .wrap { position: relative; z-index: 1; }
+  .hero::before, .rule::before, .final::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(to bottom, var(--hairline-ink) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(to right, var(--hairline-ink) 0 1px, transparent 1px 34px);
+  }
+  .hero::before {
+    -webkit-mask-image: radial-gradient(115% 85% at 82% 0%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(115% 85% at 82% 0%, #000 0%, transparent 70%);
+  }
+  .rule::before {
+    -webkit-mask-image: radial-gradient(90% 62% at 6% 0%, #000 0%, transparent 72%);
+    mask-image: radial-gradient(90% 62% at 6% 0%, #000 0%, transparent 72%);
+  }
+  .final::before {
+    -webkit-mask-image: radial-gradient(85% 100% at 92% 100%, #000 0%, transparent 70%);
+    mask-image: radial-gradient(85% 100% at 92% 100%, #000 0%, transparent 70%);
+  }
+
+  /* ---------- 淺色區塊之間的點陣分隔（不跨到深色區塊上） ---------- */
+  .rule + section:not(.rule):not(.final) > .wrap::before,
+  .band + section:not(.rule):not(.final) > .wrap::before {
+    content: ""; display: block; height: 3px; width: 96px;
+    margin: 0 0 30px; opacity: 0.55;
+    background-image: radial-gradient(circle, var(--paper-line) 1.5px, transparent 1.6px);
+    background-size: 12px 3px; background-repeat: repeat-x;
+  }
+
+  /* ---------- 捲到內容後 header 多一層厚度（狀態，不是動畫） ---------- */
+  header { transition: box-shadow 0.25s ease, border-color 0.25s ease; }
+  header.is-stuck { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22); border-bottom-color: var(--pine); }
+
+  /* ---------- 圖示 ---------- */
+  .trade { position: relative; }
+  .trade-ico {
+    position: absolute; top: 18px; right: 17px;
+    color: var(--pine); opacity: 0.32; pointer-events: none;
+  }
+  .trade h3 { padding-right: 36px; }
+  .chat-meta > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+  .meta-ico { flex: none; opacity: 0.85; }
+
+  .feat, .pain, .step, .trade, .judge {
+    transition: transform 0.28s var(--ease-out), border-color 0.28s ease, box-shadow 0.28s ease;
+  }
+
+  /* 步驟之間的連接線（只在四欄排版時出現，換行時線會指到奇怪的地方） */
+  @media (min-width: 940px) {
+    .steps, .step { position: relative; }
+    .step::after {
+      content: ""; position: absolute; top: 41px; right: -14px;
+      width: 14px; height: 1px; background: var(--paper-line);
+    }
+    .step:last-child::after { display: none; }
+  }
+
+  /* ---------- hero 示意圖的連接線（靜態時也在，只是不做生長動畫） ---------- */
+  .demo-arrow { flex-direction: column; gap: 7px; padding: 14px 0; }
+  .demo-arrow::before, .demo-arrow::after {
+    content: ""; width: 1px; height: 15px; flex: none;
+    background: var(--ink-line); transform-origin: top center;
+  }
+
+  /* ---------- 數字 count-up 時不要讓行寬跳動 ---------- */
+  [data-count] { display: inline-block; text-align: left; }
+
+  /* ============================== 動效 ============================== */
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* --- 捲動進場 --- */
+    .js-anim [data-rv] { opacity: 0; transform: translateY(18px); }
+    .js-anim [data-rv].rv-in {
+      opacity: 1; transform: none;
+      transition:
+        opacity 0.6s var(--ease-out) var(--rvd, 0s),
+        transform 0.6s var(--ease-out) var(--rvd, 0s);
+    }
+    .js-anim [data-rv-stagger] > *:nth-child(2) { --rvd: 0.07s; }
+    .js-anim [data-rv-stagger] > *:nth-child(3) { --rvd: 0.14s; }
+    .js-anim [data-rv-stagger] > *:nth-child(4) { --rvd: 0.21s; }
+    .js-anim [data-rv-stagger] > *:nth-child(5) { --rvd: 0.28s; }
+    .js-anim [data-rv-stagger] > *:nth-child(6) { --rvd: 0.35s; }
+    .js-anim [data-rv-stagger] > *:nth-child(7) { --rvd: 0.42s; }
+    .js-anim [data-rv-stagger] > *:nth-child(8) { --rvd: 0.49s; }
+
+    /* 標籤前的細線跟著進場拉開 */
+    .js-anim .sec-label[data-rv]::before { transform: scaleX(0); transform-origin: left center; }
+    .js-anim .sec-label[data-rv].rv-in::before { transform: none; transition: transform 0.5s var(--ease-out) 0.12s; }
+
+    /* --- 「教它一次」的四行對話：照講話的節奏依序出現 --- */
+    .js-anim .teach > *:nth-child(1) { --rvd: 0.05s; }
+    .js-anim .teach > *:nth-child(2) { --rvd: 0.40s; }
+    .js-anim .teach > *:nth-child(3) { --rvd: 0.80s; }
+    .js-anim .teach > *:nth-child(4) { --rvd: 1.15s; }
+
+    /* --- hero 示意圖 ---
+       原本這裡有一段 3.3 秒的分步演示（訊息 → 停一拍 → 出貨總表逐行落下）。
+       首屏下方已經放了 order-flow-demo.mp4，講的是同一件事；同一個視窗裡兩個
+       動畫互相搶注意力，而且分步演示期間表格是空的。
+       所以示意圖改成「一進來就是完成品」，動態交給影片。 */
+    .js-anim .demo .chat { animation: rvUp 0.5s var(--ease-out) 0.25s both; }
+    .js-anim .demo .sheet { animation: rvUp 0.5s var(--ease-out) 0.35s both; }
+
+    /* --- FAQ 展開 --- */
+    .js-anim .faq details[open] .faq-a { animation: rvUp 0.32s var(--ease-out) both; }
+
+    /* --- hover 微互動：只給真的有游標的裝置 --- */
+    @media (hover: hover) and (pointer: fine) {
+      .pain:hover, .feat:hover, .trade:hover {
+        transform: translateY(-3px); border-color: var(--paper-line-strong); box-shadow: var(--lift-shadow);
+      }
+      .step:hover { transform: translateY(-2px); border-color: var(--paper-line-strong); }
+      .judge:hover { transform: translateY(-2px); border-color: var(--pine); box-shadow: var(--lift-shadow-ink); }
+      .btn, .nav-cta {
+        transition: transform 0.18s var(--ease-out), background-color 0.18s ease,
+                    border-color 0.18s ease, box-shadow 0.18s ease;
+      }
+      .btn-primary:hover, .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 18px var(--glow-leaf); }
+      .btn-ghost:hover { transform: translateY(-1px); }
+      .btn:active, .nav-cta:active { transform: translateY(0); }
+    }
+  }
+
+  @keyframes rvUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bubbleIn { from { opacity: 0; transform: translateY(6px) scale(0.96); } to { opacity: 1; transform: none; } }
+  @keyframes lineGrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes rowLand {
+    0% { opacity: 0; background-color: rgba(63, 168, 120, 0.18); }
+    55% { opacity: 1; }
+    100% { opacity: 1; background-color: transparent; }
+  }
+
+  /* =========================================================================
+     素材包（order-secretary-assets）整合
+     圖示採「內嵌 SVG」而不是 12 個外部檔或 sprite：
+       · 12 個檔各 ~0.5KB，分開請求的 header 成本遠大於內容本身；
+       · sprite 要用 <use>，shadow tree 擋掉頁面 CSS，圖示就沒辦法跟著
+         深／淺區塊換色；
+       · 內嵌之後 stroke 走 currentColor，一份圖形兩種底色都能用。
+     ========================================================================= */
+
+  /* ---------- 圖示系統（64×64、3px 線條） ---------- */
+  .oa-ico { display: block; flex: none; color: var(--pine); }
+  .oa-ico .accent { stroke: var(--leaf); }
+  .oa-ico .accent-fill { fill: var(--leaf); stroke: var(--leaf); }
+  .oa-ico .paper { stroke: var(--paper); }
+  .oa-ico .ink { stroke: var(--ink); }
+  /* 深色區塊裡換成亮色，維持對比 */
+  .rule .oa-ico { color: #86dcb3; }
+  .rule .oa-ico .accent { stroke: #86dcb3; }
+  .rule .oa-ico .accent-fill { fill: #86dcb3; stroke: #86dcb3; }
+
+  /* 標題前的導覽圖示 */
+  .sec-ico { margin: 2px 0 12px; }
+  /* 卡片上的圖示 */
+  .pain > .oa-ico, .feat > .oa-ico { margin-bottom: 13px; }
+  .step .oa-ico { margin-bottom: 10px; }
+  @media (min-width: 720px) {
+    /* 桌機時步驟卡是直排：序號在左上，圖示挪到右上，兩個記號成對，標題不被擠 */
+    .step { position: relative; }
+    .step > div > .oa-ico { position: absolute; top: 20px; right: 20px; margin: 0; }
+  }
+  /* 「各客戶資料嚴格隔離」那一列，用資料隔離圖示取代打勾 */
+  .trust-check.is-ico { background: transparent; width: 26px; height: 26px; margin-top: 2px; }
+
+  /* ---------- 首屏流程動畫 ---------- */
+  /* Hero 左右兩欄：文案在左、流程影片在右。窄螢幕自動回到單欄（影片在文案下方），
+     不用另外寫 media query 反轉——auto-fit 在容器不夠寬時本來就會塌成一欄。 */
+  .hero-grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 900px) {
+    .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; }
+    .hero-copy .hero-sub { max-width: 46ch; }
+  }
+  .hero-visual { min-width: 0; }
+  .flow-demo { margin-top: 0; max-width: 100%; }
+  @media (max-width: 899px) { .flow-demo { margin-top: 4px; max-width: 640px; } }
+  .flow-demo video, .flow-demo > img {
+    display: block; width: 100%; height: auto; aspect-ratio: 1200 / 750;
+    border-radius: 14px; border: 1px solid var(--ink-line);
+    background: var(--ink-2);
+  }
+  .flow-cap {
+    margin-top: 10px; font-family: var(--mono); font-size: 12.5px;
+    color: var(--muted-on-ink); letter-spacing: 0.04em;
+  }
+
+  /* ---------- 中段情境轉場圖 ---------- */
+  .scene { margin: 0 0 40px; }
+  .scene img {
+    display: block; width: 100%; height: auto;
+    border-radius: 16px; border: 1px solid var(--paper-line);
+    box-shadow: var(--lift-shadow);
+    /* 手機版換的是直式裁切，比例跟 <img> 上的 width/height 不同。
+       這裡把比例釘死，圖還沒載完位置就先留好，捲到這裡不會整頁跳一下。 */
+    aspect-ratio: 1400 / 876;
+  }
+  @media (max-width: 719px) {
+    .scene img { aspect-ratio: 900 / 1100; }
+  }
+  .scene figcaption {
+    margin-top: 12px; font-size: 14px; color: var(--muted-on-paper); max-width: 46ch;
+  }
+
+  /* ---------- 產業案例：六張卡各自連到自己的產業頁 ----------
+     這一區以前是「先給 3 個、其餘按鈕展開」。現在每一行都有自己的一頁，
+     首頁這六張只當摘要，全部直接顯示——被 display:none 藏起來的連結，
+     對搜尋引擎來說權重是打折的，六個連結都要看得見。 */
+  .trade h3 a {
+    color: inherit; text-decoration: none;
+  }
+  .trade h3 a:hover { color: var(--pine); text-decoration: underline; text-underline-offset: 3px; }
+  .trade-go { margin-top: 12px; font-size: 14px; }
+  .trade-go a {
+    color: var(--pine); font-weight: 700; text-decoration: none;
+  }
+  .trade-go a:hover { text-decoration: underline; text-underline-offset: 3px; }
+</style>
+<script>
+  /* 動效總開關。放在 <head>、在第一次繪製前就決定，避免內容先閃一下再被藏起來。
+     使用者要求「減少動態」或瀏覽器沒有 IntersectionObserver 時，這個 class 不會加上，
+     於是整份 CSS 的動效規則全部不生效，頁面就是一份靜態頁。 */
+  (function () {
+    try {
+      if (window.matchMedia &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+          "IntersectionObserver" in window) {
+        document.documentElement.className += " js-anim";
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-name">訂單秘書</span>
+    </a>
+    <a class="nav-cta" data-oa-link href="#">加 LINE 開始試用</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow fade-up">給食材行、材料行、耗材行的接單幫手</p>
+      <h1 class="fade-up d1">讓你晚上十點<br />不用再抄單</h1>
+      <p class="hero-sub fade-up d1">客人照常在 LINE 群叫貨，訂單自動整理成出貨總表與對帳表。沒把握的那一筆，它會標起來問你一句，不會亂猜。</p>
+      <div class="cta-row fade-up d2">
+        <a class="btn btn-primary" data-oa-link href="#">加 LINE 開始試用</a>
+        <a class="btn btn-ghost" href="mailto:leo@tripdaynday.com">與我們聊聊</a>
+      </div>
+      </div>
+      <div class="hero-visual">
+        <div class="flow-demo">
+        <video id="flowVideo" autoplay muted loop playsinline preload="metadata"
+               width="1200" height="750"
+               poster="/assets/order-flow-poster.png"
+               aria-label="示意動畫：客戶在 LINE 群裡的叫貨訊息，自動整理成出貨總表，最後標示為已接單">
+          <source src="/assets/order-flow-demo.mp4" type="video/mp4" />
+          <img src="/assets/order-flow-poster.png" width="1200" height="750"
+               alt="客戶在 LINE 群裡的叫貨訊息，自動整理成一張出貨總表" />
+        </video>
+        <script>
+          /* 使用者要求「減少動態」時不自動播放，只留封面，想看的人自己按播放。
+             這段刻意寫在 video 元素正下方、同一次解析裡執行，媒體還來不及開始載入。 */
+          (function () {
+            try {
+              var v = document.getElementById("flowVideo");
+              if (window.matchMedia &&
+                  window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                v.removeAttribute("autoplay");
+                v.setAttribute("controls", "");
+                return;
+              }
+              /* 自動播放被擋掉時（iOS 低耗電模式、省流量設定、部分內建瀏覽器）
+                 至少給一個播放鍵，不要只剩一張不會動的封面。 */
+              v.addEventListener("canplay", function () {
+                var p = v.play();
+                if (p && p.catch) p.catch(function () { v.setAttribute("controls", ""); });
+              }, { once: true });
+            } catch (e) {}
+          })();
+        </script>
+        <p class="flow-cap">↑ 五秒看完：訊息 → 出貨總表 → 已接單</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="pain-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>你的每一天</p>
+      <h2 id="pain-title" data-rv>這些晚上，你應該很熟</h2>
+      <div class="pain-grid" data-rv-stagger>
+        <div class="pain" data-rv>
+          <svg class="oa-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M48 40A22 22 0 0 1 22 9a23 23 0 1 0 26 31Z"/><path class="accent" d="m45 11 2 5 5 2-5 2-2 5-2-5-5-2 5-2ZM55 29l1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg>
+          <p class="pain-time">22:47</p>
+          <h3>訂單埋在群組留言被洗掉</h3>
+          <p>叫貨訊息跟聊天、貼圖混在一起，往上滑十分鐘還怕漏掉一筆。</p>
+        </div>
+        <div class="pain" data-rv>
+          <svg class="oa-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18A24 24 0 1 1 8 41"/><path d="M9 8v12h12M32 20v14l10 6"/><circle class="accent-fill" cx="11" cy="43" r="4"/></svg>
+          <p class="pain-time">月底 23:58</p>
+          <h3>月底對帳對到深夜</h3>
+          <p>翻整個月的聊天紀錄一筆筆核，對到眼睛花，還常對不起來。</p>
+        </div>
+        <div class="pain" data-rv>
+          <svg class="oa-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 54V9M13 11h31l-6 10 6 10H13"/><circle class="accent-fill" cx="48" cy="48" r="11"/><path class="ink" d="M48 43v6M48 53h.01"/></svg>
+          <p class="pain-time">02:13</p>
+          <h3>半夜還在回訊息怕漏單</h3>
+          <p>不敢關通知，怕一睡著就漏接一張單、隔天被客人唸。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>怎麼運作</p>
+      <h2 id="how-title" data-rv>四步，把抄單這件事收掉</h2>
+      <p class="sec-sub" data-rv>你不用換群、不用換工具，客人也不會感覺到有什麼不一樣。</p>
+      <div class="steps" data-rv-stagger>
+        <div class="step" data-rv>
+          <span class="step-no num" aria-hidden="true">1</span>
+          <div>
+            <svg class="oa-ico" width="32" height="32" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="3" width="32" height="58" rx="7"/><path d="M26 10h12M27 53h10"/><path class="accent" d="m23 33 6 6 13-15"/></svg>
+            <h3>把小助手拉進客戶群</h3>
+            <p>像多請一位記單的員工進群。客人不用裝 App、不用註冊、不用背指令。</p>
+          </div>
+        </div>
+        <div class="step" data-rv>
+          <span class="step-no num" aria-hidden="true">2</span>
+          <div>
+            <svg class="oa-ico" width="32" height="32" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 12h29a7 7 0 0 1 7 7v14a7 7 0 0 1-7 7H25l-9 7v-7h-6a7 7 0 0 1-7-7V19a7 7 0 0 1 7-7Z"/><path d="M19 22h17M19 29h12"/><path class="accent" d="m38 44 5 5 10-12"/></svg>
+            <h3>客人照常用口語叫貨</h3>
+            <p>「明天雞腿3箱」隨口一句，就整理成一張看得懂的訂單卡。</p>
+          </div>
+        </div>
+        <div class="step" data-rv>
+          <span class="step-no num" aria-hidden="true">3</span>
+          <div>
+            <svg class="oa-ico" width="32" height="32" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="6" width="37" height="48" rx="6"/><path d="M17 19h19M17 27h14M17 35h10"/><circle class="accent-fill" cx="45" cy="44" r="12"/><path class="paper" d="m39 44 4 4 8-9"/></svg>
+            <h3>客人按「✓ 沒錯」，你接單</h3>
+            <p>客人自己確認過一遍，你再收進來。誰講的、誰認的，都留著。</p>
+          </div>
+        </div>
+        <div class="step" data-rv>
+          <span class="step-no num" aria-hidden="true">4</span>
+          <div>
+            <svg class="oa-ico" width="32" height="32" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="8" width="40" height="48" rx="6"/><path d="M16 20h20M16 29h20M16 38h12"/><circle class="accent-fill" cx="48" cy="47" r="12"/><path class="paper" d="m42 47 4 4 8-9"/></svg>
+            <h3>群裡自動回「老闆已接單 ✓」</h3>
+            <p>客人知道你收到了，就不會再追一句「老闆你有看到嗎」。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="trades" aria-labelledby="trade-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>各行各業</p>
+      <h2 id="trade-title" data-rv>你這行，長什麼樣子</h2>
+      <p class="sec-sub" data-rv>單位怎麼算、東西怎麼叫，每一行都不一樣。點進去看你這行的一天怎麼收單、最常出哪三個包。</p>
+
+      <div class="trades" id="tradesGrid" data-rv-stagger>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.4h16l-1.3 7.2a1.4 1.4 0 0 1-1.4 1.2H6.7a1.4 1.4 0 0 1-1.4-1.2z"/><path d="M7.7 12.4a4.3 4.3 0 0 1 8.6 0"/><path d="M12 8.1V4.6"/><path d="M12 5.6c1.5 0 2.6-.8 3-2"/></svg>
+          <h3><a href="/trades/vegetable">蔬果行・菜商</a></h3>
+          <p class="trade-units">顆 · 把 · 斤 · 箱 · 簍</p>
+          <p class="trade-who">客人是餐廳、小吃店、便當店。晚上十點前後陸續丟隔天的單，你隔天一早就要撿貨出車。</p>
+          <p class="trade-msg">明天 高麗菜3顆 蔥2把 雞胸5斤</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>高麗菜</span><span class="u">3 顆</span></li>
+            <li><span>青蔥<span class="note">客人講「蔥」，你的品項表寫「青蔥」</span></span><span class="u">2 把</span></li>
+            <li><span>雞胸</span><span class="u">5 斤</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>早上打一句「總表」，高麗菜共 <span class="num">47</span> 顆、青蔥共 <span class="num">18</span> 把都幫你加總好，照著撿貨裝簍就行。</p>
+          <p class="trade-go"><a href="/trades/vegetable">看蔬果行怎麼收單 →</a></p>
+        </article>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.6v14.2"/><circle cx="12" cy="3.6" r="1.3"/><path d="M5.2 7.4h13.6"/><path d="M8.4 20.4h7.2"/><path d="M5.2 7.4 2.9 13a2.9 2.9 0 0 0 4.6 0z"/><path d="M18.8 7.4 16.5 13a2.9 2.9 0 0 0 4.6 0z"/></svg>
+          <h3><a href="/trades/meat">肉品行・魚貨商</a></h3>
+          <p class="trade-units">斤 · 台斤 · 條 · 片 · 盒</p>
+          <p class="trade-who">客人是自助餐、燒烤店、市場攤。前一天下單，隔天清晨分切出貨——規格講不清楚，就是整批出錯。</p>
+          <p class="trade-msg">梅花肉切片2斤 五花3斤 鱸魚2條</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>梅花肉（切片）</span><span class="u">2 斤</span></li>
+            <li><span>五花 <span class="tag-ask">？ 待確認</span><span class="note">你這裡有「五花肉條」和「五花肉片」</span></span><span class="u">3 斤</span></li>
+            <li><span>鱸魚</span><span class="u">2 條</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>規格沒講清楚，它不會挑一個最像的填進去，先標起來問你一句。</p>
+          <p class="trade-go"><a href="/trades/meat">看肉品行怎麼收單 →</a></p>
+        </article>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.3 19.8 7.7v8.6L12 20.7 4.2 16.3V7.7z"/><circle cx="12" cy="12" r="3.4"/></svg>
+          <h3><a href="/trades/hardware">五金行・建材行</a></h3>
+          <p class="trade-units">支 · 包 · 捲 · 桶 · 才 · 尺</p>
+          <p class="trade-who">客人是工班師傅，人在工地用手機丟一句就繼續做事，貨還得分別送到不同工地。</p>
+          <p class="trade-msg">4分管20支 水泥3包 送三重工地</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>4分管<span class="note">同一個東西，有人講「四分管」「4分水管」</span></span><span class="u">20 支</span></li>
+            <li><span>水泥</span><span class="u">3 包</span></li>
+            <li><span class="skip">「送三重工地」不是品項，它不會憑空多記一筆</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>同一樣東西十種叫法是日常。教它一次「四分管＝4分管」，以後都對得回同一個品項。</p>
+          <p class="trade-go"><a href="/trades/hardware">看五金行怎麼收單 →</a></p>
+        </article>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.1 8.6h9.8l-1 10.9a1.5 1.5 0 0 1-1.5 1.3H9.6a1.5 1.5 0 0 1-1.5-1.3z"/><rect x="5.9" y="5.7" width="12.2" height="2.9" rx="0.8"/><path d="M13.6 5.7 15.1 2.4"/></svg>
+          <h3><a href="/trades/supplies">餐飲耗材・包材行</a></h3>
+          <p class="trade-units">箱 · 條 · 包 · 串</p>
+          <p class="trade-who">客人是手搖店、便當店、早餐店。家數多、品項雜，下午一句「不夠了先補」是常態。</p>
+          <p class="trade-msg">700杯5條 吸管3包 打包袋2串 明天早上要</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>700cc 杯</span><span class="u">5 條</span></li>
+            <li><span>吸管</span><span class="u">3 包</span></li>
+            <li><span class="skip">已過你設的 17:00 截單</span><span class="tag-ask">加單</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>過了截單才進來的另外標成「加單」，不會偷偷併進今天已經算好的備貨。</p>
+          <p class="trade-go"><a href="/trades/supplies">看餐飲耗材怎麼收單 →</a></p>
+        </article>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8.4h11l1 11a1.5 1.5 0 0 1-1.5 1.6H7a1.5 1.5 0 0 1-1.5-1.6z"/><path d="M9.2 8.4 8.1 3.7h7.8l-1.1 4.7"/><path d="M9.6 13.6h4.8"/></svg>
+          <h3><a href="/trades/bakery">食品原料・烘焙材料行</a></h3>
+          <p class="trade-units">包 · 公斤 · 罐 · 袋</p>
+          <p class="trade-who">客人是烘焙坊、早餐店、小型食品廠。一張單十幾樣，長得像、只差一個字的規格特別多。</p>
+          <p class="trade-msg">麵粉2包 無鹽奶油5公斤 酵母1罐 二砂1袋</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>麵粉 <span class="tag-ask">？ 待確認</span><span class="note">你這裡有低筋、中筋、高筋</span></span><span class="u">2 包</span></li>
+            <li><span>無鹽奶油</span><span class="u">5 公斤</span></li>
+            <li><span>二砂</span><span class="u">1 袋</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>低筋跟高筋差一個字，出錯就是客人整批麵團報銷。對不起來的那一筆它寧可標「？」。</p>
+          <p class="trade-go"><a href="/trades/bakery">看烘焙材料行怎麼收單 →</a></p>
+        </article>
+
+        <article class="trade" data-rv>
+          <svg class="trade-ico" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3.3h4v3c0 .7.3 1.3.8 1.8l.9 1c.8.8 1.2 1.8 1.2 2.9v6.4a2.4 2.4 0 0 1-2.4 2.4H9.5a2.4 2.4 0 0 1-2.4-2.4V12c0-1.1.4-2.1 1.2-2.9l.9-1c.5-.5.8-1.1.8-1.8z"/><path d="M7.1 14.1h9.8"/></svg>
+          <h3><a href="/trades/beverage">飲料・酒水經銷</a></h3>
+          <p class="trade-units">箱 · 打 · 瓶 · 支</p>
+          <p class="trade-who">客人是熱炒店、小吃部、雜貨店。一張單十幾二十行，月底一整個月的量攤開來對，最耗人。</p>
+          <p class="trade-msg">台啤10箱 烏龍茶2打 高粱3支 礦泉水20箱</p>
+          <p class="trade-turn">↓ 整理成</p>
+          <ul class="trade-out">
+            <li><span>台灣啤酒<span class="note">客人講「台啤」，你的品項表寫「台灣啤酒」</span></span><span class="u">10 箱</span></li>
+            <li><span>烏龍茶</span><span class="u">2 打</span></li>
+            <li><span>礦泉水</span><span class="u">20 箱</span></li>
+          </ul>
+          <p class="trade-win"><strong>這行特別有感</strong>行數再多也是一次整理完。月底選一段期間匯出 CSV，Excel 打開就能對帳。</p>
+          <p class="trade-go"><a href="/trades/beverage">看飲料酒水怎麼收單 →</a></p>
+        </article>
+
+      </div>
+
+      <div class="trade-more" data-rv>
+        <h3>沒列到的行業，一樣用得上</h3>
+        <p>冷凍食品、南北貨、清潔耗材、飼料、花材、印刷紙材……只要你的客人習慣在 LINE 裡講一句話叫貨、而你要把它整理成一張出貨單，這件事就成立。單位怎麼算、東西怎麼叫，都照你店裡原本的規矩來，不用配合它改。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule" aria-labelledby="rule-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>最重要的一件事</p>
+      <svg class="oa-ico sec-ico" width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-rv><path d="M12 54V9M13 11h31l-6 10 6 10H13"/><circle class="accent-fill" cx="48" cy="48" r="11"/><path class="ink" d="M48 43v6M48 53h.01"/></svg>
+      <h2 id="rule-title" data-rv>不確定就標記，<br />絕不猜</h2>
+      <p class="sec-sub" data-rv>出錯一次貨，賠的是整車東西和客人的信任。所以它的規矩很簡單：沒把握就標一個「？」請你看一眼，不會自作聰明幫你決定。</p>
+
+      <div class="judge-list" data-rv-stagger>
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">老闆明天雞腿3箱、甜不辣5斤</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-ok">✓ 記下來</span>
+            <p><strong>兩筆都進今天的單</strong>客人按「✓ 沒錯」就成立，你這邊直接看到整理好的表。</p>
+          </div>
+        </div>
+
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">高級高麗菜 3 顆</span>
+            <span class="judge-ctx">你的品項表裡只有「高麗菜」，沒有「高級高麗菜」。</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-ask">？ 先問你</span>
+            <p><strong>不會自己歸到「高麗菜」</strong>名字差一點點，可能就是不一樣的貨、不一樣的價。它寧可標起來問你，也不幫你出錯貨。</p>
+          </div>
+        </div>
+
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">高麗菜還有2顆</span>
+            <span class="judge-ctx">還有「剩5桶」「沙拉油只剩一箱了」這類。</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-mute">— 不算訂單</span>
+            <p><strong>這是在跟你回報還剩多少</strong>不是叫貨。這種句子它一律不當成訂單，不會憑感覺判斷。</p>
+          </div>
+        </div>
+
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">哈哈 好啊 感謝老闆🙏</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-mute">— 完全安靜</span>
+            <p><strong>閒聊不會有任何反應</strong>群裡不會多出一堆機器人訊息，也不會把玩笑話記成一筆單。</p>
+          </div>
+        </div>
+
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">甘藍 5 顆</span>
+            <span class="judge-ctx">你還沒教過「甘藍」這個叫法。</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-ask">？ 問你一句</span>
+            <p><strong>不認得就承認不認得</strong>你回一句「甘藍=高麗菜」，它以後就永遠認得了。</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="verified" data-rv>這些判斷不是講講而已——我們拿 <strong data-count="327">327</strong> 則真實的 LINE 群組對話，一句一句對過它的反應。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="learn-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>越用越準</p>
+      <svg class="oa-ico sec-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-rv><path d="M8 13h30a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7H24l-9 7v-7H8a7 7 0 0 1-7-7V20a7 7 0 0 1 7-7Z"/><path d="M15 23h18M15 30h12"/><path class="accent" d="M48 16c8 3 11 10 8 18M50 49c-8-2-12-9-10-17"/><path class="accent" d="m51 11-4 6 7 2M47 54l4-6-7-2"/></svg>
+      <h2 id="learn-title" data-rv>教它一次，它就永遠記得</h2>
+      <p class="sec-sub" data-rv>你不用先坐下來把品項表建到完美。它遇到不認得的就問你一句，你隨口回一句，它就記住了。</p>
+
+      <div class="teach" data-rv-stagger data-rv-cascade>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">客人</span>
+          <span class="teach-say">甘藍 5 顆</span>
+        </div>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">秘書</span>
+          <span class="teach-say">「甘藍」我還不認得，先標起來了。這是哪一個品項？</span>
+        </div>
+        <div class="teach-row me" data-rv>
+          <span class="teach-who">你</span>
+          <span class="teach-say">甘藍=高麗菜</span>
+        </div>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">秘書</span>
+          <span class="teach-say">記住了 ✓　<em>以後客人講「甘藍」都算高麗菜。</em></span>
+        </div>
+      </div>
+
+      <p class="after-note" data-rv>同一件事你只會被問一次。用越久，你的品項表和客人的叫法就越貼合——這份對照是你自己養出來的東西，別人搬不走。</p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="daily-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>每天的動作</p>
+      <svg class="oa-ico sec-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-rv><rect x="7" y="8" width="50" height="48" rx="6"/><path d="M7 21h50M18 32h12M18 43h9"/><path class="accent" d="M39 31h10M39 38h10M39 45h10"/></svg>
+      <h2 id="daily-title" data-rv>老闆每天只做一件事</h2>
+      <p class="sec-sub" data-rv>打「待接單」，按「全部接單」。就這樣。</p>
+
+      <div class="split" data-rv-stagger>
+        <ul data-rv>
+          <li><span class="dot" aria-hidden="true"></span><span><strong>不想被一張一張吵？</strong>預設就是等你有空一次收。白天忙的時候，它不會為了每筆單一直跳通知。</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span><strong>想要即時看到？</strong>在 LINE 裡打 <span class="kbd">切換逐單</span>，來一張你就看一張，隨時能再切回來。</span></li>
+          <li><span class="dot" aria-hidden="true"></span><span><strong>有問號的那筆會排在前面</strong>你只要處理它不確定的那幾筆，其他一鍵收完。</span></li>
+        </ul>
+
+        <div class="sheet sheet-lite" data-rv>
+          <div class="sheet-head"><span>待接單</span><span class="num">3 家・9 項</span></div>
+          <table>
+            <thead>
+              <tr><th>客戶</th><th>內容</th><th>狀態</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>春日食堂</td><td>沙拉油等 <span class="qty">4</span> 項</td><td><span class="tag-ask">？ 待確認</span></td></tr>
+              <tr><td>阿明小吃</td><td>雞腿等 <span class="qty">3</span> 項</td><td><span class="tag-wait">等你接</span></td></tr>
+              <tr><td>阿珠麵店</td><td>高麗菜等 <span class="qty">2</span> 項</td><td><span class="tag-wait">等你接</span></td></tr>
+            </tbody>
+          </table>
+          <div class="sheet-foot">
+            <small>接單後，各群自動回「老闆已接單 ✓」</small>
+            <span class="mock-btn">全部接單</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="more-title">
+    <div class="wrap">
+      
+
+      <p class="sec-label" data-rv>還幫你顧著</p>
+      <h2 id="more-title" data-rv>抄單以外那些瑣事</h2>
+      <div class="feat-grid" data-rv-stagger>
+        <div class="feat" data-rv>
+          <svg class="oa-ico" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="32" cy="34" r="22"/><path d="M32 20v15l10 6M24 7h16"/><path class="accent" d="M47 13h9v9"/></svg>
+          <h3>幾點截單，你說了算</h3>
+          <p>設好截單時間，之後才進來的單會標成「加單」，不會偷偷混進今天已經算好的備貨裡。</p>
+        </div>
+        <div class="feat" data-rv>
+          <svg class="oa-ico" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="8" width="50" height="48" rx="6"/><path d="M7 21h50M18 32h12M18 43h9"/><path class="accent" d="M39 31h10M39 38h10M39 45h10"/></svg>
+          <h3>一句「總表」，備貨量算好</h3>
+          <p>哪一家要什麼列得清清楚楚，還幫你把同一個品項加總起來：高麗菜共 <span class="num" data-count="47">47</span> 顆。早上照著撿貨就好。</p>
+        </div>
+        <div class="feat" data-rv>
+          <svg class="oa-ico" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="6" width="38" height="48" rx="5"/><path d="M17 19h18M17 28h18M17 37h10"/><path class="accent" d="M48 30v23M40 45l8 8 8-8"/></svg>
+          <h3>訂單台網頁，坐下來慢慢弄</h3>
+          <p>改單、加品項、設別名都在這裡。要對帳就選一段期間匯出 CSV，Excel 直接打得開。</p>
+        </div>
+        <div class="feat" data-rv>
+          <svg class="oa-ico" width="26" height="26" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18A24 24 0 1 1 8 41"/><path d="M9 8v12h12M32 20v14l10 6"/><circle class="accent-fill" cx="11" cy="43" r="4"/></svg>
+          <h3>每一次改動都留著</h3>
+          <p>誰在什麼時候把哪一筆改成什麼，都記著。月底客人說「我明明有訂」，你有東西可以翻給他看。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="trust-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>你會在意的</p>
+      <h2 id="trust-title" data-rv>先講清楚</h2>
+      <div class="trust-list" data-rv-stagger data-rv-cascade>
+        <div class="trust-item" data-rv>
+          <span class="trust-check" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>客人幾乎不用改變任何習慣</h3>
+            <p>照常在原本那個群裡打字叫貨，不用裝 App、不用註冊、不用學指令。唯一多的動作，是看到整理好的單按一下「✓ 沒錯」。</p>
+          </div>
+        </div>
+        <div class="trust-item" data-rv>
+          <span class="trust-check is-ico" aria-hidden="true">
+            <svg class="oa-ico" width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 5 52 13v14c0 14-8 24-20 31C20 51 12 41 12 27V13Z"/><path d="M23 33a9 9 0 0 1 18 0v10H23Z"/><circle class="accent" cx="32" cy="24" r="5"/></svg>
+          </span>
+          <div>
+            <h3>各客戶資料嚴格隔離</h3>
+            <p>每個客戶群的訂單各自獨立。不同客戶的資料絕不會互相看到，也不會不小心回錯群。</p>
+          </div>
+        </div>
+        <div class="trust-item" data-rv>
+          <span class="trust-check" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>群裡的照片、語音不會被下載</h3>
+            <p>群組傳的照片和語音，我們只記下「這裡有一則」，內容不會下載保存。</p>
+          </div>
+        </div>
+        <div class="trust-item" data-rv>
+          <span class="trust-check" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>你的資料隨時可匯出帶走</h3>
+            <p>訂單和對帳資料都能自己選期間匯出，是你的東西，不綁住你。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nope" data-rv>
+        <h3>現在還不做的事，也一起講在前面</h3>
+        <p>收款金流、物流配送、庫存管理、自動回覆客人的問題、報價單、發票——這些我們都還沒做，不會假裝有。我們只把「接單」這一段做到你敢放心睡覺。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>常見問題</p>
+      <h2 id="faq-title" data-rv>老闆真的會問的</h2>
+      <div class="faq" data-rv>
+        <details>
+          <summary>我的客人要不要學新東西？</summary>
+          <p class="faq-a">幾乎不用。他們照常在原本的群裡用自己的講法叫貨就好——「明天老樣子再加兩箱」這種也可以。整個過程唯一多出來的動作，是看到整理好的訂單卡按一下「✓ 沒錯」，跟按貼圖差不多。不用下載 App、不用註冊帳號、不用記任何指令。</p>
+        </details>
+        <details>
+          <summary>它要是弄錯了怎麼辦？</summary>
+          <p class="faq-a">它的做法是「沒把握就不猜」：不確定的那一筆會標「？」請你看一眼，而不是挑一個最像的品項填進去。加上客人自己也要按「✓ 沒錯」確認一次，等於有兩道關卡。真的還是錯了，到訂單台上改一下就好，每一次改動都留紀錄。</p>
+        </details>
+        <details>
+          <summary>我的客戶資料會不會被別人看到？</summary>
+          <p class="faq-a">不會。每個客戶群的資料嚴格隔離，A 客戶永遠看不到 B 客戶的訂單、價格或叫貨紀錄，你這邊也不會回錯群。群組裡的照片和語音只留紀錄，內容不下載保存。詳細寫在<a href="/privacy.html">隱私政策</a>。</p>
+        </details>
+        <details>
+          <summary>要換掉現在的 LINE 群嗎？</summary>
+          <p class="faq-a">不用，就用現在這個群。把小助手拉進去就開始了，你和客人之前的聊天、叫貨習慣都不受影響。</p>
+        </details>
+        <details>
+          <summary>我不太會用電腦，會不會很難？</summary>
+          <p class="faq-a">每天要做的就是在 LINE 裡打「待接單」，然後按「全部接單」。手機就能做完。訂單台網頁是給你有空坐下來改單、對帳、匯出用的，不是每天都得開。</p>
+        </details>
+        <details>
+          <summary>可以隨時停用嗎？資料還在嗎？</summary>
+          <p class="faq-a">可以，隨時停。停用前把訂單和對帳資料匯出帶走就好，資料本來就是你的。我們不會用綁約或把資料鎖住來留人。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>價格</p>
+      <h2 id="price-title" data-rv>早鳥試點價</h2>
+      <p class="sec-sub" data-rv>我們正在找第一批一起把產品磨好的老闆。你遇到的狀況，會直接變成它下一版學會的事。</p>
+      <div class="price-card" data-rv>
+        <span class="price-badge">早鳥試點・限量 10 家</span>
+        <div class="price-line">
+          <span class="price-now">NT$799</span>
+          <span class="price-unit">／月</span>
+          <span class="price-was">正式價 NT$1,499</span>
+        </div>
+        <p class="price-note">名額只有 <strong>10</strong> 家，滿了就恢復正式價。</p>
+        <a class="btn btn-primary" data-oa-link href="#">加 LINE 開始試用</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap" data-rv-stagger data-rv-cascade>
+      <h2 data-rv>今晚十點，<br />把單交給訂單秘書</h2>
+      <p data-rv>加 LINE 就能開始，有問題也可以直接寫信給我們。</p>
+      <div class="cta-row" data-rv>
+        <a class="btn btn-primary" data-oa-link href="#">加 LINE 開始試用</a>
+        <a class="btn btn-ghost" href="mailto:leo@tripdaynday.com">與我們聊聊</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>訂單秘書 © 2026</span>
+    <span><a href="/privacy.html">隱私政策</a>　·　<a href="/terms.html">服務條款</a></span>
+    <span>a tripdaynday service</span>
+  </div>
+</footer>
+
+<script>
+  // 「訂單秘書」LINE 官方帳號（@659okblk）。要換短連結時改這一行就好。
+  const ORDER_OA_URL = "https://line.me/R/ti/p/@659okblk";
+  document.querySelectorAll("[data-oa-link]").forEach(function (a) {
+    a.setAttribute("href", ORDER_OA_URL);
+  });
+</script>
+
+<script>
+  (function () {
+    /* 捲動後給 sticky header 一點層次。這是狀態變化不是動畫，所以不受動效開關影響。 */
+    var hdr = document.querySelector("header");
+    if (hdr) {
+      var queued = false;
+      var sync = function () { queued = false; hdr.classList.toggle("is-stuck", window.scrollY > 8); };
+      window.addEventListener("scroll", function () {
+        if (!queued) { queued = true; window.requestAnimationFrame(sync); }
+      }, { passive: true });
+      sync();
+    }
+
+    /* 產業案例的「先給 3 個、其餘展開」已經拿掉了：六行各自有一頁，首頁六張
+       卡片全部直接顯示，六個連往產業頁的連結都看得見。 */
+
+    if (!document.documentElement.classList.contains("js-anim")) return;
+
+    /* ---- 保險絲 ----
+       進場動畫是靠 JS 把內容從 opacity:0 打開的，萬一 IntersectionObserver 沒有動
+       （瀏覽器怪癖、擴充套件擋掉、分頁在背景被凍結…），整頁內容就會看不見。
+       正常運作時 IO 一定會立刻送出第一次回呼，所以用「有沒有收到第一次回呼」當判斷：
+       沒收到就直接把所有內容顯示出來——寧可沒有動畫，也不能讓客人看到空白的頁。 */
+    var ioAlive = false;
+    function revealAll() {
+      var all = document.querySelectorAll("[data-rv]");
+      for (var i = 0; i < all.length; i++) all[i].classList.add("rv-in");
+    }
+    function failsafe() {
+      if (ioAlive) return;
+      if (document.hidden) return; /* 背景分頁本來就會凍結 IO，等切回來再判斷 */
+      revealAll();
+    }
+    window.setTimeout(failsafe, 1600);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) window.setTimeout(failsafe, 1600);
+    });
+
+    /* ---- 捲動進場 ---- */
+    var io = new IntersectionObserver(function (entries) {
+      ioAlive = true;
+      for (var i = 0; i < entries.length; i++) {
+        var e = entries[i];
+        if (!e.isIntersecting) continue;
+        io.unobserve(e.target);
+        if (e.target.hasAttribute("data-rv-cascade")) {
+          /* 整組一起觸發，讓對話／條列照固定節奏出現，不受捲動速度影響 */
+          var kids = e.target.querySelectorAll("[data-rv]");
+          for (var k = 0; k < kids.length; k++) kids[k].classList.add("rv-in");
+        } else {
+          e.target.classList.add("rv-in");
+        }
+      }
+    }, { rootMargin: "0px 0px -60px 0px", threshold: 0 });
+
+    var groups = document.querySelectorAll("[data-rv-cascade]");
+    for (var g = 0; g < groups.length; g++) io.observe(groups[g]);
+
+    var items = document.querySelectorAll("[data-rv]");
+    for (var n = 0; n < items.length; n++) {
+      var el = items[n];
+      if (el.closest && el.closest("[data-rv-cascade]")) continue;
+      io.observe(el);
+    }
+
+    /* ---- 數字 count-up：每個數字只跑一次，跑完把原本的字放回去 ---- */
+    var nums = document.querySelectorAll("[data-count]");
+    if (nums.length) {
+      var numIo = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (!entries[i].isIntersecting) continue;
+          numIo.unobserve(entries[i].target);
+          countUp(entries[i].target);
+        }
+      }, { threshold: 1 });
+      for (var m = 0; m < nums.length; m++) {
+        /* 先把寬度撐到最終位數，數字跳動時整行才不會左右晃 */
+        nums[m].style.minWidth = nums[m].textContent.trim().length + "ch";
+        numIo.observe(nums[m]);
+      }
+    }
+
+    function countUp(el) {
+      var finalText = el.textContent;
+      var target = parseInt(el.getAttribute("data-count"), 10);
+      /* 分頁在背景時 rAF 會被凍結，數字會卡在 0，所以乾脆不跑，直接留原本的數字 */
+      if (!isFinite(target) || document.hidden) return;
+      var t0 = 0, dur = 850;
+      el.textContent = "0";
+      window.requestAnimationFrame(function step(now) {
+        if (!t0) t0 = now;
+        var p = Math.min((now - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        if (p < 1) {
+          el.textContent = String(Math.round(target * eased));
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = finalText;
+        }
+      });
+    }
+  })();
+</script>
+
+</body>
+</html>

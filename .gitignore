@@ -1,0 +1,11 @@
+# Vercel 舊部署留下的東西（本站已搬到 Cloudflare，這兩個絕對不要進版控）
+.vercel/
+.env.local
+.env*
+
+# 依賴與工具快取（本站沒有建置流程，wrangler 用 npx 跑，理論上不會產生）
+node_modules/
+.wrangler/
+
+# macOS
+.DS_Store

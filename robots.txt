@@ -1,0 +1,7 @@
+# 訂單秘書 — order.tripdaynday.com
+# 全站開放檢索。換網域時要改下面的 Sitemap 這一行（set-base-url.sh 會一起改）。
+
+User-agent: *
+Allow: /
+
+Sitemap: https://order.tripdaynday.com/sitemap.xml

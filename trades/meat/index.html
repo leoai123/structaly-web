@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- =========================================================================
+     絕對網址區（換網域時只改這一區）
+
+     這一頁上其他所有連結都是相對路徑（/trades/meat、/privacy.html …），
+     搬家時不用動。真正寫死網域的只有下面這幾行：
+       · <link rel="canonical">
+       · og:url / og:image / twitter:image
+       · JSON-LD 裡的 @id 與 item
+     整站要一起換的還有：robots.txt 的 Sitemap 行、sitemap.xml 的 <loc>，
+     以及 index / privacy / terms 各自的同一區。
+     根目錄的 set-base-url.sh 可以一次改完全部（用法寫在腳本裡）。
+     ========================================================================= -->
+<link rel="canonical" href="https://order.tripdaynday.com/trades/meat" />
+<meta property="og:url" content="https://order.tripdaynday.com/trades/meat" />
+<meta property="og:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta property="og:image:secure_url" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<meta name="twitter:image" content="https://order.tripdaynday.com/assets/order-flow-poster.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://order.tripdaynday.com/#organization",
+      "name": "訂單秘書",
+      "url": "https://order.tripdaynday.com/",
+      "logo": "https://order.tripdaynday.com/assets/order-flow-poster.png",
+      "email": "leo@tripdaynday.com",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "tripdaynday",
+        "url": "https://www.tripdaynday.com/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://order.tripdaynday.com/trades/meat#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "訂單秘書",
+          "item": "https://order.tripdaynday.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "肉品行・魚貨商",
+          "item": "https://order.tripdaynday.com/trades/meat"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ===================== 絕對網址區到此為止 ===================== -->
+
+<title>肉品行、魚貨商的 LINE 收單｜訂單秘書</title>
+<meta name="description" content="「梅花肉切片2斤、鱸魚2條」前一天晚上進來的單，自動整理成清晨分切的出貨表。規格沒講清楚的那一筆，它標「？」問你一句，不會挑一個最像的填進去。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="肉品行、魚貨商的 LINE 收單｜訂單秘書" />
+<meta property="og:description" content="「梅花肉切片2斤、鱸魚2條」前一天晚上進來的單，自動整理成清晨分切的出貨表。規格沒講清楚的那一筆，它標「？」問你一句，不會挑一個最像的填進去。" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="訂單秘書" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="750" />
+<meta property="og:image:alt" content="客戶在 LINE 群裡的叫貨訊息，自動整理成一張出貨總表" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="肉品行、魚貨商的 LINE 收單｜訂單秘書" />
+<meta name="twitter:description" content="「梅花肉切片2斤、鱸魚2條」前一天晚上進來的單，自動整理成清晨分切的出貨表。規格沒講清楚的那一筆，它標「？」問你一句，不會挑一個最像的填進去。" />
+<meta name="twitter:image:alt" content="客戶在 LINE 群裡的叫貨訊息，自動整理成一張出貨總表" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231E4D3B'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h10' stroke='%23EDF0EA' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/trade.css" />
+<script>
+  /* 動效總開關。放在 <head>、在第一次繪製前就決定，避免內容先閃一下再被藏起來。
+     使用者要求「減少動態」或瀏覽器沒有 IntersectionObserver 時，這個 class 不會加上，
+     整份 CSS 的動效規則就全部不生效，頁面是一份完整的靜態頁。 */
+  (function () {
+    try {
+      if (window.matchMedia &&
+          !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+          "IntersectionObserver" in window) {
+        document.documentElement.className += " js-anim";
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg>
+      </span>
+      <span class="brand-name">訂單秘書</span>
+    </a>
+    <a class="nav-cta" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="麵包屑">
+        <a href="/">訂單秘書</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span aria-current="page">肉品行・魚貨商</span>
+      </nav>
+      <p class="eyebrow fade-up">各行各業 · 肉品行・魚貨商</p>
+      <h1 class="fade-up d1">肉品行、魚貨商的 LINE 收單</h1>
+      <p class="hero-sub fade-up d1">生鮮出錯不能回頭——分切完才發現訂錯，賠的是整批貨。規格講不清楚的那一筆它先標起來問你，加上客人自己按過「✓ 沒錯」，兩道關卡才出得了貨。</p>
+      <p class="hero-units fade-up d1">你這行的單位是 <span class="u">斤 · 台斤 · 公斤 · 條 · 片 · 盒 · 隻</span>——照你店裡原本的算法記，不用配合它改</p>
+      <div class="cta-row fade-up d2">
+        <a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a>
+        <a class="btn btn-ghost" href="mailto:leo@tripdaynday.com">與我們聊聊</a>
+      </div>
+
+      <div class="demo">
+        <div class="chat">
+          <p class="chat-meta"><span>阿明小吃（LINE 群）</span><span class="num">21:30</span></p>
+          <span class="chat-bubble">梅花肉切片2斤 五花3斤 鱸魚2條</span>
+        </div>
+        <div class="demo-arrow" aria-hidden="true">整理成</div>
+        <div class="sheet">
+          <div class="sheet-head"><span>阿明小吃・明天出貨</span><span class="num">3 項</span></div>
+          <div class="sheet-scroll">
+          <table>
+            <thead>
+              <tr><th>品項</th><th>數量</th><th>狀態</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>梅花肉（切片）</td><td class="qty">2 斤</td><td><span class="tag-ok">✓ 對上了</span></td></tr>
+              <tr><td>五花<span class="cell-note">你這裡有「五花肉條」和「五花肉片」</span></td><td class="qty">3 斤</td><td><span class="tag-ask">？ 待確認</span></td></tr>
+              <tr><td>鱸魚</td><td class="qty">2 條</td><td><span class="tag-ok">✓ 對上了</span></td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="sheet-foot">
+            <small>客人按「✓ 沒錯」，你再收進來</small>
+          </div>
+        </div>
+        <p class="demo-note">整理好的訂單卡直接回在群裡，客人看一眼按「✓ 沒錯」就成立。他不用裝 App、不用註冊、不用背指令。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="day-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>這行的一天</p>
+      <h2 id="day-title" data-rv>肉品行的一天，長這樣</h2>
+      <p class="sec-sub" data-rv>單什麼時候進來、幾點要出貨，每一行都不一樣。截單時間你自己設，其他的它照著跑。</p>
+      <div class="day" data-rv-stagger>
+        <div class="day-row" data-rv>
+          <span class="day-time">17:00–20:00</span>
+          <div class="day-what">
+            <h3>自助餐、燒烤店打烊前先報明天的量</h3>
+            <p>客人一邊收店一邊打字，規格常常只講一半：「五花3斤」——到底是肉條還是肉片。</p>
+          </div>
+        </div>
+        <div class="day-row" data-rv>
+          <span class="day-time">21:00–23:00</span>
+          <div class="day-what">
+            <h3>單陸續補齊、改來改去</h3>
+            <p>「再加兩斤」「剛剛那個改三條」，最怕記錯最後一版。每一次改動它都留著紀錄。</p>
+          </div>
+        </div>
+        <div class="day-row" data-rv>
+          <span class="day-time">22:00</span>
+          <div class="day-what">
+            <h3>你設的截單時間</h3>
+            <p>之後進來的另外標成 <span class="kbd">加單</span>，明天要分切的量不會被偷偷改掉。</p>
+          </div>
+        </div>
+        <div class="day-row" data-rv>
+          <span class="day-time">02:00–05:00</span>
+          <div class="day-what">
+            <h3>分切、秤重、分裝</h3>
+            <p>打一句「總表」，同一個品項的量加總好，照著切就行。有「？」的那幾筆會排在前面提醒你。</p>
+          </div>
+        </div>
+        <div class="day-row" data-rv>
+          <span class="day-time">06:00–08:00</span>
+          <div class="day-what">
+            <h3>出貨</h3>
+            <p>誰講的、誰按過「✓ 沒錯」、什麼時候改過，都留著。客人來對，你有東西可以翻。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="pain-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>這行最常出的包</p>
+      <h2 id="pain-title" data-rv>三個麻煩，你應該很熟</h2>
+      <div class="pain-grid" data-rv-stagger>
+        <div class="pain" data-rv>
+          <p class="pain-no">麻煩 01</p>
+          <h3>規格只講一半，切錯就是整批</h3>
+          <p>「五花3斤」是肉條還是肉片？「梅花2斤」要不要切片？猜錯，客人整批退，生鮮還不能回頭。</p>
+          <p class="fix"><strong>沒把握就不猜</strong>對不上你品項表裡唯一一個品項的那一筆，它標「？」請你看一眼，不會挑一個最像的填進去。</p>
+        </div>
+        <div class="pain" data-rv>
+          <p class="pain-no">麻煩 02</p>
+          <h3>改單改到最後不知道哪一版才算</h3>
+          <p>「剛剛那個改三條」「算了不用了」，訊息往上滑，最後一版到底長什麼樣，半夜看更容易看錯。</p>
+          <p class="fix"><strong>每一次改動都留著</strong>誰在什麼時候把哪一筆改成什麼，都記著。月底客人說「我明明有訂」，你有東西可以翻給他看。</p>
+        </div>
+        <div class="pain" data-rv>
+          <p class="pain-no">麻煩 03</p>
+          <h3>斤、公斤、盒混著講</h3>
+          <p>同一個客人這次講斤、下次講公斤，你要自己換算才知道總共要備多少。</p>
+          <p class="fix"><strong>照原話記，不自作主張換算</strong>客人講「斤」它就記「斤」。換算是你的功夫，它負責的是誰要什麼、多少量，一筆都不漏。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="alias-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>產品怎麼對應</p>
+      <svg class="oa-ico sec-ico" width="28" height="28" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" data-rv><path d="M8 13h30a7 7 0 0 1 7 7v13a7 7 0 0 1-7 7H24l-9 7v-7H8a7 7 0 0 1-7-7V20a7 7 0 0 1 7-7Z"/><path d="M15 23h18M15 30h12"/><path class="accent" d="M48 16c8 3 11 10 8 18M50 49c-8-2-12-9-10-17"/><path class="accent" d="m51 11-4 6 7 2M47 54l4-6-7-2"/></svg>
+      <h2 id="alias-title" data-rv>客人怎麼講，對到你的哪一個品項</h2>
+      <p class="sec-sub" data-rv>你不用先坐下來把品項表建到完美。它遇到不認得的就問你一句，你隨口回一句，它就記住了。</p>
+
+      <div class="teach" data-rv-stagger data-rv-cascade>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">客人</span>
+          <span class="teach-say">梅花 3 斤</span>
+        </div>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">秘書</span>
+          <span class="teach-say">「梅花」我這裡有「梅花肉條」和「梅花肉片」，先標起來了。是哪一個？</span>
+        </div>
+        <div class="teach-row me" data-rv>
+          <span class="teach-who">你</span>
+          <span class="teach-say">梅花=梅花肉片</span>
+        </div>
+        <div class="teach-row" data-rv>
+          <span class="teach-who">秘書</span>
+          <span class="teach-say">記住了 ✓　<em>以後客人講「梅花」都算梅花肉片。</em></span>
+        </div>
+      </div>
+
+      <div class="sheet sheet-lite" data-rv style="margin-top:26px;max-width:580px">
+        <div class="sheet-head"><span>你教過的對照</span><span class="num">別名 → 品項</span></div>
+        <div class="sheet-scroll">
+        <table>
+          <thead>
+            <tr><th>客人怎麼講</th><th>對到你的品項</th></tr>
+          </thead>
+          <tbody>
+              <tr><td>梅花</td><td>梅花肉片<span class="cell-note">已教過</span></td></tr>
+              <tr><td>三層</td><td>五花肉<span class="cell-note">已教過</span></td></tr>
+              <tr><td>松阪</td><td>松阪豬<span class="cell-note">已教過</span></td></tr>
+              <tr><td>五花</td><td><span class="tag-ask">？ 待確認</span><span class="cell-note">你這裡有「五花肉條」和「五花肉片」，對不到唯一一個</span></td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <p class="after-note" data-rv>一樣的規格問題，你只會被問一次。教過的以後都認得；沒教過的它寧可標「？」，也不幫你猜。</p>
+    </div>
+  </section>
+
+  <section class="rule" aria-labelledby="rule-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>最重要的一件事</p>
+      <h2 id="rule-title" data-rv>不確定就標記，絕不猜</h2>
+      <p class="sec-sub" data-rv>出錯一次貨，賠的是整車東西和客人的信任。所以它的規矩很簡單：沒把握就標一個「？」請你看一眼，不會自作聰明幫你決定。</p>
+      <div class="judge-list" data-rv-stagger>
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">老闆明天梅花肉片2斤、鱸魚2條</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-ok">✓ 記下來</span>
+            <p><strong>兩筆都進今天的單</strong>客人按「✓ 沒錯」就成立，你這邊直接看到整理好的表。</p>
+          </div>
+        </div>
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">五花 3 斤</span>
+            <span class="judge-ctx">你這裡有「五花肉條」和「五花肉片」，對不到唯一一個。</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-ask">？ 先問你</span>
+            <p><strong>不會挑一個最像的填進去</strong>名字差一點點，可能就是不一樣的貨、不一樣的價。它寧可標起來問你，也不幫你出錯貨。</p>
+          </div>
+        </div>
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">冷凍櫃裡的雞胸還有兩盒</span>
+            <span class="judge-ctx">還有「上次那批很不錯」這類。</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-mute">— 不算訂單</span>
+            <p><strong>這是在跟你回報還剩多少</strong>不是叫貨。這種句子它一律不當成訂單，不會憑感覺判斷。</p>
+          </div>
+        </div>
+        <div class="judge" data-rv>
+          <div class="judge-say">
+            <span class="chat-bubble">哈哈 好啊 感謝老闆🙏</span>
+          </div>
+          <div class="judge-do">
+            <span class="flag flag-mute">— 完全安靜</span>
+            <p><strong>閒聊不會有任何反應</strong>群裡不會多出一堆機器人訊息，也不會把玩笑話記成一筆單。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="trust-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>你會在意的</p>
+      <h2 id="trust-title" data-rv>先講清楚</h2>
+      <div class="trust-list" data-rv-stagger data-rv-cascade>
+        <div class="trust-item" data-rv>
+          <span class="trust-check" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>客人幾乎不用改變任何習慣</h3>
+            <p>照常在原本那個群裡打字叫貨，不用裝 App、不用註冊、不用學指令。唯一多的動作，是看到整理好的單按一下「✓ 沒錯」。</p>
+          </div>
+        </div>
+        <div class="trust-item" data-rv>
+          <span class="trust-check is-ico" aria-hidden="true">
+            <svg class="oa-ico" width="24" height="24" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 5 52 13v14c0 14-8 24-20 31C20 51 12 41 12 27V13Z"/><path d="M23 33a9 9 0 0 1 18 0v10H23Z"/><circle class="accent" cx="32" cy="24" r="5"/></svg>
+          </span>
+          <div>
+            <h3>各客戶資料嚴格隔離</h3>
+            <p>每個客戶群的訂單各自獨立。不同客戶的資料絕不會互相看到，也不會不小心回錯群。</p>
+          </div>
+        </div>
+        <div class="trust-item" data-rv>
+          <span class="trust-check" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <h3>你的資料隨時可匯出帶走</h3>
+            <p>訂單和對帳資料都能自己選期間匯出 CSV，Excel 直接打得開。是你的東西，不綁住你。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="nope" data-rv>
+        <h3>現在還不做的事，也一起講在前面</h3>
+        <p>收款金流、物流配送、庫存管理、自動回覆客人的問題、報價單、發票——這些我們都還沒做，不會假裝有。我們只把「接單」這一段做到你敢放心睡覺。</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>價格</p>
+      <h2 id="price-title" data-rv>早鳥試點價</h2>
+      <p class="sec-sub" data-rv>我們正在找第一批一起把產品磨好的老闆。你遇到的狀況，會直接變成它下一版學會的事。</p>
+      <div class="price-card" data-rv>
+        <span class="price-badge">早鳥試點・限量 10 家</span>
+        <div class="price-line">
+          <span class="price-now">NT$799</span>
+          <span class="price-unit">／月</span>
+          <span class="price-was">正式價 NT$1,499</span>
+        </div>
+        <p class="price-note">名額只有 <strong>10</strong> 家，滿了就恢復正式價。</p>
+        <a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="also-title">
+    <div class="wrap">
+      <p class="sec-label" data-rv>其他產業</p>
+      <h2 id="also-title" data-rv>你隔壁那行，長什麼樣子</h2>
+      <p class="sec-sub" data-rv>單位怎麼算、東西怎麼叫，每一行都不一樣。挑一個對號入座。</p>
+      <div class="also" data-rv-stagger>
+        <a class="also-card" href="/trades/vegetable" data-rv>
+          <h3>蔬果行・菜商</h3>
+          <p>顆、把、斤、簍混著算，早上一句「總表」就知道要撿多少。</p>
+          <span class="go">看這一行怎麼收單 →</span>
+        </a>
+        <a class="also-card" href="/trades/hardware" data-rv>
+          <h3>五金行・建材行</h3>
+          <p>一樣東西十種叫法，教一次就對得回同一個品項。</p>
+          <span class="go">看這一行怎麼收單 →</span>
+        </a>
+        <a class="also-card" href="/trades/supplies" data-rv>
+          <h3>餐飲耗材・包材行</h3>
+          <p>下午一句「不夠了先補」，過了截單自動標「加單」。</p>
+          <span class="go">看這一行怎麼收單 →</span>
+        </a>
+        <a class="also-card" href="/trades/bakery" data-rv>
+          <h3>食品原料・烘焙材料行</h3>
+          <p>低筋跟高筋差一個字，對不起來的它標「？」不亂猜。</p>
+          <span class="go">看這一行怎麼收單 →</span>
+        </a>
+        <a class="also-card" href="/trades/beverage" data-rv>
+          <h3>飲料・酒水經銷</h3>
+          <p>一張單十幾二十行一次整理完，月底匯出 CSV 對帳。</p>
+          <span class="go">看這一行怎麼收單 →</span>
+        </a>
+      </div>
+      <p class="back-home" data-rv>沒列到的行業一樣用得上——<a href="/#trades">回首頁看完整介紹</a>。</p>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap" data-rv-stagger data-rv-cascade>
+      <h2 data-rv>今天的單，<br />交給訂單秘書</h2>
+      <p data-rv>加 LINE 就能開始，有問題也可以直接寫信給我們。</p>
+      <div class="cta-row" data-rv>
+        <a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a>
+        <a class="btn btn-ghost" href="mailto:leo@tripdaynday.com">與我們聊聊</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>訂單秘書 © 2026</span>
+    <span><a href="/">首頁</a>　·　<a href="/privacy.html">隱私政策</a>　·　<a href="/terms.html">服務條款</a></span>
+    <span>a tripdaynday service</span>
+  </div>
+</footer>
+
+<script src="/assets/trade.js"></script>
+
+</body>
+</html>

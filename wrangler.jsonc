@@ -26,5 +26,21 @@
     "not_found_handling": "none"
   },
 
+  // ── 自訂網域 structaly.com ────────────────────────────────────────────────
+  // 現在還沒開，因為 Workers 的自訂網域要求該網域先是這個 Cloudflare 帳號底下的
+  // zone，而 structaly.com 目前的 nameserver 還在 GoDaddy（ns33/ns34.domaincontrol.com）。
+  //
+  // 等 structaly.com 的 NS 換到 Cloudflare、zone 變成 active 之後，
+  // 把下面這段的註解拿掉再 `npx wrangler deploy`，wrangler 會自動建好 DNS 記錄
+  // 與憑證，不用手動去 dashboard 加。
+  //
+  // "routes": [
+  //   { "pattern": "structaly.com",     "custom_domain": true },
+  //   { "pattern": "www.structaly.com", "custom_domain": true }
+  // ],
+  //
+  // www 綁上去之後記得再加一條 Redirect Rule 把 www 301 到 apex
+  // （站內 canonical 全部寫的是 apex，兩邊都回 200 會變成重複內容）。
+
   "observability": { "enabled": true }
 }

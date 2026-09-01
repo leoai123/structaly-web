@@ -113,6 +113,41 @@ grep -rn "舊網域" . --exclude-dir=.git
 
 ---
 
+## 綁定 structaly.com（尚未完成，需要人工到 GoDaddy 操作）
+
+現況：`structaly.com` 的 nameserver 在 GoDaddy（`ns33/ns34.domaincontrol.com`），
+A 記錄指向 Render（`216.24.57.1`），`www` 是 CNAME 到 `structaly-pify.onrender.com`。
+Cloudflare 帳號底下目前**一個 zone 都沒有**。
+
+Workers 的自訂網域**必須**由 Cloudflare 當該網域的權威 DNS，不能只在 GoDaddy 加一筆
+記錄指過來。所以要做的是**換 nameserver**，不是改單筆記錄。
+
+### 步驟
+
+1. Cloudflare dashboard → Add a domain → `structaly.com` → Free 方案。
+   Cloudflare 會掃描現有記錄並匯入，**匯入後一定要逐筆核對**，特別是收信用的：
+
+   | 類型 | 名稱 | 值 |
+   |---|---|---|
+   | MX | `@` | `smtp.secureserver.net`（優先度 0） |
+   | MX | `@` | `mailstore1.secureserver.net`（優先度 10） |
+   | TXT | `@` | `v=spf1 include:spf.em.secureserver.net ?all` |
+   | TXT | `@` | `google-site-verification=hbMezpaxYsIH7pP0zQ-r0GTJk8PIvlEugQiTONwma2c` |
+
+   **這四筆漏掉就會收不到信、Google 驗證也會掉。**
+
+2. Cloudflare 會給兩台 nameserver，到 GoDaddy 把 NS 換成那兩台。
+   生效通常幾分鐘到數小時。
+
+3. zone 變 active 後，把 `wrangler.jsonc` 裡 `routes` 那段註解拿掉，
+   `npx wrangler deploy`。Cloudflare 會自動建立 DNS 記錄與憑證。
+
+4. 加一條 Redirect Rule：`www.structaly.com/*` → `https://structaly.com/$1`（301）。
+
+5. 舊的 `order.tripdaynday.com` 再上 301（見「搬家紀錄」）。
+
+---
+
 ## 搬家紀錄
 
 - 本站原本在 Vercel 的 `order.tripdaynday.com`（Vercel 專案 `order-landing`）。

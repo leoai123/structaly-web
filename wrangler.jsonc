@@ -10,6 +10,10 @@
   "name": "structaly-web",
   "compatibility_date": "2026-08-25",
 
+  // 保留 *.workers.dev 預覽網址。不寫這行的話 wrangler 會預設關掉它，
+  // 之後 DNS 或自訂網域出問題時就沒有可用來驗證來源站的管道了。
+  "workers_dev": true,
+
   "assets": {
     // 整個 repo 根目錄就是網站根目錄；不該上線的檔案列在 .assetsignore。
     "directory": ".",
@@ -27,17 +31,22 @@
   },
 
   // ── 自訂網域 structaly.com ────────────────────────────────────────────────
-  // 現在還沒開，因為 Workers 的自訂網域要求該網域先是這個 Cloudflare 帳號底下的
-  // zone，而 structaly.com 目前的 nameserver 還在 GoDaddy（ns33/ns34.domaincontrol.com）。
+  // 已啟用。structaly.com 的 NS 已於 2026-09-04 切到 Cloudflare
+  // （ada/mitch.ns.cloudflare.com），zone active，wrangler 會自動維護 DNS 與憑證。
   //
   // 等 structaly.com 的 NS 換到 Cloudflare、zone 變成 active 之後，
   // 把下面這段的註解拿掉再 `npx wrangler deploy`，wrangler 會自動建好 DNS 記錄
   // 與憑證，不用手動去 dashboard 加。
   //
-  // "routes": [
-  //   { "pattern": "structaly.com",     "custom_domain": true },
-  //   { "pattern": "www.structaly.com", "custom_domain": true }
-  // ],
+  // 用 Workers Routes 而非 custom_domain：zone 建立時 Cloudflare 自動掃描匯入了
+  // 舊的 Render 記錄（A @ -> 216.24.57.1、www -> structaly-pify.onrender.com），
+  // custom_domain 會因為「hostname already has externally managed DNS records」被拒。
+  // Routes 不要求刪記錄——只要該 hostname 有一筆「橘雲代理」的記錄，route 就會在
+  // 到達來源站之前攔截請求，Render 永遠不會被打到。效果與 custom_domain 相同。
+  "routes": [
+    { "pattern": "structaly.com/*",     "zone_name": "structaly.com" },
+    { "pattern": "www.structaly.com/*", "zone_name": "structaly.com" }
+  ],
   //
   // www 綁上去之後記得再加一條 Redirect Rule 把 www 301 到 apex
   // （站內 canonical 全部寫的是 apex，兩邊都回 200 會變成重複內容）。

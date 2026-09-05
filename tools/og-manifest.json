@@ -1,0 +1,11 @@
+[
+  {"slug":"blog","category":"批發現場筆記","title":"接單、出貨、對帳，講現場怎麼做","output":"blog.png"},
+  {"slug":"line-order-system-how-to-choose","category":"選型決策","title":"LINE 接單系統怎麼選：三種類型差在哪","output":"line-order-system-how-to-choose.png"},
+  {"slug":"line-group-order-to-picking-list","category":"實務做法","title":"客人在 LINE 群裡隨口叫貨，怎麼變成隔天的出貨總表","output":"line-group-order-to-picking-list.png"},
+  {"slug":"line-order-reconciliation-csv","category":"實務做法","title":"LINE 收來的單，月底怎麼對帳","output":"line-order-reconciliation-csv.png"},
+  {"slug":"manual-order-taking-hidden-cost","category":"選型決策","title":"人工抄單，一個月其實花掉你多少","output":"manual-order-taking-hidden-cost.png"},
+  {"slug":"line-order-vs-erp","category":"選型決策","title":"什麼時候該上 ERP，什麼時候先不用","output":"line-order-vs-erp.png"},
+  {"slug":"product-alias-mapping","category":"實務做法","title":"同一樣東西十種叫法，別名對照表怎麼建","output":"product-alias-mapping.png"},
+  {"slug":"order-cutoff-and-late-orders","category":"實務做法","title":"截單時間怎麼設，過了截單的加單怎麼算","output":"order-cutoff-and-late-orders.png"},
+  {"slug":"where-orders-get-lost","category":"實務做法","title":"漏單通常斷在哪一步","output":"where-orders-get-lost.png"}
+]

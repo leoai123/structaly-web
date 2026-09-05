@@ -1,0 +1,78 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 絕對網址區（換網域時只改這一區） --><link rel="canonical" href="https://structaly.com/blog/product-alias-mapping" /><meta property="og:url" content="https://structaly.com/blog/product-alias-mapping" /><meta property="og:image" content="https://structaly.com/assets/og/product-alias-mapping.png" /><meta property="og:image:secure_url" content="https://structaly.com/assets/og/product-alias-mapping.png" /><meta name="twitter:image" content="https://structaly.com/assets/og/product-alias-mapping.png" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://structaly.com/blog/product-alias-mapping#article","headline":"同一樣東西十種叫法，別名對照表怎麼建","description":"批發客人用熟悉的俗稱、簡稱和錯字叫貨，品項表卻只有正式名稱。先分清楚三種可對的別名與一種絕不能自動合併的近似品，再從每天遇到的問號慢慢建立。","datePublished":"2026-09-05","dateModified":"2026-09-05","author":{"@id":"https://structaly.com/#organization"},"publisher":{"@id":"https://structaly.com/#organization"},"mainEntityOfPage":"https://structaly.com/blog/product-alias-mapping","inLanguage":"zh-Hant-TW","wordCount":1816,"articleSection":"實務做法","keywords":["品項別名","別名對照表","客人叫法","批發品項"],"image":"https://structaly.com/assets/og/product-alias-mapping.png"},{"@type":"BreadcrumbList","@id":"https://structaly.com/blog/product-alias-mapping#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://structaly.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://structaly.com/blog"},{"@type":"ListItem","position":3,"name":"同一樣東西十種叫法，別名對照表怎麼建","item":"https://structaly.com/blog/product-alias-mapping"}]}]}</script><!-- 絕對網址區到此為止 -->
+<title>品項別名對照表怎麼建？客人叫法統一｜訂單秘書</title><meta name="description" content="批發客人用熟悉的俗稱、簡稱和錯字叫貨，品項表卻只有正式名稱。先分清楚三種可對的別名與一種絕不能自動合併的近似品，再從每天遇到的問號慢慢建立。" /><meta name="robots" content="index, follow" /><meta property="og:type" content="article" /><meta property="og:title" content="同一樣東西十種叫法，別名對照表怎麼建" /><meta property="og:description" content="三種可以對，一種一定要問；別先追求一張完美品項表。" /><meta property="og:site_name" content="訂單秘書" /><meta property="og:locale" content="zh_TW" /><meta property="article:published_time" content="2026-09-05" /><meta property="article:modified_time" content="2026-09-05" /><meta property="article:author" content="訂單秘書" /><meta property="article:section" content="實務做法" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="同一樣東西十種叫法，別名對照表怎麼建" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="同一樣東西十種叫法，別名對照表怎麼建" /><meta name="twitter:description" content="從每天遇到的問號，慢慢養出店裡自己的別名表。" />
+<link rel="alternate" type="application/rss+xml" title="訂單秘書部落格 RSS" href="https://structaly.com/blog/feed.xml" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" /><link rel="stylesheet" href="/assets/trade.css" /><link rel="stylesheet" href="/assets/blog.css" /><script>(function(){try{if(window.matchMedia&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.className+=" js-anim";}catch(e){}})();</script><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
+</head>
+<body><div class="reading-progress" aria-hidden="true"></div><header><div class="wrap nav"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">訂單秘書</span></a><a class="nav-cta" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></header><main>
+<section class="hero blog-hero"><div class="wrap"><nav class="crumb"><a href="/">首頁</a><span class="sep">›</span><a href="/blog">部落格</a><span class="sep">›</span><span aria-current="page">品項別名</span></nav><p class="eyebrow">實務做法</p><h1>同一樣東西十種叫法，別名對照表怎麼建</h1><p class="hero-sub">可以對的，教一次就記住。只差一個字但可能是不同貨的，永遠停下來問。</p><p class="article-meta"><span>作者：訂單秘書</span><time datetime="2026-09-05">2026-09-05</time></p></div></section>
+<article class="article-body"><div class="wrap article-wrap"><div class="tldr"><span class="tldr-label">一句話</span><p>別名表不用一次建完：先收同義詞、簡稱與常見錯字，遇到一次就教一次；但名稱相近、規格或價格可能不同的貨絕不能自動合併，一律標「？」讓人確認。</p></div><p class="article-lead">你看到「甘藍」知道是高麗菜，看到「蔥」知道客人平常要的是青蔥。這種判斷做久了像反射動作，但只要交給新人、換成表格，才發現店裡其實藏著一大本沒有寫下來的字典。</p>
+<nav class="article-toc" aria-label="文章目錄"><strong>把叫法整理成可用的規矩</strong><ol><li><a href="#wholesale">為什麼批發特別常見</a></li><li><a href="#three-aliases">三種可以對的別名</a></li><li><a href="#never-merge">第四種絕不能自動對</a></li><li><a href="#start-small">怎麼開始建立</a></li><li><a href="#asset">為什麼它是你的資產</a></li><li><a href="#limits">系統判斷不了什麼</a></li></ol></nav>
+
+<h2 id="wholesale">零售看條碼，批發老客人講自己的話</h2>
+<p>零售結帳時，商品包裝上通常有條碼。掃進去就對到一個固定品項。批發叫貨不是這樣。客人是合作很久的餐廳、早餐店或工班，訊息是「明天老樣子」「蔥兩把」「大包的再一箱」。他講的是彼此長期形成的習慣，不是你品項表上的正式名稱。</p>
+<p>同一個字在不同客人嘴裡還可能代表不同東西。甲店講「粉」是低筋麵粉，乙店講「粉」可能一直都指另一個規格。你腦中知道這個群是誰，抄單時自然補完；換一個人接手，就只看到一個模糊的字。</p>
+<figure class="article-figure article-chat" data-rv><div class="chat"><p class="chat-meta"><span>早餐店叫貨群</span><span class="num">16:18</span></p><span class="chat-bubble">明天蔥兩把，粉一包，還有老樣子的盒</span></div><figcaption>客人覺得這句很清楚，因為你們都知道「粉」和「盒」平常指什麼；但正式品項表不一定有這些名字。</figcaption></figure>
+<p>因此別名表不只是修正錯字。它是把「這位客人平常怎麼講」對到「店裡實際怎麼記」的規矩寫下來。群組單要能整理，這一步比做一張漂亮的品項清單更重要。</p>
+
+<h2 id="three-aliases">三種可以對的別名</h2>
+<p>第一種是同義。像甘藍和高麗菜，指的是同一個品項。第二種是簡稱。客人打「蔥」，而你的品項表寫「青蔥」。第三種是常見錯字或不同慣用字，例如「蕃茄」對到「番茄」。</p>
+<p>這三種可以建立對照，但前提是你已經確認在自己店裡就是同一樣貨。不是因為網路上說兩個詞相近，就替所有客人合併。你的品項表、供貨方式和客人習慣才是準則。</p>
+<figure class="article-figure" data-rv><div class="sheet sheet-lite article-sheet"><div class="sheet-head"><span>你教過的對照</span><span class="num">別名 → 品項</span></div><div class="sheet-scroll"><table><thead><tr><th>類型</th><th>客人怎麼講</th><th>你的品項</th><th>狀態</th></tr></thead><tbody><tr><td>同義</td><td>甘藍</td><td>高麗菜</td><td><span class="tag-ok">✓ 對上了</span></td></tr><tr><td>簡稱</td><td>蔥</td><td>青蔥</td><td><span class="tag-ok">✓ 對上了</span></td></tr><tr><td>常見錯字</td><td>蕃茄</td><td>番茄</td><td><span class="tag-ok">✓ 對上了</span></td></tr></tbody></table></div></div><figcaption>對照成立的理由要簡單而明確：在你的生意裡，它們就是同一個可出貨品項。</figcaption></figure>
+<p><a href="/trades/vegetable">蔬果行</a>常碰到俗稱與單位混在一起；<a href="/trades/bakery">烘焙材料行</a>則常遇到名稱很像、筋度或包裝不同的原料。兩邊都需要別名，但能不能合併的界線不同。</p>
+
+<h2 id="never-merge">第四種：看起來很像，其實可能是不同的貨</h2>
+<p>「高級高麗菜」不等於「高麗菜」。低筋麵粉也不等於高筋麵粉。名字只差一兩個字，可能就是規格、用途與價格完全不同。這種不能因為字很像，就自動對到最接近的品項。</p>
+<p>系統若自作聰明選一個，畫面看起來很順，出貨時卻可能整袋拿錯。批發的風險正好藏在這種「差不多」。所以規矩要反過來：越像、但品項表沒有完全對上，越要標「？」問一句。</p>
+<div class="note-box"><h3>可對與不可對的分界</h3><p>你能明確說「在我店裡，這兩個名字永遠指同一個出貨品項」，才放進別名表。只要規格、等級、包裝或價格可能不同，就不要合併。</p></div>
+<p>問的方式不用很複雜。「高級高麗菜是品項表裡哪一個？」讓你決定。若那其實是一個新貨，就新增正式品項；若只是這位客人的固定叫法，再教成別名。這也延續了<a href="/blog/line-group-order-to-picking-list">從群組訊息到總表</a>的核心規則：沒把握就留下來，不猜。</p>
+
+<h2 id="start-small">不要先坐下來，把品項表建到完美</h2>
+<p>很多人想到導入工具，第一步就是整理所有品項、規格、單位和價格。做到一半才發現貨一直在換，客人叫法又比表格多。若你現在只是想先減少抄單，不必等這張表完成。</p>
+<p>從每天的真實訊息開始。遇到不認得的，系統標「？」；你回一句「甘藍=高麗菜」。下一次再看到甘藍，就能對回已知品項。遇到「高級高麗菜」，若不是同一樣，就不要教成別名。一次只處理眼前真的出現的詞。</p>
+<figure class="article-figure" data-rv><div class="teach"><div class="teach-row"><span class="teach-who">客人</span><span class="teach-say">甘藍 5 顆</span></div><div class="teach-row"><span class="teach-who">秘書</span><span class="teach-say">「甘藍」是哪一個品項？</span></div><div class="teach-row me"><span class="teach-who">你</span><span class="teach-say">甘藍=高麗菜</span></div><div class="teach-row"><span class="teach-who">秘書</span><span class="teach-say">記住了 ✓　<em>下次會對到高麗菜</em></span></div></div><figcaption>教一次的內容要短而可重複。不是寫一篇說明，而是明確建立「別名＝正式品項」。</figcaption></figure>
+<p>這種做法不會第一天就涵蓋所有叫法，但比較貼近現場。先處理高頻、真的會出現在單裡的名稱。用一段時間後，留下的不是通用字典，而是你店裡自己的規矩。</p>
+
+<h2 id="asset">別名表是你自己養出來的資產</h2>
+<p>哪位客人把什麼叫成什麼，外人很難事先知道。這些對照原本只存在老闆或資深員工腦中。寫進表裡後，新人接單有依據，換工具時也能帶著走，不必每次從零猜。</p>
+<p>真正有價值的不是列了幾百個詞，而是每一筆都有你確認過。定期看待確認項目，把已釐清的教進去，把不再使用或容易誤會的別名移除。對照表越準，人工在總表前面做的合併就越少。</p>
+
+<h2 id="limits">先講清楚：它不會替你做規格判斷</h2>
+<div class="note-box is-honest"><h3>換算與生意上的差異，還是你的功夫</h3><p>別名對照能把「甘藍」對到「高麗菜」，但不會替你把一箱換成幾斤，也判斷不出「高級」「特選」在你店裡代表哪個等級。低筋與高筋用途不同，這個差異不是文字相似度能決定。</p><p>它也不該替你猜。你確認過的別名才記住；沒把握的規格繼續標「？」。如果你要的是自動換算所有單位或判斷原料用途，訂單秘書幫不上。</p></div>
+<p>先把能確定的三類收好，把第四類留給人。這個界線守住，別名才會讓接單更穩，而不是把錯誤藏得更深。</p>
+<div class="article-end"><div class="author-box"><img src="/assets/line-avatar-flat.svg" alt="訂單秘書品牌頭像" width="64" height="64" /><div><h2 id="author-title">訂單秘書</h2><p>我們做給批發供應商用的 LINE 收單服務。文章寫的是每天在處理的叫貨、確認、截單、總表與對帳。</p></div></div><div class="related"><h2 id="related-title">相關文章</h2><div class="related-grid"><a class="related-card" href="/blog/line-group-order-to-picking-list"><span>實務做法</span><strong>叫貨訊息怎麼變總表</strong></a><a class="related-card" href="/blog/line-order-vs-erp"><span>選型決策</span><strong>ERP 與接單工具差在哪</strong></a><a class="related-card" href="/blog/where-orders-get-lost"><span>實務做法</span><strong>漏單通常斷在哪一步</strong></a></div></div><div class="article-cta"><p>拿一兩句客人真的會打的叫貨來看，最容易知道別名該怎麼教。</p><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></div>
+</div></article></main><div class="mobile-cta"><span>從一個別名開始</span><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 試用</a><button class="mobile-cta-close" type="button" aria-label="關閉">×</button></div><footer><div class="wrap"><span>訂單秘書 © 2026</span><span><a href="/">首頁</a>　·　<a href="/blog">部落格</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span><span>a tripdaynday service</span></div></footer><script src="/assets/trade.js"></script><script src="/assets/blog.js"></script></body></html>

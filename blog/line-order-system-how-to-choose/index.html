@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- =========================================================================
+     絕對網址區（換網域時只改這一區）
+     canonical、社群分享圖片與 JSON-LD 都使用實際回 200 的無副檔名網址。
+     根目錄的 set-base-url.sh 可以一次換完整站網域。
+     ========================================================================= -->
+<link rel="canonical" href="https://structaly.com/blog/line-order-system-how-to-choose" />
+<meta property="og:url" content="https://structaly.com/blog/line-order-system-how-to-choose" />
+<meta property="og:image" content="https://structaly.com/assets/og/line-order-system-how-to-choose.png" />
+<meta property="og:image:secure_url" content="https://structaly.com/assets/og/line-order-system-how-to-choose.png" />
+<meta name="twitter:image" content="https://structaly.com/assets/og/line-order-system-how-to-choose.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://structaly.com/blog/line-order-system-how-to-choose#article",
+      "headline": "LINE 接單系統怎麼選：團購工具、ERP 下單平台、群組收單差在哪",
+      "description": "已經在 LINE 群裡收單，該選團購工具、ERP 型 B2B 下單平台，還是群組收單？從客人習慣、品項準備、訊息型態與導入方式逐項比較，幫批發供應商先分清楚自己需要哪一種。",
+      "datePublished": "2026-09-05",
+      "dateModified": "2026-09-05",
+      "author": { "@id": "https://structaly.com/#organization" },
+      "publisher": { "@id": "https://structaly.com/#organization" },
+      "mainEntityOfPage": "https://structaly.com/blog/line-order-system-how-to-choose",
+      "inLanguage": "zh-Hant-TW",
+      "wordCount": 1930,
+      "articleSection": "選型決策",
+      "keywords": ["LINE 接單系統", "批發接單", "團購工具", "ERP 下單平台"],
+      "image": "https://structaly.com/assets/og/line-order-system-how-to-choose.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://structaly.com/blog/line-order-system-how-to-choose#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "首頁", "item": "https://structaly.com/" },
+        { "@type": "ListItem", "position": 2, "name": "部落格", "item": "https://structaly.com/blog" },
+        { "@type": "ListItem", "position": 3, "name": "LINE 接單系統怎麼選", "item": "https://structaly.com/blog/line-order-system-how-to-choose" }
+      ]
+    }
+  ]
+}
+</script>
+<!-- ===================== 絕對網址區到此為止 ===================== -->
+
+<title>LINE 接單系統怎麼選：三種類型差在哪｜訂單秘書</title>
+<meta name="description" content="已經在 LINE 群裡收單，該選團購工具、ERP 型 B2B 下單平台，還是群組收單？從客人習慣、品項準備、訊息型態與導入方式逐項比較，幫批發供應商先分清楚自己需要哪一種。" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="LINE 接單系統怎麼選：三種類型差在哪" />
+<meta property="og:description" content="團購工具、ERP 型 B2B 下單平台與群組收單，分別適合什麼生意？" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="訂單秘書" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="article:published_time" content="2026-09-05" />
+<meta property="article:modified_time" content="2026-09-05" />
+<meta property="article:author" content="訂單秘書" />
+<meta property="article:section" content="選型決策" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="LINE 接單系統怎麼選：三種類型差在哪" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LINE 接單系統怎麼選：三種類型差在哪" />
+<meta name="twitter:description" content="團購工具、ERP 型 B2B 下單平台與群組收單，分別適合什麼生意？" />
+<link rel="alternate" type="application/rss+xml" title="訂單秘書部落格 RSS" href="https://structaly.com/blog/feed.xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/trade.css" />
+<link rel="stylesheet" href="/assets/blog.css" />
+<script>(function(){try{if(window.matchMedia&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.className+=" js-anim";}catch(e){}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
+</head>
+<body>
+<div class="reading-progress" aria-hidden="true"></div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="brand-name">訂單秘書</span>
+    </a>
+    <a class="nav-cta" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero blog-hero">
+    <div class="wrap">
+      <nav class="crumb" aria-label="麵包屑">
+        <a href="/">首頁</a><span class="sep" aria-hidden="true">›</span><a href="/blog">部落格</a><span class="sep" aria-hidden="true">›</span><span aria-current="page">LINE 接單系統怎麼選</span>
+      </nav>
+      <p class="eyebrow">接單工具怎麼挑</p>
+      <h1>LINE 接單系統怎麼選：團購工具、ERP 下單平台、群組收單差在哪</h1>
+      <p class="hero-sub">都叫 LINE 接單，實際上可能在處理三種不同的生意。先看客人是誰、平常怎麼訂，再看功能名稱，會比較不容易選錯。</p>
+      <p class="article-meta"><span>作者：訂單秘書</span><time datetime="2026-09-05">2026-09-05</time></p>
+    </div>
+  </section>
+
+  <article class="article-body">
+    <div class="wrap article-wrap">
+      <div class="tldr"><span class="tldr-label">一句話</span><p>批發選 LINE 接單系統，先看客人怎麼訂：檔期散客適合團購工具，品項與流程已結構化可看 ERP 型平台；固定店家仍在群裡口語叫貨，才適合群組收單。</p></div>
+      <p class="article-lead">晚上十點，客人在原本的 LINE 群丟一句「明天高麗菜3顆、蔥2把」。如果這就是你每天收單的樣子，你需要的工具，可能跟開團賣東西的人完全不同。</p>
+      <nav class="article-toc" aria-label="文章目錄"><strong>先從你的單怎麼進來看</strong><ol><li><a href="#order-entry">單怎麼進來</a></li><li><a href="#three-types">三種工具適合什麼</a></li><li><a href="#comparison">放在同一張表比較</a></li><li><a href="#not-for-us">什麼情況不要選</a></li><li><a href="#self-check">三個問題自我檢查</a></li></ol></nav>
+      <figure class="article-figure article-chat" data-rv><div class="chat"><p class="chat-meta"><span>固定客戶群</span><span class="num">22:08</span></p><span class="chat-bubble">明天高麗菜3顆、蔥2把，老樣子的也要</span></div><figcaption>如果你的單長這樣，重點不是把客人帶去開團或新表單，而是先整理他原本的口語叫貨。</figcaption></figure>
+
+      <h2 id="order-entry">先別看功能，先看你的單怎麼進來</h2>
+      <p>搜尋 LINE 接單系統，會看到團購工具、購物流程、B2B 下單平台，也會看到把群組訊息整理成訂單的做法。頁面上都有品項、數量和訂單，看起來很像。但它們各自想解決的問題不同。</p>
+      <p>有些生意是一檔一檔開團。這週賣一批水果，下週換另一個品項，買的人也可能每次不同。有些公司早就把品項、價格和庫存資料整理好，只差讓客戶自己進系統下單。還有一種，是固定餐廳、小店每週都在同一個群裡叫貨，今天補兩箱，明天又說「老樣子」。這三種現場，不能只用「能不能接 LINE」判斷。</p>
+
+      <h2 id="three-types">三種 LINE 接單工具，各自適合什麼情況</h2>
+      <h3>團購／整單工具：一檔商品，很多消費者來買</h3>
+      <p>這一類常見的流程是開團，消費者在貼文或訊息裡留言「+1」，系統再把留言轉成訂單。對一次性的檔期、社群電商和 C 端消費者來說，這個做法很合理。主揪要知道誰跟了哪一團，收單後再往付款與出貨走。</p>
+      <p>但批發常態叫貨不一定有「開團」這個動作。餐廳不是等你貼出高麗菜才留言 +1，而是盤點完冰箱，直接打「明天高麗菜3顆」。如果硬把批發叫貨塞進開團流程，客人和你都要多繞一步。不是團購工具不好，而是它本來就不是為這種單設計。</p>
+
+      <h3>ERP 型 B2B 下單平台：資料已整理好，客人願意換介面</h3>
+      <p>另一類做法，是先把品項、規格、價格等資料建好，再讓客人登入新的下單介面選購。公司本來就有完整品項表，而且希望客戶照固定欄位下單，這種方式能把流程收得很整齊。</p>
+      <p>代價是前置工作比較多。你要先把資料整理到可以讓客人選，也要請固定往來的店家改用新的畫面。如果你的客人願意配合，這不一定是問題。如果品項還常變、每一家叫法又不同，或客人只想留在原本的 LINE 群，導入時就會卡在現場習慣。</p>
+
+      <h3>群組收單：客人照舊講，系統在中間整理</h3>
+      <p>群組收單處理的是固定下游客戶的常態叫貨。客人不用裝 App、不用註冊，也不用記指令。他還是在原本的群裡說「老樣子再加兩箱」。系統把口語訊息整理成訂單卡，回在群裡讓客人按「✓ 沒錯」。</p>
+      <p>這種做法適合品項表還不完美、客人講法很多的供應商。遇到沒把握的名字，就標「？」問一句，不拿最像的品項來猜。老闆也不用等到所有資料整理完才開始。如果你想看更貼近現場的例子，可以先看<a href="/trades/vegetable">蔬果行怎麼在 LINE 群收單</a>。</p>
+
+      <h2 id="comparison">放在同一張表，差別會比較清楚</h2>
+      <figure class="article-figure" data-rv><div class="table-scroll" role="region" aria-label="三種 LINE 接單工具比較" tabindex="0">
+        <table class="compare-table">
+          <thead><tr><th>比較項目</th><th>團購／整單工具</th><th>ERP 型 B2B 下單平台</th><th>群組收單</th></tr></thead>
+          <tbody>
+            <tr><td>客人要不要改變習慣</td><td>跟著開團方式留言或完成指定流程</td><td>改用新的下單介面</td><td>留在原本 LINE 群，用原本講法叫貨</td></tr>
+            <tr><td>要不要先建好品項表</td><td>每檔先準備要賣的品項</td><td>通常先把品項與交易資料結構化</td><td>不用一開始就建到完美，可從叫貨過程補齊別名</td></tr>
+            <tr><td>處理的訊息型態</td><td>+1、留言或檔期訂單</td><td>表單、選單或規格化欄位</td><td>自然口語叫貨</td></tr>
+            <tr><td>導入時間</td><td>依開團資料與流程設定而定</td><td>要留資料整理與客戶改用介面的時間</td><td>可從既有群組與現有叫貨方式開始</td></tr>
+            <tr><td>適合的客戶型態</td><td>每檔可能不同的一次性消費者</td><td>願意照固定介面下單的往來客戶</td><td>每天或每週常態叫貨的固定下游店家</td></tr>
+          </tbody>
+        </table>
+      </div><figcaption>這張表比較的是三類工具的工作方式，不是任何單一品牌的價格或規格。</figcaption></figure>
+      <p>表格比的是做法，不是哪一類比較高級。你的生意如果靠檔期與散客，團購工具比較順。資料已經整理完整，也準備把客人帶進正式下單介面，B2B 平台會更合適。固定店家只想在群裡照常說話，才需要看群組收單。</p>
+
+      <div class="note-box is-honest">
+        <h2 id="not-for-us">這些情況，不要選訂單秘書</h2>
+        <p>你要的是收款金流、物流配送、即時扣庫存、報價單或電子發票，訂單秘書都不適合。這些功能它沒有做。它只處理接單這一段，不會把自己說成完整的生意系統。</p>
+        <p>如果客人多半是只買一次的散客，每一檔商品與買家都不同，你真正需要的可能是開團、結帳和出貨流程。又或者你的公司已經有完整品項、價格、庫存和帳務規則，也要求客人統一到新介面下單，那就該看 ERP 型 B2B 平台。不要為了保留 LINE 群，反而多養一套不合用的流程。</p>
+      </div>
+
+      <h2 id="self-check">最後問自己三個問題</h2>
+      <ul class="check-list">
+        <li><strong>訂單進來後，還要不要有人手動 key 到別的地方？</strong><br />如果答案是要，先確認你是想減少漏抄，還是想連後端帳務都一起換。前者可看群組收單；後者需要評估更完整的平台。</li>
+        <li><strong>你的客人是固定的，還是每一檔都不一樣？</strong><br />固定餐廳、小店反覆叫貨，跟一次性消費者留言 +1，是兩套生意。先把這題答清楚，工具類型就會少掉一半。</li>
+        <li><strong>你的品項表現在建得完整嗎？</strong><br />如果完整，也有能力維護，可以走規格化介面。如果還散在老闆腦中、紙本與客人叫法裡，就要挑能容許資料慢慢整理的做法。</li>
+      </ul>
+      <p>挑系統不是把功能最多的那一套搬回來。先畫出你今天從一句叫貨到隔天備貨的路，再看哪一段真的需要幫忙。想接著看群組收單怎麼跑，可以讀<a href="/blog/line-group-order-to-picking-list">客人隨口叫貨，怎麼變成隔天的出貨總表</a>；訂單秘書目前做得到與做不到的事，也都放在<a href="/">首頁</a>。</p>
+
+      <div class="article-end"><div class="author-box"><img src="/assets/line-avatar-flat.svg" alt="訂單秘書品牌頭像" width="64" height="64" /><div><h2 id="author-title">訂單秘書</h2><p>我們做給批發供應商用的 LINE 收單服務。文章寫的是每天在處理的叫貨、確認、截單、總表與對帳。</p></div></div><div class="related"><h2 id="related-title">相關文章</h2><div class="related-grid"><a class="related-card" href="/blog/line-group-order-to-picking-list"><span>實務做法</span><strong>群組叫貨怎麼變總表</strong></a><a class="related-card" href="/blog/manual-order-taking-hidden-cost"><span>選型決策</span><strong>人工抄單成本自己算</strong></a><a class="related-card" href="/blog/line-order-vs-erp"><span>選型決策</span><strong>ERP 什麼時候才需要</strong></a></div></div><div class="article-cta"><p>先拿你現在的叫貨方式來看，不用先改客人的習慣。</p><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></div>
+    </div>
+  </article>
+</main>
+
+<div class="mobile-cta"><span>先看哪一類適合</span><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 試用</a><button class="mobile-cta-close" type="button" aria-label="關閉">×</button></div>
+
+<footer>
+  <div class="wrap">
+    <span>訂單秘書 © 2026</span>
+    <span><a href="/">首頁</a>　·　<a href="/blog">部落格</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span>
+    <span>a tripdaynday service</span>
+  </div>
+</footer>
+<script src="/assets/trade.js"></script><script src="/assets/blog.js"></script>
+</body>
+</html>

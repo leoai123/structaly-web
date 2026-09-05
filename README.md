@@ -3,8 +3,9 @@
 [structaly.com](https://structaly.com) 的整站原始檔。給食材行、材料行、耗材行等
 中小供應商的 LINE 收單服務「訂單秘書」的對外官網。
 
-**純靜態，沒有建置流程、沒有框架、沒有相依套件。** repo 裡的目錄結構就是網站的
-網址結構，改完檔案直接部署即可。
+**純靜態，沒有建置流程與框架。** 執行期唯一的外部資源是 Google Fonts 提供的
+IBM Plex Mono 與 Noto Sans TC；其餘 CSS、JavaScript 與圖片都在 repo 內。
+repo 裡的目錄結構就是網站的網址結構，改完檔案直接部署即可。
 
 ---
 
@@ -16,8 +17,14 @@
 | `/trades/vegetable`、`/meat`、`/hardware`、`/supplies`、`/bakery`、`/beverage` | `trades/<slug>/index.html` |
 | `/privacy` | `privacy.html` |
 | `/terms` | `terms.html` |
+| `/blog` | `blog/index.html` |
+| `/blog/<slug>` | `blog/<slug>/index.html` |
+| `/404` 與不存在的路徑 | `404.html` |
+| `/llms.txt`、`/llms-full.txt` | 給 AI 讀取的網站索引與正文展平版 |
+| `/blog/feed.xml` | 部落格 RSS 2.0 feed |
 | `/robots.txt`、`/sitemap.xml` | 同名檔案 |
 | 圖片／影片／CSS／JS | `assets/` |
+| 離線產生工具 | `tools/`（OG 圖與 llms-full.txt；由 `.assetsignore` 排除，不公開） |
 
 六個 `/trades/<slug>` 是產業別的到達頁，共用 `assets/trade.css` 與
 `assets/trade.js`（首頁 `index.html` 的樣式是自己 inline 的，改主視覺時兩邊要一起改）。

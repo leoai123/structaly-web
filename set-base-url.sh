@@ -6,7 +6,7 @@
 #
 # 第一個參數是「現在的網域」，第二個是「要換成的網域」，兩個都不要加結尾斜線。
 # 會改到的檔案：index.html、privacy.html、terms.html、trades/*/index.html、
-#               robots.txt、sitemap.xml。
+#               blog/index.html、blog/*/index.html、llms.txt、robots.txt、sitemap.xml。
 #
 # 為什麼只要改這些？因為所有內部連結都是相對路徑（/trades/vegetable、
 # /assets/…、/privacy.html），只有這幾種東西一定得寫絕對網址：
@@ -40,18 +40,18 @@ DIR=$(cd "$(dirname "$0")" && pwd)
 OLD_HOST=${OLD#*://}
 NEW_HOST=${NEW#*://}
 
-FILES="index.html privacy.html terms.html robots.txt sitemap.xml"
+FILES="index.html privacy.html terms.html llms.txt robots.txt sitemap.xml"
 for f in $FILES; do
-  [ -f "$DIR/$f" ] || { echo "找不到 $f，先確認目錄是完整的" >&2; exit 1; }
+  [ -f "$DIR/$f" ] || { echo "找不到 ${f}，先確認目錄是完整的" >&2; exit 1; }
 done
 
 TOUCHED=0
-for f in $FILES $(cd "$DIR" && ls trades/*/index.html 2>/dev/null); do
+for f in $FILES $(cd "$DIR" && ls trades/*/index.html blog/index.html blog/*/index.html 2>/dev/null); do
   if grep -q "$OLD_HOST" "$DIR/$f" 2>/dev/null; then
     # macOS 與 GNU 的 sed -i 參數不同，先寫暫存檔再覆蓋，兩邊都能跑
     sed -e "s|$OLD|$NEW|g" -e "s|$OLD_HOST|$NEW_HOST|g" "$DIR/$f" > "$DIR/$f.tmp" && mv "$DIR/$f.tmp" "$DIR/$f"
     n=$(grep -c "$NEW" "$DIR/$f" || true)
-    echo "改好 $f（$n 處）"
+    echo "改好 ${f}（${n} 處）"
     TOUCHED=$((TOUCHED + 1))
   fi
 done

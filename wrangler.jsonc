@@ -26,8 +26,9 @@
     // 改這個值以前先確認 canonical 也要跟著改。
     "html_handling": "drop-trailing-slash",
 
-    // 找不到的路徑就回 404（本站沒有 SPA、也沒有自訂 404 頁）。
-    "not_found_handling": "none"
+    // 找不到的路徑回傳根目錄的 404.html。這不影響 /trades/meat 這類資料夾
+    // 索引頁；資料夾索引與斜線轉址仍由上面的 html_handling 負責。
+    "not_found_handling": "404-page"
   },
 
   // ── 自訂網域 structaly.com ────────────────────────────────────────────────

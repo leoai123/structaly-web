@@ -100,6 +100,41 @@
     } catch (e) {}
   })();
 </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -424,6 +459,8 @@
     </div>
   </section>
 
+  <section aria-labelledby="reading-title"><div class="wrap"><p class="sec-label" data-rv>延伸閱讀</p><h2 id="reading-title" data-rv>多行叫貨怎麼留到月底</h2><div class="also" data-rv-stagger><a class="also-card" href="/blog/line-order-reconciliation-csv" data-rv><h3>LINE 訂單月底怎麼對帳</h3><p>從客人確認、修改紀錄到 CSV 匯出與 Excel 核對。</p><span class="go">讀文章 →</span></a><a class="also-card" href="/blog/order-cutoff-and-late-orders" data-rv><h3>截單與加單怎麼處理</h3><p>過線後的箱數另外標出，不讓已算好的總表失效。</p><span class="go">讀文章 →</span></a></div></div></section>
+
   <section class="final">
     <div class="wrap" data-rv-stagger data-rv-cascade>
       <h2 data-rv>今天的單，<br />交給訂單秘書</h2>
@@ -439,7 +476,7 @@
 <footer>
   <div class="wrap">
     <span>訂單秘書 © 2026</span>
-    <span><a href="/">首頁</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span>
+    <span><a href="/">首頁</a>　·　<a href="/blog">部落格</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span>
     <span>a tripdaynday service</span>
   </div>
 </footer>

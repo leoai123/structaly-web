@@ -1,0 +1,78 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 絕對網址區（換網域時只改這一區） --><link rel="canonical" href="https://structaly.com/blog/where-orders-get-lost" /><meta property="og:url" content="https://structaly.com/blog/where-orders-get-lost" /><meta property="og:image" content="https://structaly.com/assets/og/where-orders-get-lost.png" /><meta property="og:image:secure_url" content="https://structaly.com/assets/og/where-orders-get-lost.png" /><meta name="twitter:image" content="https://structaly.com/assets/og/where-orders-get-lost.png" /><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://structaly.com/blog/where-orders-get-lost#article","headline":"漏單通常斷在哪一步","description":"LINE 訂單不只會在訊息被洗掉時漏掉。從沒看到、看了沒記、抄錯、電話改單，到截單後併錯總表，逐一拆解人工怎麼補、系統能接哪一段。","datePublished":"2026-09-05","dateModified":"2026-09-05","author":{"@id":"https://structaly.com/#organization"},"publisher":{"@id":"https://structaly.com/#organization"},"mainEntityOfPage":"https://structaly.com/blog/where-orders-get-lost","inLanguage":"zh-Hant-TW","wordCount":2013,"articleSection":"實務做法","keywords":["漏單原因","LINE 訂單漏掉","避免漏單","批發接單"],"image":"https://structaly.com/assets/og/where-orders-get-lost.png"},{"@type":"BreadcrumbList","@id":"https://structaly.com/blog/where-orders-get-lost#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://structaly.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://structaly.com/blog"},{"@type":"ListItem","position":3,"name":"漏單通常斷在哪一步","item":"https://structaly.com/blog/where-orders-get-lost"}]}]}</script><!-- 絕對網址區到此為止 -->
+<title>LINE 訂單為什麼漏掉？五個漏單斷點｜訂單秘書</title><meta name="description" content="LINE 訂單不只會在訊息被洗掉時漏掉。從沒看到、看了沒記、抄錯、電話改單，到截單後併錯總表，逐一拆解人工怎麼補、系統能接哪一段。" /><meta name="robots" content="index, follow" /><meta property="og:type" content="article" /><meta property="og:title" content="漏單通常斷在哪一步" /><meta property="og:description" content="五個斷點逐一看：怎麼斷、人工怎麼補、系統怎麼接。" /><meta property="og:site_name" content="訂單秘書" /><meta property="og:locale" content="zh_TW" /><meta property="article:published_time" content="2026-09-05" /><meta property="article:modified_time" content="2026-09-05" /><meta property="article:author" content="訂單秘書" /><meta property="article:section" content="實務做法" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="漏單通常斷在哪一步" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="漏單通常斷在哪一步" /><meta name="twitter:description" content="從訊息進來到總表定版，找出五個常見斷點。" /><link rel="alternate" type="application/rss+xml" title="訂單秘書部落格 RSS" href="https://structaly.com/blog/feed.xml" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" /><link rel="stylesheet" href="/assets/trade.css" /><link rel="stylesheet" href="/assets/blog.css" /><script>(function(){try{if(window.matchMedia&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.className+=" js-anim";}catch(e){}})();</script><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
+</head>
+<body><div class="reading-progress" aria-hidden="true"></div><header><div class="wrap nav"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">訂單秘書</span></a><a class="nav-cta" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></header><main>
+<section class="hero blog-hero"><div class="wrap"><nav class="crumb"><a href="/">首頁</a><span class="sep">›</span><a href="/blog">部落格</a><span class="sep">›</span><span aria-current="page">漏單斷點</span></nav><p class="eyebrow">實務做法</p><h1>漏單通常斷在哪一步</h1><p class="hero-sub">不是每一筆漏單都叫「沒看到」。沿著訊息、抄單、改單到總表走一次，才知道該補哪個洞。</p><p class="article-meta"><span>作者：訂單秘書</span><time datetime="2026-09-05">2026-09-05</time></p></div></section>
+<article class="article-body"><div class="wrap article-wrap"><div class="tldr"><span class="tldr-label">一句話</span><p>漏單常斷在五處：訊息沒看到、看了沒記、抄錯或重複、電話改單沒同步、截單後又改總表；先找出是哪個斷點，再用確認紀錄、狀態與加單標記補上。</p></div><p class="article-lead">客人說沒收到，你回去翻群組，明明看得到那句叫貨。問題可能不是訊息不存在，而是它從聊天走到出貨的中間某一步沒有接上。只說「下次看仔細一點」，通常同一種漏法還會再來。</p>
+<nav class="article-toc" aria-label="文章目錄"><strong>沿著五個斷點找</strong><ol><li><a href="#washed-away">被閒聊洗掉</a></li><li><a href="#saw-not-recorded">看到了但沒記</a></li><li><a href="#copied-wrong">抄成兩筆或錯單位</a></li><li><a href="#phone-change">電話改單版本不同</a></li><li><a href="#late-merged">加單併壞總表</a></li><li><a href="#limits">系統補得到與補不到</a></li></ol></nav>
+
+<h2 id="washed-away">斷點一：訊息被閒聊和問價洗掉</h2>
+<p><strong>怎麼斷的：</strong>群裡不只叫貨。客人問今天價格、傳照片、聊天，下午的叫貨很快被壓到上面。你晚上從最新訊息往回滑，以為已經看到最早一筆，其實中間漏了一句。</p>
+<p><strong>人工怎麼補：</strong>固定時段逐群查看，把看過的位置做記號；要求店裡的人看到叫貨就轉貼到一個專門記事的地方。這可以降低漏掉，但同一筆被兩個人轉貼時，又可能變成重複。</p>
+<p><strong>系統怎麼接：</strong>辨識到叫貨後先整理成訂單卡，閒聊不算訂單。你不必只靠晚上回頭滑完整個群，還能看待處理的單。但不確定的訊息應標「？」而不是硬猜。</p>
+<figure class="article-figure article-chat" data-rv><div class="chat"><p class="chat-meta"><span>餐廳叫貨群</span><span class="num">17:26–17:41</span></p><span class="chat-bubble">明天餐盒兩箱、杯蓋一箱</span><p class="chat-meta" style="margin-top:12px"><span>後續訊息</span><span>問價、照片、聊天……</span></p></div><figcaption>叫貨句子沒有消失，只是離你晚上開始抄單的位置很遠。第一個斷點發生在「根本沒看到」。</figcaption></figure>
+
+<h2 id="saw-not-recorded">斷點二：看到了，想說等一下再處理</h2>
+<p><strong>怎麼斷的：</strong>你正在搬貨、接電話或開車，通知跳出來時看過內容，心裡先記著。忙完後 LINE 已經沒有未讀提示，這筆就像處理過一樣。直到客人問貨在哪裡，才想起自己確實看過。</p>
+<p><strong>人工怎麼補：</strong>當下不能抄，也要做一個明確標記，例如固定轉到待辦群、在紙上畫一格。重點不是記憶力，而是讓「看過」和「已經進單」成為兩個不同狀態。</p>
+<p><strong>系統怎麼接：</strong>如果叫貨已被整理成訂單卡，老闆端可以看到它是否仍待確認、是否已收進訂單。可是人在電話裡聽到、卻沒有任何人留下內容，系統也不可能憑空補出來。</p>
+<div class="note-box"><h3>不要把已讀當成已處理</h3><p>LINE 的已讀只代表某個人打開過訊息，不代表品項、數量和單位已經進入今天的單。流程需要另一個可追的狀態。</p></div>
+
+<h2 id="copied-wrong">斷點三：記了，卻抄成兩筆或抄錯單位</h2>
+<p><strong>怎麼斷的：</strong>客人下午先說一箱，晚上補一句「再一箱」，你把兩句都當成完整訂單，或只留下最後一箱。同一樣貨有人叫正式名、有人叫簡稱，加總時被分成兩列。包、箱、斤看快了，也可能抄錯。</p>
+<p><strong>人工怎麼補：</strong>每一筆都保留客戶、時間與原句，修改用劃掉或新欄，不直接覆蓋。加總前先統一名稱，單位不同就分開，不靠心算硬換。這比較慢，但至少能往回查。</p>
+<p><strong>系統怎麼接：</strong>把口語整理成品項、數量與單位，透過別名對照把確認過的同義叫法收在一起。名字或單位有疑問就停在「？」。詳細作法可看<a href="/blog/product-alias-mapping">別名對照表怎麼建</a>。</p>
+<figure class="article-figure" data-rv><div class="compare-scroll"><div class="compare-pair"><div class="compare-side"><h3>人工怎麼補</h3><p>保留原句與時間；修改不覆蓋；加總前統一名稱；不同單位分開。</p></div><div class="compare-side is-system"><h3>系統怎麼接</h3><p>整理成訂單卡；客人確認；已教過的別名對回品項；不確定就標問號。</p></div></div></div><figcaption>系統減少重抄，不代表能替你判斷所有規格。兩邊都必須守住「不確定不要合併」。</figcaption></figure>
+
+<h2 id="phone-change">斷點四：客人後來電話改了，版本沒同步</h2>
+<p><strong>怎麼斷的：</strong>群裡原本寫五包，客人電話說改三包。接電話的人在紙上改了，另一個人仍照 LINE 原句備貨；或 Excel 被覆蓋成三包，月底只看得到結果，卻不知道誰在什麼時候改。</p>
+<p><strong>人工怎麼補：</strong>電話結束後，立刻在原群回一則「剛才電話確認，改三包」，請客人看過。店內表格不要只改數字，要留修改時間與原因。口頭內容若沒有落在共同看得到的地方，就一定有兩個版本。</p>
+<p><strong>系統怎麼接：</strong>訂單台的修改可以留下紀錄，但前提仍是有人把電話內容輸入。它不能偷聽電話，也不能知道客人心裡其實想改。月底需要查時，確認過的訂單與修改才有順序可看。你也可以接著讀<a href="/blog/line-order-reconciliation-csv">LINE 訂單月底怎麼對帳</a>。</p>
+
+<h2 id="late-merged">斷點五：過了截單才進來，卻併進已算好的總表</h2>
+<p><strong>怎麼斷的：</strong>正式總表已經算好，市場的人照舊數字調貨。晚來的訂單直接改了畫面上的總量，店裡的人看到新數字，以為市場也知道；結果不是少貨，就是重複補一次。</p>
+<p><strong>人工怎麼補：</strong>截單後另開一張加單表，任何差額都要通知已經開始備貨的人。不要擦掉正式版原數字。最後若收下加單，再記錄怎麼補、由誰知道。</p>
+<p><strong>系統怎麼接：</strong>過線後的單標成加單，不偷偷混進正式總表。它讓你看見差額，但接不接仍由你決定。原因與做法可看<a href="/blog/order-cutoff-and-late-orders">截單時間與加單怎麼處理</a>。</p>
+<figure class="article-figure" data-rv><div class="sheet sheet-lite article-sheet"><div class="sheet-head"><span>五個斷點</span><span class="num">位置不同，補法不同</span></div><div class="sheet-scroll"><table><thead><tr><th>斷點</th><th>真正少掉的是</th><th>該補的狀態</th></tr></thead><tbody><tr><td>沒看到</td><td>叫貨入口</td><td><span class="tag-ask">待處理</span></td></tr><tr><td>看了沒記</td><td>已讀到訂單</td><td><span class="tag-ask">未進單</span></td></tr><tr><td>抄錯</td><td>原句到品項</td><td><span class="tag-ask">待確認</span></td></tr><tr><td>電話改單</td><td>共同版本</td><td><span class="tag-ask">修改留痕</span></td></tr><tr><td>截單後併入</td><td>總表定版</td><td><span class="tag-ask">加單</span></td></tr></tbody></table></div></div><figcaption>先指出斷在哪裡，才知道要增加「待處理、待確認、修改或加單」哪一種狀態。</figcaption></figure>
+
+<h2 id="limits">先講清楚：系統補得了三段，不是所有事</h2>
+<div class="note-box is-honest"><h3>能接住 1、3、5；接不住沒說出口的單</h3><p>訂單秘書能把群裡的叫貨從閒聊分開、整理品項與單位並標出問號，也能把截單後的單標為加單。它能補的是第一、第三與第五個斷點。</p><p>客人根本沒講、只在電話裡講卻沒人記，系統補不了。它也不會替你決定晚來的單要不要接。第二與第四個斷點仍需要店內養成一個動作：看過但未處理要留狀態，電話改單要回到共同紀錄。</p></div>
+<p>避免漏單不是要求每個人更小心，而是讓每一步都有清楚的下一站。你可以先拿最近一筆漏單，沿著五個斷點找它在哪裡消失，再決定要補流程還是換工具。想先看完整交接點，可讀<a href="/blog/line-group-order-to-picking-list">從群組叫貨到出貨總表的六步</a>；若要衡量反覆補洞花了多少，再用<a href="/blog/manual-order-taking-hidden-cost">人工抄單的三筆帳</a>自己算。</p>
+<p>餐飲耗材的補貨常一張訊息很多行，又會碰到截單後臨時追加。可對照<a href="/trades/supplies">餐飲耗材與包材行的 LINE 收單</a>，看看同一個斷點在你的作業裡會長什麼樣子。</p>
+<div class="article-end"><div class="author-box"><img src="/assets/line-avatar-flat.svg" alt="訂單秘書品牌頭像" width="64" height="64" /><div><h2 id="author-title">訂單秘書</h2><p>我們做給批發供應商用的 LINE 收單服務。文章寫的是每天在處理的叫貨、確認、截單、總表與對帳。</p></div></div><div class="related"><h2 id="related-title">相關文章</h2><div class="related-grid"><a class="related-card" href="/blog/order-cutoff-and-late-orders"><span>實務做法</span><strong>截單與加單怎麼處理</strong></a><a class="related-card" href="/blog/product-alias-mapping"><span>實務做法</span><strong>別名對照表怎麼建</strong></a><a class="related-card" href="/blog/manual-order-taking-hidden-cost"><span>選型決策</span><strong>人工抄單成本自己算</strong></a></div></div><div class="article-cta"><p>拿最近一筆漏單沿著五步找，比一句「以後小心」更有用。</p><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></div>
+</div></article></main><div class="mobile-cta"><span>找出漏單斷點</span><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 試用</a><button class="mobile-cta-close" type="button" aria-label="關閉">×</button></div><footer><div class="wrap"><span>訂單秘書 © 2026</span><span><a href="/">首頁</a>　·　<a href="/blog">部落格</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span><span>a tripdaynday service</span></div></footer><script src="/assets/trade.js"></script><script src="/assets/blog.js"></script></body></html>

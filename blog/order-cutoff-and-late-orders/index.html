@@ -1,0 +1,73 @@
+<!doctype html><html lang="zh-Hant-TW"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- 絕對網址區（換網域時只改這一區） --><link rel="canonical" href="https://structaly.com/blog/order-cutoff-and-late-orders" /><meta property="og:url" content="https://structaly.com/blog/order-cutoff-and-late-orders" /><meta property="og:image" content="https://structaly.com/assets/og/order-cutoff-and-late-orders.png" /><meta property="og:image:secure_url" content="https://structaly.com/assets/og/order-cutoff-and-late-orders.png" /><meta name="twitter:image" content="https://structaly.com/assets/og/order-cutoff-and-late-orders.png" /><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://structaly.com/blog/order-cutoff-and-late-orders#article","headline":"截單時間怎麼設，過了截單的加單怎麼算","description":"截單不是隨便訂一個整點，而是從市場調貨或工廠出貨的時間往回推。過線後的訂單另外標成加單，才不會讓已算好的總表失效。","datePublished":"2026-09-05","dateModified":"2026-09-05","author":{"@id":"https://structaly.com/#organization"},"publisher":{"@id":"https://structaly.com/#organization"},"mainEntityOfPage":"https://structaly.com/blog/order-cutoff-and-late-orders","inLanguage":"zh-Hant-TW","wordCount":1778,"articleSection":"實務做法","keywords":["截單時間","加單處理","批發截單","出貨總表"],"image":"https://structaly.com/assets/og/order-cutoff-and-late-orders.png"},{"@type":"BreadcrumbList","@id":"https://structaly.com/blog/order-cutoff-and-late-orders#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://structaly.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://structaly.com/blog"},{"@type":"ListItem","position":3,"name":"截單時間怎麼設，過了截單的加單怎麼算","item":"https://structaly.com/blog/order-cutoff-and-late-orders"}]}]}</script><!-- 絕對網址區到此為止 -->
+<title>截單時間怎麼設？過了截單的加單怎麼算｜訂單秘書</title><meta name="description" content="截單不是隨便訂一個整點，而是從市場調貨或工廠出貨的時間往回推。過線後的訂單另外標成加單，才不會讓已算好的總表失效。" /><meta name="robots" content="index, follow" /><meta property="og:type" content="article" /><meta property="og:title" content="截單時間怎麼設，過了截單的加單怎麼算" /><meta property="og:description" content="從備貨時間往回推一條線，過線的單另外標出來。" /><meta property="og:site_name" content="訂單秘書" /><meta property="og:locale" content="zh_TW" /><meta property="article:published_time" content="2026-09-05" /><meta property="article:modified_time" content="2026-09-05" /><meta property="article:author" content="訂單秘書" /><meta property="article:section" content="實務做法" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="截單時間怎麼設，過了截單的加單怎麼算" /><meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="截單時間怎麼設，過了截單的加單怎麼算" /><meta name="twitter:description" content="過線的單另標加單，才不會讓總表一直變。" /><link rel="alternate" type="application/rss+xml" title="訂單秘書部落格 RSS" href="https://structaly.com/blog/feed.xml" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" /><link rel="stylesheet" href="/assets/trade.css" /><link rel="stylesheet" href="/assets/blog.css" /><script>(function(){try{if(window.matchMedia&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.className+=" js-anim";}catch(e){}})();</script><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
+</head>
+<body><div class="reading-progress" aria-hidden="true"></div><header><div class="wrap nav"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 11h16M8 16h16M8 21h10" stroke="#EDF0EA" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">訂單秘書</span></a><a class="nav-cta" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></header><main>
+<section class="hero blog-hero"><div class="wrap"><nav class="crumb"><a href="/">首頁</a><span class="sep">›</span><a href="/blog">部落格</a><span class="sep">›</span><span aria-current="page">截單與加單</span></nav><p class="eyebrow">實務做法</p><h1>截單時間怎麼設，過了截單的加單怎麼算</h1><p class="hero-sub">截單不是不近人情。它是告訴所有人：這一刻之後，已經算好的總表不能再偷偷變。</p><p class="article-meta"><span>作者：訂單秘書</span><time datetime="2026-09-05">2026-09-05</time></p></div></section>
+<article class="article-body"><div class="wrap article-wrap"><div class="tldr"><span class="tldr-label">一句話</span><p>截單時間要從你去市場、備貨或叫工廠出貨的時間往回推；過線後的單獨立標成「加單」，不要併進已算好的總表，至於接不接、要不要加價仍由你決定。</p></div><p class="article-lead">沒有截單，總表就永遠是一份活的草稿。你剛把高麗菜加總好，客人又補三顆；撿貨的人手上還是舊數字，另一個人卻以為系統已經算進去。錯不是出在誰沒看訊息，而是大家不知道哪一版算數。</p>
+<nav class="article-toc" aria-label="文章目錄"><strong>把那條線訂清楚</strong><ol><li><a href="#meaning">截單真正的用途</a></li><li><a href="#work-back">從出貨往回推</a></li><li><a href="#late-order">為什麼加單要分開</a></li><li><a href="#trade-patterns">三種產業的截單型態</a></li><li><a href="#routine">每天怎麼執行</a></li><li><a href="#business-call">系統不替你做的決定</a></li></ol></nav>
+
+<h2 id="meaning">截單的意義，是讓備貨有一個確定版本</h2>
+<p>備貨和調貨都要有一條「到此為止」的線。線以前的訂單進正式總表，大家照這一版去市場、向工廠叫貨、揀貨裝箱。線以後進來的，不是假裝沒看到，而是換一種狀態處理。</p>
+<p>很多店家有口頭截單，客人也大概知道。但店裡沒有一個明確動作把當天總表定版。有人晚上先列印，有人早上再打開 Excel；只要中間多一筆，兩份就不同。截單要處理的正是這個版本問題。</p>
+<figure class="article-figure" data-rv><div class="process-scroll"><div class="process-flow"><div class="process-step"><b>訊息</b><span>客人照常叫貨</span></div><div class="process-step"><b>訂單卡</b><span>品項與數量整理好</span></div><div class="process-step"><b>確認</b><span>客人按「✓ 沒錯」</span></div><div class="process-step"><b>截單</b><span>正式總表在此定版</span></div><div class="process-step"><b>總表</b><span>同品項按單位加總</span></div><div class="process-step"><b>出車</b><span>加單另行處理</span></div></div></div><figcaption>截單是流程裡的分界，不是把 LINE 關掉。前面的單進正式總表，後面的單另標加單。</figcaption></figure>
+<p>完整的訊息到總表流程，可以對照<a href="/blog/line-group-order-to-picking-list">客人在 LINE 群裡隨口叫貨，怎麼變成隔天出貨總表</a>。截單只是其中一步，卻決定後面的人看的是不是同一份。</p>
+
+<h2 id="work-back">不要先挑一個整點，從你必須動手的時間往回推</h2>
+<p>先寫下最晚什麼時候要去市場、送出工廠訂單，或開始把貨從倉裡揀出來。再往回算：看完待確認品項要多久、整理總表要多久、客人需要多少時間回覆「？」。留一段能處理例外的空間，那個時間才是你的截單線。</p>
+<p>例如你凌晨要去市場，晚上就必須把正式總量定下來。若供應商要求前一天下午收到訂單，你的截單自然要更早。不要照別家寫「晚上十點」就直接抄過來。兩家的供貨時間、車趟與人手不同，同一行也未必一樣。</p>
+<figure class="article-figure" data-rv><div class="day"><div class="day-row"><span class="day-time">出貨前</span><div class="day-what"><h3>先確定不能再晚的動作</h3><p>去市場、叫工廠出貨，或開始揀貨。</p></div></div><div class="day-row"><span class="day-time">往回推</span><div class="day-what"><h3>保留確認與整理時間</h3><p>處理問號、修改，再產出正式總表。</p></div></div><div class="day-row"><span class="day-time">截單線</span><div class="day-what"><h3>對內對外都用同一時間</h3><p>過線後的新單一律標為加單。</p></div></div></div><figcaption>截單時間來自你的作業，而不是一個大家看起來順眼的整點。</figcaption></figure>
+
+<h2 id="late-order">過了截單，為什麼不能直接併進總表</h2>
+<p>假設正式總表已經寫高麗菜四十顆。市場的人照四十顆買，店裡的人照四十顆分。此時加進三顆，畫面變成四十三顆，但已經動手的人不會自動知道。有人看四十、有人看四十三，總表失去「大家照這份做」的作用。</p>
+<p>把遲來的單標成「加單」，表示它要另外確認貨源、另外告知備貨的人，而且不能假設已經在原本那一趟裡。即使最後決定接受，也應留下它是過線後加入，讓大家知道差額從哪裡來。</p>
+<figure class="article-figure" data-rv><div class="sheet sheet-lite article-sheet"><div class="sheet-head"><span>截單後的處理</span><span class="num">正式版 + 加單</span></div><div class="sheet-scroll"><table><thead><tr><th>品項</th><th>正式總表</th><th>加單</th><th>備貨時怎麼看</th></tr></thead><tbody><tr><td>高麗菜</td><td class="qty">40 顆</td><td class="qty"><span class="tag-ask">+3 顆</span></td><td>原量不改，另外確認三顆</td></tr><tr><td>青蔥</td><td class="qty">18 把</td><td><span class="tag-wait">無</span></td><td>照正式總表</td></tr></tbody></table></div></div><figcaption>加單不是消失，也不是偷偷重算；它和已定版的數字並排，讓撿貨的人看見差額。</figcaption></figure>
+
+<h2 id="trade-patterns">不同行，截單型態不一樣</h2>
+<h3>蔬果：晚上截，凌晨去市場</h3><p>餐廳收店前後補完隔天用量，你晚上整理，凌晨要去市場。正式總表必須在出發前定版。過線後客人又加一簍菜，要先看市場是否來得及調，不宜直接塞進原表。可看<a href="/trades/vegetable">蔬果行的接單時間軸</a>。</p>
+<h3>餐飲耗材：下午截，配合倉內揀貨</h3><p>耗材行可能下午就開始排隔天車趟、從倉裡揀紙杯和餐盒。客人傍晚追加一箱，貨也許有，但原本棧板或路線已整理。這筆應標加單，再看能不能放進同一車。<a href="/trades/supplies">餐飲耗材的收單場景</a>說的就是常態補貨與臨時追加。</p>
+<h3>烘焙原料：前一天截，工廠或供應商要先準備</h3><p>某些原料不是清晨臨時拿得到。你需要前一天把規格與數量送出去。這類截單要留更長的確認時間，尤其名稱相近、包裝不同時，問號沒處理完就不能當成正式量。</p>
+
+<h2 id="routine">每天執行時，讓所有人只認一個狀態</h2>
+<p>截單前，先看還有哪些「？」待確認，提醒店內負責的人處理。到時間後，把正式總表當成當天基準。後來的新訊息與修改都標加單，並讓實際備貨的人知道。不要在不同群組、紙本和 Excel 各自改一次，卻沒有一個共同版本。</p>
+<p>隔天收尾時，再看哪些加單有接、哪些沒接，留下結果。久了你會看見哪些客人常過線、哪種品項最難臨時補，才有依據調整溝通方式。這不是為了處罰晚下單，而是讓作業能預期。</p>
+
+<h2 id="business-call">先講清楚：加單要不要收，是你的生意判斷</h2>
+<div class="note-box is-honest"><h3>系統只標出來，不替你答應或拒絕</h3><p>加單要不要收、要不要加價，要看貨源、客情、車趟與你當天的人手。訂單秘書不會替你決定，也不會自動幫你拒絕客人。</p><p>它做的是把過線後的單標出來，避免你以為它已經混進正式總表。最後接不接、怎麼回，仍由你處理。</p></div>
+<p>一條好用的截單線，不是完全沒有例外，而是例外一出現就看得見。正式總表保持穩定，加單另外處理，早上撿貨的人才不必猜手上的數字是不是又變了。</p>
+<div class="article-end"><div class="author-box"><img src="/assets/line-avatar-flat.svg" alt="訂單秘書品牌頭像" width="64" height="64" /><div><h2 id="author-title">訂單秘書</h2><p>我們做給批發供應商用的 LINE 收單服務。文章寫的是每天在處理的叫貨、確認、截單、總表與對帳。</p></div></div><div class="related"><h2 id="related-title">相關文章</h2><div class="related-grid"><a class="related-card" href="/blog/line-group-order-to-picking-list"><span>實務做法</span><strong>叫貨訊息怎麼變總表</strong></a><a class="related-card" href="/blog/where-orders-get-lost"><span>實務做法</span><strong>漏單的五個斷點</strong></a><a class="related-card" href="/blog/manual-order-taking-hidden-cost"><span>選型決策</span><strong>人工抄單成本自己算</strong></a></div></div><div class="article-cta"><p>如果你的總表每天都被晚來的訊息改動，可以先把目前截單與備貨時間拿來看。</p><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 開始試用</a></div></div>
+</div></article></main><div class="mobile-cta"><span>讓總表有一條線</span><a class="btn btn-primary" data-oa-link href="https://line.me/R/ti/p/@659okblk">加 LINE 試用</a><button class="mobile-cta-close" type="button" aria-label="關閉">×</button></div><footer><div class="wrap"><span>訂單秘書 © 2026</span><span><a href="/">首頁</a>　·　<a href="/blog">部落格</a>　·　<a href="/privacy">隱私政策</a>　·　<a href="/terms">服務條款</a></span><span>a tripdaynday service</span></div></footer><script src="/assets/trade.js"></script><script src="/assets/blog.js"></script></body></html>

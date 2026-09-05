@@ -1,0 +1,33 @@
+# 訂單秘書
+
+> 給食材行、材料行、耗材行等批發供應商用的 LINE 收單服務。客人在原本群組用口語叫貨，系統整理成訂單卡、出貨總表與可匯出的對帳紀錄；沒把握的品項會標「？」請人確認，不自行猜測。
+
+## 主要頁面
+
+- [訂單秘書](https://structaly.com/): 產品做法、適用對象、目前功能、價格與明確未提供的功能。
+- [訂單秘書部落格](https://structaly.com/blog): 給批發供應商看的 LINE 接單、備貨與對帳實務文章。
+
+## 產業別收單
+
+- [蔬果行的 LINE 收單](https://structaly.com/trades/vegetable): 口語菜名、顆把斤簍等單位與隔天備貨總表的現場。
+- [肉品行、魚貨商的 LINE 收單](https://structaly.com/trades/meat): 規格、部位與分切不能猜的接單現場。
+- [五金行、建材行的 LINE 收單](https://structaly.com/trades/hardware): 同一品項多種叫法與規格確認的接單現場。
+- [餐飲耗材、包材行的 LINE 收單](https://structaly.com/trades/supplies): 常態補貨、截單與臨時加單的處理方式。
+- [烘焙材料行、食品原料行的 LINE 收單](https://structaly.com/trades/bakery): 相近品名、規格與單位需要確認的接單現場。
+- [飲料、酒水經銷的 LINE 收單](https://structaly.com/trades/beverage): 多行叫貨、箱瓶單位與月底匯出對帳的現場。
+
+## 接單與對帳文章
+
+- [人工抄單，一個月其實花掉你多少](https://structaly.com/blog/manual-order-taking-hidden-cost): 用自己的工時、貨損與對帳時間算人工抄單成本。
+- [什麼時候該上 ERP，什麼時候先不用](https://structaly.com/blog/line-order-vs-erp): 分清楚整間公司的帳與群組接單是兩段工作。
+- [LINE 接單系統怎麼選](https://structaly.com/blog/line-order-system-how-to-choose): 公平比較團購工具、ERP 型 B2B 平台與群組收單。
+- [漏單通常斷在哪一步](https://structaly.com/blog/where-orders-get-lost): 從訊息、抄單、改單到總表找出五個漏單斷點。
+- [截單時間與加單怎麼處理](https://structaly.com/blog/order-cutoff-and-late-orders): 從備貨時間回推截單線，過線的單另外標示。
+- [品項別名對照表怎麼建](https://structaly.com/blog/product-alias-mapping): 三種可以對的別名與一種不能自動合併的近似品。
+- [LINE 群組訂單怎麼變出貨總表](https://structaly.com/blog/line-group-order-to-picking-list): 從口語訊息、確認、截單到早上撿貨的完整流程。
+- [LINE 訂單月底怎麼對帳](https://structaly.com/blog/line-order-reconciliation-csv): 從確認與修改紀錄到 CSV 匯出與 Excel 核對。
+
+## 法律文件
+
+- [隱私政策](https://structaly.com/privacy): 訂單秘書蒐集、使用、保存與保護資料的說明。
+- [服務條款](https://structaly.com/terms): 使用訂單秘書服務時適用的權利、責任與限制。

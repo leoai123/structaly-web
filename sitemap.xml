@@ -52,8 +52,63 @@
   </url>
 
   <url>
+    <loc>https://structaly.com/blog</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/line-order-system-how-to-choose</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/line-group-order-to-picking-list</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/line-order-reconciliation-csv</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/manual-order-taking-hidden-cost</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/line-order-vs-erp</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/product-alias-mapping</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/order-cutoff-and-late-orders</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://structaly.com/blog/where-orders-get-lost</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://structaly.com/privacy</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

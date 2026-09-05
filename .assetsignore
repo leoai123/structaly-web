@@ -10,3 +10,4 @@ node_modules
 README.md
 wrangler.jsonc
 set-base-url.sh
+tools/

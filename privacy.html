@@ -35,7 +35,7 @@
 <!-- ===================== 絕對網址區到此為止 ===================== -->
 
 <title>隱私政策｜訂單秘書</title>
-<meta name="description" content="訂單秘書如何蒐集、使用與保護群組訊息與訂單資料——寫給老闆，也寫給群組裡的每一位。" />
+<meta name="description" content="訂單秘書如何蒐集、使用與保護群組訊息與訂單資料，以及這個網站的 Cookie 與 Google Analytics 分析說明——寫給老闆，也寫給群組裡的每一位。" />
 <meta name="robots" content="index, follow" />
 <meta property="og:title" content="隱私政策｜訂單秘書" />
 <meta property="og:description" content="訂單秘書如何蒐集、使用與保護群組訊息與訂單資料——寫給老闆，也寫給群組裡的每一位。" />
@@ -162,6 +162,41 @@
 
   a:focus-visible { outline: 2px solid var(--leaf); outline-offset: 3px; }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-13ZFSYVYXR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-13ZFSYVYXR');
+
+  /* 轉換事件。用事件委派掛在 document 上，所以不必等 DOM 就緒、新頁面也自動適用。
+     [data-oa-link] 是站上每一個「加 LINE」按鈕的共同標記（trade.js 也是靠它改寫 href），
+     剛好等於「連往 LINE 官方帳號」這個集合；.btn-ghost 的 mailto 不帶這個屬性。
+     mailto 連結 GA4 的加強型評估抓不到（不是 http 連結），所以另外記一個。
+     點擊後頁面會跳走，但 GA4 預設用 sendBeacon 送事件，卸載後仍會送達。 */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+
+    var oa = t.closest('[data-oa-link]');
+    if (oa) {
+      gtag('event', 'cta_line_click', {
+        cta_location: oa.classList.contains('nav-cta') ? 'nav' : 'body',
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+      return;
+    }
+
+    var mail = t.closest('a[href^="mailto:"]');
+    if (mail) {
+      gtag('event', 'cta_mail_click', {
+        page_group: location.pathname.split('/')[1] || 'home'
+      });
+    }
+  });
+</script>
 </head>
 <body>
 
@@ -182,7 +217,7 @@
     <p class="eyebrow">PRIVACY POLICY</p>
     <h1>隱私政策</h1>
     <p class="page-sub">這一頁寫給使用訂單秘書的老闆，也寫給群組裡的每一位客人。我們把話講清楚：收什麼、怎麼用、你的權利是什麼。</p>
-    <p class="updated">最後更新：2026-08-24</p>
+    <p class="updated">最後更新：2026-09-05</p>
   </div>
 </div>
 
@@ -193,45 +228,26 @@
       <h2>先講白話版</h2>
       <p>訂單秘書是一個 LINE 機器人。老闆把它拉進客戶群之後，它會<strong>看到群組裡的訊息</strong>，工作只有一件：把「叫貨」的訊息整理成訂單。跟訂貨無關的聊天、貼圖、照片，它不做整理、不拿去做別的用途。</p>
       <p>訂單資料只有這家供應商自己看得到；你隨時可以要求把資料刪掉，或請老闆把機器人移出群組。</p>
+      <p>另外，<strong>這個網站</strong>本身有裝 Google Analytics，用來看有多少人來看、看了哪幾頁，也會用於廣告成效衡量與再行銷。那跟機器人是兩回事，寫在第 06 節。</p>
     </div>
 
     <article>
-
       <section>
         <h2><span class="sec-no">01</span>我們是誰</h2>
-        <p>「訂單秘書」是 tripdaynday（下稱「我們」）提供的服務，幫食材行、材料行等中小供應商（下稱「供應商」）把 LINE 群組裡的叫貨訊息整理成訂單。本政策依台灣《個人資料保護法》向你說明我們如何蒐集、處理及利用個人資料。</p>
+        <p>「訂單秘書」是 tripdaynday（下稱「我們」）提供的服務，幫食材行、材料行等中小供應商（下稱「供應商」）把 LINE 群組裡的叫貨訊息整理成訂單。本政策依台灣《個人資料保護法》說明我們如何蒐集、處理及利用個人資料，範圍包含<strong>機器人在群組裡處理的資料</strong>，以及<strong>你瀏覽這個網站時產生的資料</strong>——這是兩件不同的事，下面分開講。</p>
       </section>
 
       <section>
-        <h2><span class="sec-no">02</span>機器人進群後，會收到什麼</h2>
-        <p>老闆把訂單秘書加入客戶群後，依 LINE 平台的運作方式，機器人會<strong>接收該群組內的訊息</strong>，包括：</p>
-        <ul>
-          <li>訊息文字內容</li>
-          <li>發訊者的 LINE 顯示名稱與識別碼（LINE 提供的 user ID，不是你的電話號碼）</li>
-          <li>發訊時間、所屬群組</li>
-        </ul>
-        <p>這是機器人能運作的前提，我們不迴避這一點——所以才用這一整頁把後續怎麼處理講清楚。</p>
-      </section>
-
-      <section>
-        <h2><span class="sec-no">03</span>蒐集目的與利用方式</h2>
-        <p>我們處理群組訊息的目的<strong>只有一個：訂單解析與整理</strong>。具體來說：</p>
-        <ul>
-          <li>判斷一則訊息是不是叫貨（例如「明天送雞腿 3 箱」）</li>
-          <li>把叫貨訊息整理成訂單：品項、數量、客戶、時間</li>
-          <li>產生出貨總表、對帳表，供該供應商使用</li>
-        </ul>
+        <h2><span class="sec-no">02</span>機器人在群組裡收到什麼、拿來做什麼</h2>
+        <p>老闆把訂單秘書加入客戶群後，依 LINE 平台的運作方式，機器人會<strong>接收該群組內的訊息</strong>：訊息文字、發訊者的 LINE 顯示名稱與識別碼（LINE 提供的 user ID，不是你的電話號碼）、發訊時間與所屬群組。這是機器人能運作的前提，我們不迴避這一點。</p>
+        <p>處理這些訊息的目的<strong>只有一個：訂單解析與整理</strong>——判斷一則訊息是不是叫貨、整理成品項與數量、產生出貨總表與對帳表給該供應商使用。訊息內容會經由 AI 服務解析，僅為完成這個目的所必要。</p>
         <p>判斷為<strong>與訂貨無關</strong>的訊息（日常聊天、貼圖、與訂單無關的圖片），我們不做整理、不建檔分析、不作任何其他利用。</p>
-        <p>我們<strong>不會</strong>把你的資料拿去投放廣告、賣給第三方，或用於訂單服務以外的目的。訊息內容會經由 AI 服務進行解析，僅為完成上述目的所必要。</p>
+        <p class="note"><strong>群組訊息與訂單資料不會用於廣告投放，也不會賣給第三方。</strong>這一段講的是機器人；你在這個網站上的瀏覽行為是另一回事，寫在第 06 節。</p>
       </section>
 
       <section>
-        <h2><span class="sec-no">04</span>各供應商資料嚴格隔離</h2>
+        <h2><span class="sec-no">03</span>資料隔離、保存與刪除</h2>
         <p>每一家供應商的訂單資料各自獨立儲存與呈現。A 食材行永遠看不到 B 材料行的任何資料；同一家供應商的不同客戶群之間，訂單也各自獨立，別的客戶看不到你的叫貨內容。</p>
-      </section>
-
-      <section>
-        <h2><span class="sec-no">05</span>資料保存與刪除</h2>
         <ul>
           <li>訂單資料在供應商使用服務期間保存，供其查詢與對帳。</li>
           <li>供應商終止服務後，我們會在 <strong>30 天內</strong>刪除其全部訂單資料；這 30 天是留給老闆匯出資料的緩衝期，老闆也可以要求立即刪除。</li>
@@ -241,45 +257,41 @@
       </section>
 
       <section>
-        <h2><span class="sec-no">06</span>群組成員（客人）的權利</h2>
-        <p>依《個人資料保護法》第 3 條，你對自己的個人資料有以下權利，且這些權利不能被要求放棄：</p>
+        <h2><span class="sec-no">04</span>你的權利</h2>
+        <p>依《個人資料保護法》第 3 條，你對自己的個人資料有<strong>查詢、閱覽、請求複本、補充或更正、停止蒐集處理利用，以及請求刪除</strong>的權利，這些權利不能被要求放棄。行使權利不需要任何費用。</p>
         <ul>
-          <li><strong>查詢、閱覽、請求複本</strong>：想知道我們整理了哪些跟你有關的訂單資料，可以向我們或供應商提出。</li>
-          <li><strong>補充或更正</strong>：資料有誤可以要求改。</li>
-          <li><strong>停止蒐集、處理、利用，及請求刪除</strong>：你可以要求我們刪除與你有關的資料。</li>
-          <li><strong>要求移除機器人</strong>：任何群組成員都可以要求供應商（群組的老闆）把訂單秘書移出群組；移出後即不再接收該群訊息。</li>
-        </ul>
-        <p class="note">行使權利不需要任何費用。若你不願意訊息被機器人接收，除了請老闆移除機器人，也可以改用其他方式向供應商叫貨（例如私訊或電話）。</p>
-      </section>
-
-      <section>
-        <h2><span class="sec-no">07</span>供應商（老闆）的權利：資料是你的</h2>
-        <ul>
-          <li>你可以<strong>隨時匯出</strong>自己的全部訂單資料（總表、對帳表），格式為通用的表格檔。</li>
-          <li>不續用服務時，資料可以完整帶走，我們不以任何方式留置。</li>
-          <li>你同時是客戶群組資料的管理者：客人向你提出移除機器人或刪除資料的要求時，請協助轉達或直接處理。</li>
+          <li><strong>群組成員（客人）</strong>：可以要求我們或供應商提供、更正或刪除與你有關的訂單資料，也可以要求供應商把機器人移出群組，移出後即不再接收該群訊息。若不願意訊息被機器人接收，也可以改用私訊或電話向供應商叫貨。</li>
+          <li><strong>供應商（老闆）</strong>：可以隨時匯出自己的全部訂單資料（總表、對帳表，格式為通用的表格檔），不續用服務時完整帶走，我們不以任何方式留置。你同時是客戶群組資料的管理者，客人提出要求時請協助轉達或直接處理。</li>
         </ul>
       </section>
 
       <section>
-        <h2><span class="sec-no">08</span>資料安全</h2>
+        <h2><span class="sec-no">05</span>資料安全</h2>
         <p>資料以加密連線傳輸，儲存於有存取控管的雲端資料庫，僅限維運所必要的人員與系統存取。若不幸發生資料外洩事故，我們會依法通知受影響的供應商與當事人。</p>
       </section>
 
       <section>
-        <h2><span class="sec-no">09</span>政策更新</h2>
+        <h2><span class="sec-no">06</span>這個網站的 Cookie 與分析</h2>
+        <p>這一節講的是<strong>你瀏覽這個網站</strong>時發生的事，跟上面的機器人是兩回事。</p>
+        <p>我們使用 Cookie 與類似技術，並使用 <strong>Google Analytics</strong> 了解網站的使用情況：有多少人造訪、看了哪些頁面、從哪裡連過來、停留多久、使用什麼裝置與瀏覽器，以及大致的所在地區。這些資料用來改善網站內容與我們提供的服務。</p>
+        <p>我們已啟用 <strong>Google 信號（Google Signals）</strong>，並與 Google 的廣告服務整合。因此，當你登入 Google 帳號且允許廣告個人化時，上述資料可能包含<strong>跨裝置的使用情形</strong>，以及<strong>年齡、性別、興趣等推估的客層資訊</strong>，並可能用於<strong>再行銷與廣告成效衡量</strong>——也就是你之後可能在其他網站或應用程式上看到我們的廣告。</p>
+        <p>這些資料由 <strong>Google LLC</strong> 以我們的服務提供者身分蒐集與處理，並受 Google 自己的隱私權政策規範。我們取得的是彙整後的報表，<strong>不會用來識別你的個人身分</strong>，也不會與上面的群組訊息或訂單資料串接。</p>
+        <p class="note">不想被記錄、或不想看到個人化廣告，你可以：在瀏覽器設定封鎖 Cookie 或使用無痕視窗；安裝 Google 官方的「Google Analytics 停用瀏覽器外掛程式」；或到 Google 的「我的廣告中心」（myadcenter.google.com）關閉廣告個人化。</p>
+      </section>
+
+      <section>
+        <h2><span class="sec-no">07</span>政策更新</h2>
         <p>本政策若有重大變更（例如蒐集範圍或利用目的改變），我們會透過 LINE 官方帳號或本頁面公告，重大變更會在生效前通知供應商。</p>
       </section>
 
       <section>
-        <h2><span class="sec-no">10</span>聯絡我們</h2>
+        <h2><span class="sec-no">08</span>聯絡我們</h2>
         <p>對這份政策有任何疑問，或想行使上述權利，直接寫信給我們：</p>
         <div class="contact-card">
           <p style="margin:0">聯絡窗口：<a class="num" href="mailto:leo@tripdaynday.com">leo@tripdaynday.com</a></p>
           <p class="note" style="margin:6px 0 0">我們會在 15 天內回覆並處理你的請求。</p>
         </div>
       </section>
-
     </article>
   </div>
 </main>
@@ -288,6 +300,7 @@
   <div class="wrap">
     <span>訂單秘書 © 2026</span>
     <span class="foot-links">
+      <a href="/blog">部落格</a>
       <a href="/privacy">隱私政策</a>
       <a href="/terms">服務條款</a>
     </span>

@@ -11,5 +11,6 @@ README.md
 wrangler.jsonc
 set-base-url.sh
 tools/
+docs/
 assets/brand/contact-sheet.html
 assets/brand/icons-sheet.html

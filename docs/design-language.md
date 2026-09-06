@@ -91,20 +91,52 @@
 
 ## 品牌標用法
 
-品牌資產集中在 `assets/brand/`：
+品牌標是**一個問號**（2026-09-06 從三個方向裡選定）。理由：這個產品唯一真正
+與眾不同的地方是「沒把握就標起來問你一句，絕不亂猜」——市面上的接單工具都在
+比功能多，只有我們在講這件事。把那個承諾直接畫成標記，比畫一張清單有力。
 
-- `mark.svg`：方向 A 的純符號，`currentColor` 描邊。
-- `mark-tile.svg`：pine 圓角 tile 加 paper 符號；導覽列使用這一支。
-- `logo.svg`：彩色橫式組合，適合 paper／白底。
-- `logo-mono.svg`：全 `currentColor`，適合單色印刷、雷雕或只有一個墨色的場合。
-- `favicon.svg`：依瀏覽器深淺模式反轉 pine 與 paper，維持分頁對比。
+它的代價要知道：問號是通用符號，單獨看不會讓人聯想到訂單，**必須跟「訂單秘書」
+四個字一起出現才成立**。所以不要單獨使用純 mark 當作對外識別（favicon 與 app icon
+例外，那些場合旁邊本來就有頁面標題或 App 名稱）。
 
-使用規則：
+被換掉的方向 A（三列清單）與方向 C（多筆收斂）留在 `assets/brand/mark-a.svg`、
+`mark-c.svg`，比較表在 `contact-sheet.html`（不上線）。要重新評估時有東西可看。
+
+### 檔案
+
+| 檔案 | 用途 |
+|---|---|
+| `mark.svg` | 純符號，`currentColor` 描邊 |
+| `mark-tile.svg` | pine 圓角 tile 加 paper 符號。LINE 頭像、簡報等外部場合用 |
+| `logo.svg` | 彩色橫式組合，**淺底專用** |
+| `logo-on-ink.svg` | 淺色橫式組合，**深底專用** |
+| `logo-mono.svg` | 全 `currentColor` 單色版，見下方警告 |
+| `favicon.svg` | 依瀏覽器深淺模式反轉 pine 與 paper |
+| `favicon-16/32.png`、`apple-touch-icon.png`、`icon-192/512.png` | 由 `tools/make-brand-icons.py` 產生 |
+
+### `currentColor` 的陷阱（踩過）
+
+`logo-mono.svg` 只有在**直接 inline 進 HTML** 時才會跟著文字顏色走。
+用 `<img src="logo-mono.svg">` 載入時，SVG 是一份獨立文件，`currentColor`
+會解析成**黑色**——放在深色背景上等於看不見。
+`<img>`、簡報、Word、email 這類場合請用 `logo.svg`（淺底）或 `logo-on-ink.svg`（深底）。
+
+### 改標記時怎麼做
+
+幾何的單一來源是 `tools/make-brand-icons.py` 裡的 `mark_polylines()`。
+改完跑一次 `python3 tools/make-brand-icons.py`，五張 PNG 會一起重產並自我驗證
+（尺寸、對比、apple-touch-icon 的不透明）。SVG 那幾支要手動同步，
+19 支 HTML 導覽列的 inline SVG 也要一起換。
+
+註：PNG 不是用 `ImageDraw.line(joint="curve")` 畫的——那個做法在轉折處會留下
+鋸齒狀缺口（512px 的問號弧線上看得很清楚）。改成沿路徑密集蓋圓，
+等價於 `stroke-linecap:round` + `stroke-linejoin:round` 且沒有接縫。
+
+### 使用規則
 
 - 純 mark 最小 `16px`；導覽列 tile 固定 `28px` 容器；橫式 logo 建議不要小於 `136px` 寬。
 - 四周至少保留 mark 高度的四分之一作為留白；不要讓文字、框線或裁切貼到 tile。
 - 保持原始比例。不可拉寬、壓扁、旋轉、重畫線寬、加漸層、陰影、3D、外光或換成色票外顏色。
-- 深底優先用 `logo-mono.svg` 並把 `color` 設為 `--text-on-ink`；淺底用彩色 `logo.svg` 或 pine 單色版。
 - 導覽列維持「mark tile + HTML 品牌名稱」，不要換成整張橫式 logo；這樣文字仍能隨頁面字級與可及性設定工作。
 
 ## UI 圖示

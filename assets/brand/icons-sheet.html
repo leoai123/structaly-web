@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>訂單秘書 UI 圖示集</title>
+<style>
+  :root {
+    --ink: #0d1512; --pine: #1e4d3b; --leaf: #3fa878; --paper: #edf0ea;
+    --paper-2: #ffffff; --paper-line: #d4dbd1; --text-on-paper: #16241e;
+    --muted-on-paper: #55645c; --text-on-ink: #e8efe9; --muted-on-ink: #93a69b;
+    --amber: #d8a03d; --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--text-on-paper); font-family: var(--sans); }
+  main { width: min(1000px, calc(100% - 40px)); margin: 48px auto 72px; }
+  h1 { margin: 0 0 8px; font-size: 30px; }
+  .intro { margin: 0 0 28px; color: var(--muted-on-paper); }
+  .panel { padding: 24px; border: 1px solid var(--paper-line); }
+  .panel.light { background: var(--paper-2); color: var(--pine); border-radius: 14px 14px 0 0; }
+  .panel.dark { background: var(--ink); color: var(--text-on-ink); border-color: var(--ink); border-radius: 0 0 14px 14px; }
+  h2 { margin: 0 0 20px; color: inherit; font-family: var(--mono); font-size: 13px; letter-spacing: .1em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(136px, 1fr)); gap: 12px; }
+  figure { margin: 0; min-height: 112px; display: grid; place-items: center; align-content: center; gap: 12px; border: 1px solid currentColor; border-radius: 10px; }
+  svg { width: 24px; height: 24px; display: block; }
+  figcaption { font-family: var(--mono); font-size: 11px; opacity: .78; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>訂單秘書 UI 圖示集</h1>
+  <p class="intro">24×24 viewBox、2px 單一線寬、圓端點與圓接點；下列圖示皆由外部 SVG sprite 載入。</p>
+  <section class="panel light"><h2>PAPER</h2><div class="grid" data-icons></div></section>
+  <section class="panel dark"><h2>INK</h2><div class="grid" data-icons></div></section>
+</main>
+<template id="icon-template"><figure><svg aria-hidden="true"><use></use></svg><figcaption></figcaption></figure></template>
+<script>
+  const icons = [
+    ["order-card", "訂單卡"], ["picking-list", "出貨總表"], ["cutoff", "截單時間"],
+    ["late-order", "加單"], ["alias", "別名對照"], ["csv-export", "CSV 匯出"],
+    ["data-isolation", "資料隔離"], ["group-message", "群組訊息"],
+    ["confirmed", "已確認"], ["needs-confirmation", "待確認"], ["not-order", "不算訂單"]
+  ];
+  document.querySelectorAll("[data-icons]").forEach(function (grid) {
+    icons.forEach(function (item) {
+      const node = document.getElementById("icon-template").content.cloneNode(true);
+      node.querySelector("use").setAttribute("href", "../icons.svg#icon-" + item[0]);
+      node.querySelector("figcaption").textContent = item[1] + " · icon-" + item[0];
+      grid.appendChild(node);
+    });
+  });
+</script>
+</body>
+</html>

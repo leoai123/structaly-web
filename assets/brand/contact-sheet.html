@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>訂單秘書品牌標方向比較</title>
+<style>
+  :root {
+    --ink: #0d1512; --pine: #1e4d3b; --leaf: #3fa878; --paper: #edf0ea;
+    --paper-2: #ffffff; --paper-line: #d4dbd1; --text-on-paper: #16241e;
+    --muted-on-paper: #55645c; --text-on-ink: #e8efe9; --muted-on-ink: #93a69b;
+    --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--text-on-paper); font-family: var(--sans); }
+  main { width: min(1180px, calc(100% - 40px)); margin: 48px auto 72px; }
+  h1 { margin: 0 0 8px; font-size: 30px; }
+  .intro { margin: 0 0 28px; color: var(--muted-on-paper); }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  article { overflow: hidden; border: 1px solid var(--paper-line); border-radius: 14px; background: var(--paper-2); }
+  header { padding: 18px 20px; border-bottom: 1px solid var(--paper-line); }
+  h2 { margin: 0; font-size: 18px; }
+  header p { margin: 6px 0 0; color: var(--muted-on-paper); font-size: 14px; }
+  .row { display: flex; min-height: 196px; align-items: center; justify-content: center; gap: 20px; padding: 18px; }
+  .row.dark { color: var(--text-on-ink); background: var(--ink); }
+  .row.light { color: var(--pine); background: var(--paper); border-top: 1px solid var(--paper-line); }
+  figure { margin: 0; display: grid; justify-items: center; gap: 8px; }
+  figcaption { color: inherit; font-family: var(--mono); font-size: 11px; opacity: .72; }
+  .mark { display: block; flex: none; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+  .s16 { width: 16px; height: 16px; } .s28 { width: 28px; height: 28px; }
+  .s64 { width: 64px; height: 64px; } .s160 { width: 160px; height: 160px; }
+  .a { --src: url("./mark-a.svg"); } .b { --src: url("./mark-b.svg"); } .c { --src: url("./mark-c.svg"); }
+  @media (max-width: 980px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>訂單秘書品牌標方向比較</h1>
+  <p class="intro">同一方向依序以 16、28、64、160 px 呈現；每張卡包含深底與淺底。</p>
+  <div class="grid">
+    <article>
+      <header><h2>方向 A｜一張單</h2><p>保留既有三列清單，最後一列收短；辨識快，也延續目前已建立的記憶。</p></header>
+      <div class="row dark"><figure><i class="mark a s16"></i><figcaption>16</figcaption></figure><figure><i class="mark a s28"></i><figcaption>28</figcaption></figure><figure><i class="mark a s64"></i><figcaption>64</figcaption></figure><figure><i class="mark a s160"></i><figcaption>160</figcaption></figure></div>
+      <div class="row light"><figure><i class="mark a s16"></i><figcaption>16</figcaption></figure><figure><i class="mark a s28"></i><figcaption>28</figcaption></figure><figure><i class="mark a s64"></i><figcaption>64</figcaption></figure><figure><i class="mark a s160"></i><figcaption>160</figcaption></figure></div>
+    </article>
+    <article>
+      <header><h2>方向 B｜先問清楚</h2><p>用清楚、克制的問號承接核心承諾：不確定就標起來問，絕不替你猜。</p></header>
+      <div class="row dark"><figure><i class="mark b s16"></i><figcaption>16</figcaption></figure><figure><i class="mark b s28"></i><figcaption>28</figcaption></figure><figure><i class="mark b s64"></i><figcaption>64</figcaption></figure><figure><i class="mark b s160"></i><figcaption>160</figcaption></figure></div>
+      <div class="row light"><figure><i class="mark b s16"></i><figcaption>16</figcaption></figure><figure><i class="mark b s28"></i><figcaption>28</figcaption></figure><figure><i class="mark b s64"></i><figcaption>64</figcaption></figure><figure><i class="mark b s160"></i><figcaption>160</figcaption></figure></div>
+    </article>
+    <article>
+      <header><h2>方向 C｜多筆加總</h2><p>三筆由左匯入、一筆由右送出，把群裡零散叫貨收斂成一張可出貨的總表。</p></header>
+      <div class="row dark"><figure><i class="mark c s16"></i><figcaption>16</figcaption></figure><figure><i class="mark c s28"></i><figcaption>28</figcaption></figure><figure><i class="mark c s64"></i><figcaption>64</figcaption></figure><figure><i class="mark c s160"></i><figcaption>160</figcaption></figure></div>
+      <div class="row light"><figure><i class="mark c s16"></i><figcaption>16</figcaption></figure><figure><i class="mark c s28"></i><figcaption>28</figcaption></figure><figure><i class="mark c s64"></i><figcaption>64</figcaption></figure><figure><i class="mark c s160"></i><figcaption>160</figcaption></figure></div>
+    </article>
+  </div>
+</main>
+</body>
+</html>

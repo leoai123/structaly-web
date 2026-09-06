@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the nine static 1200x630 Open Graph cards from og-manifest.json."""
+"""Build the static 1200x630 Open Graph cards from og-manifest.json."""
 from __future__ import annotations
 
 import json
@@ -104,8 +104,8 @@ def build(entry: dict[str, str], font_file: Path) -> Path:
 def main() -> None:
     selected_font = font_path()
     entries = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if len(entries) != 9:
-        raise SystemExit(f"og-manifest.json 應有 9 筆，目前是 {len(entries)} 筆。")
+    if len(entries) != 16:
+        raise SystemExit(f"og-manifest.json 應有 16 筆，目前是 {len(entries)} 筆。")
     for entry in entries:
         target = build(entry, selected_font)
         with Image.open(target) as check:

@@ -6,6 +6,7 @@
 
 - [訂單秘書](https://structaly.com/): 產品做法、適用對象、目前功能、價格與明確未提供的功能。
 - [訂單秘書部落格](https://structaly.com/blog): 給批發供應商看的 LINE 接單、備貨與對帳實務文章。
+- [關於訂單秘書](https://structaly.com/about): 誰提供這項服務、我們處理的問題、明確不做的事、適用對象與目前試點階段。
 
 ## 產業別收單
 
@@ -26,6 +27,15 @@
 - [品項別名對照表怎麼建](https://structaly.com/blog/product-alias-mapping): 三種可以對的別名與一種不能自動合併的近似品。
 - [LINE 群組訂單怎麼變出貨總表](https://structaly.com/blog/line-group-order-to-picking-list): 從口語訊息、確認、截單到早上撿貨的完整流程。
 - [LINE 訂單月底怎麼對帳](https://structaly.com/blog/line-order-reconciliation-csv): 從確認與修改紀錄到 CSV 匯出與 Excel 核對。
+
+## 各行各業的具體問題
+
+- [蔬果報價與訂單怎麼分開](https://structaly.com/blog/vegetable-price-vs-order): 價格照原本方式處理，訂單只記誰要什麼與多少量。
+- [肉品分切前怎麼確認規格](https://structaly.com/blog/meat-cut-spec-confirmation): 部位、處理、厚度、去骨與分裝缺一項，就在下刀前先問。
+- [工地語音與照片叫貨怎麼處理](https://structaly.com/blog/hardware-voice-and-photo-orders): 保留原始訊息，再補一行可搜尋與可確認的文字。
+- [包材品項規格怎麼開](https://structaly.com/blog/supplies-spec-catalog): 比較規格全部展開與主品項加規格欄位兩種做法。
+- [相近烘焙原料怎麼防呆](https://structaly.com/blog/bakery-similar-name-safeguard): 名字越像越不能自動合併，從下單到出貨分層確認。
+- [飲料經銷長單怎麼查核](https://structaly.com/blog/beverage-large-order-check): 先核行數，再核品項數量，最後確認原單位。
 
 ## 法律文件
 

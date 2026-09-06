@@ -5,8 +5,8 @@
 #   ./set-base-url.sh https://structaly.com https://新網域
 #
 # 第一個參數是「現在的網域」，第二個是「要換成的網域」，兩個都不要加結尾斜線。
-# 會改到的檔案：index.html、privacy.html、terms.html、trades/*/index.html、
-#               blog/index.html、blog/*/index.html、llms.txt、robots.txt、sitemap.xml。
+# 會改到的檔案：index.html、about.html、privacy.html、terms.html、trades/*/index.html、
+#               blog/index.html、blog/*/index.html、blog/feed.xml、llms.txt、llms-full.txt、robots.txt、sitemap.xml。
 #
 # 為什麼只要改這些？因為所有內部連結都是相對路徑（/trades/vegetable、
 # /assets/…、/privacy.html），只有這幾種東西一定得寫絕對網址：
@@ -40,7 +40,7 @@ DIR=$(cd "$(dirname "$0")" && pwd)
 OLD_HOST=${OLD#*://}
 NEW_HOST=${NEW#*://}
 
-FILES="index.html privacy.html terms.html llms.txt robots.txt sitemap.xml"
+FILES="index.html about.html privacy.html terms.html blog/feed.xml llms.txt llms-full.txt robots.txt sitemap.xml"
 for f in $FILES; do
   [ -f "$DIR/$f" ] || { echo "找不到 ${f}，先確認目錄是完整的" >&2; exit 1; }
 done

@@ -19,6 +19,8 @@
 
 ## 接單與對帳文章
 
+- [決定要用了，第一週怎麼開始](https://structaly.com/blog/first-week-setup): 從一個客戶群開始，看訂單卡、處理問號與教別名，不必先建完美品項表。
+- [機器人到底看得到什麼](https://structaly.com/blog/what-the-bot-can-see): 說明群內資料、LINE 識別碼、AI 解析、隔離方式與群組成員的選擇。
 - [人工抄單，一個月其實花掉你多少](https://structaly.com/blog/manual-order-taking-hidden-cost): 用自己的工時、貨損與對帳時間算人工抄單成本。
 - [什麼時候該上 ERP，什麼時候先不用](https://structaly.com/blog/line-order-vs-erp): 分清楚整間公司的帳與群組接單是兩段工作。
 - [LINE 接單系統怎麼選](https://structaly.com/blog/line-order-system-how-to-choose): 公平比較團購工具、ERP 型 B2B 平台與群組收單。
@@ -27,6 +29,9 @@
 - [品項別名對照表怎麼建](https://structaly.com/blog/product-alias-mapping): 三種可以對的別名與一種不能自動合併的近似品。
 - [LINE 群組訂單怎麼變出貨總表](https://structaly.com/blog/line-group-order-to-picking-list): 從口語訊息、確認、截單到早上撿貨的完整流程。
 - [LINE 訂單月底怎麼對帳](https://structaly.com/blog/line-order-reconciliation-csv): 從確認與修改紀錄到 CSV 匯出與 Excel 核對。
+- [客人會不會嫌麻煩、不配合](https://structaly.com/blog/will-customers-cooperate): 客人只多按一次確認，不按仍會進訂單台，電話客戶仍需人工處理。
+- [店裡不只你一個人看單](https://structaly.com/blog/multi-person-order-handling): 用共同訂單台、待接單狀態與修改紀錄接住交接班斷點。
+- [客戶群要怎麼分](https://structaly.com/blog/line-group-structure): 比較一家一群與多家混群在資料邊界、對帳與群組數量上的代價。
 
 ## 各行各業的具體問題
 

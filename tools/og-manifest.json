@@ -14,5 +14,10 @@
   {"slug":"hardware-voice-and-photo-orders","category":"各行各業","title":"師傅在工地丟語音和照片叫貨，怎麼處理","output":"hardware-voice-and-photo-orders.png"},
   {"slug":"supplies-spec-catalog","category":"各行各業","title":"同一款杯子十種規格，品項表怎麼開","output":"supplies-spec-catalog.png"},
   {"slug":"bakery-similar-name-safeguard","category":"各行各業","title":"低筋跟高筋差一個字，名字相近的原料怎麼防呆","output":"bakery-similar-name-safeguard.png"},
-  {"slug":"beverage-large-order-check","category":"各行各業","title":"一張單二三十行，怎麼查核才不會漏","output":"beverage-large-order-check.png"}
+  {"slug":"beverage-large-order-check","category":"各行各業","title":"一張單二三十行，怎麼查核才不會漏","output":"beverage-large-order-check.png"},
+  {"slug":"first-week-setup","category":"選型決策","title":"決定要用了，第一週怎麼開始","output":"first-week-setup.png"},
+  {"slug":"will-customers-cooperate","category":"實務做法","title":"客人會不會嫌麻煩、不配合？","output":"will-customers-cooperate.png"},
+  {"slug":"multi-person-order-handling","category":"實務做法","title":"店裡不只你一個人看單","output":"multi-person-order-handling.png"},
+  {"slug":"line-group-structure","category":"實務做法","title":"客戶群要怎麼分？一家一群還是全部混在一起","output":"line-group-structure.png"},
+  {"slug":"what-the-bot-can-see","category":"選型決策","title":"機器人到底看得到什麼？","output":"what-the-bot-can-see.png"}
 ]

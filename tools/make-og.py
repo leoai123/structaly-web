@@ -104,8 +104,8 @@ def build(entry: dict[str, str], font_file: Path) -> Path:
 def main() -> None:
     selected_font = font_path()
     entries = json.loads(MANIFEST.read_text(encoding="utf-8"))
-    if len(entries) != 16:
-        raise SystemExit(f"og-manifest.json 應有 16 筆，目前是 {len(entries)} 筆。")
+    if len(entries) != 21:
+        raise SystemExit(f"og-manifest.json 應有 21 筆，目前是 {len(entries)} 筆。")
     for entry in entries:
         target = build(entry, selected_font)
         with Image.open(target) as check:

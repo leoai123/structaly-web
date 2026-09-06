@@ -10,7 +10,7 @@ PAGES = [
     ("https://structaly.com/", ROOT / "index.html"),
     ("https://structaly.com/about", ROOT / "about.html"),
     *[(f"https://structaly.com/trades/{s}", ROOT / "trades" / s / "index.html") for s in ("vegetable", "meat", "hardware", "supplies", "bakery", "beverage")],
-    *[(f"https://structaly.com/blog/{s}", ROOT / "blog" / s / "index.html") for s in ("manual-order-taking-hidden-cost", "line-order-vs-erp", "line-order-system-how-to-choose", "where-orders-get-lost", "order-cutoff-and-late-orders", "product-alias-mapping", "line-group-order-to-picking-list", "line-order-reconciliation-csv", "vegetable-price-vs-order", "meat-cut-spec-confirmation", "hardware-voice-and-photo-orders", "supplies-spec-catalog", "bakery-similar-name-safeguard", "beverage-large-order-check")],
+    *[(f"https://structaly.com/blog/{s}", ROOT / "blog" / s / "index.html") for s in ("first-week-setup", "what-the-bot-can-see", "manual-order-taking-hidden-cost", "line-order-vs-erp", "line-order-system-how-to-choose", "will-customers-cooperate", "multi-person-order-handling", "line-group-structure", "where-orders-get-lost", "order-cutoff-and-late-orders", "product-alias-mapping", "line-group-order-to-picking-list", "line-order-reconciliation-csv", "vegetable-price-vs-order", "meat-cut-spec-confirmation", "hardware-voice-and-photo-orders", "supplies-spec-catalog", "bakery-similar-name-safeguard", "beverage-large-order-check")],
 ]
 
 class MainText(HTMLParser):

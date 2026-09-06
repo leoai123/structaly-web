@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="訂單列問號 tile">
+  <path fill="#1e4d3b" d="M6 1h20c3.3 0 5 1.7 5 5v20c0 3.3-1.7 5-5 5H6c-3.3 0-5-1.7-5-5V6c0-3.3 1.7-5 5-5Z"/>
+  <path fill="#3fa878" d="M7 6h3v3H7zM19 10h3v3h-3zM16 14h3v3h-3z"/>
+  <path fill="#edf0ea" d="M11 6h6.8c2.9 0 4.7 1.2 5.7 3H11V6Zm12 4h2v2c0 2.9-1.9 5-5 6.1V14h.8c1.4 0 2.2-.9 2.2-2.2V10Zm-11 9h8v3h-8v-3Zm1 5h6v3h-6v-3Z"/>
+</svg>

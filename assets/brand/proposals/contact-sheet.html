@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>訂單秘書｜Wave 5 品牌標提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Noto+Sans+TC:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d1512;
+    --ink-2: #142019;
+    --pine: #1e4d3b;
+    --leaf: #3fa878;
+    --paper: #edf0ea;
+    --paper-2: #ffffff;
+    --cinnabar: #c05b4a;
+    --amber: #d8a03d;
+    --sans: "Noto Sans TC", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); }
+  main { width: min(1560px, calc(100% - 40px)); margin: 0 auto; padding: 48px 0 72px; }
+  .masthead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; margin-bottom: 28px; }
+  .eyebrow { margin: 0 0 8px; color: var(--pine); font: 600 12px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+  h1 { margin: 0; max-width: 18ch; font-size: clamp(30px, 4vw, 52px); line-height: 1.12; letter-spacing: -.035em; }
+  .lead { max-width: 64ch; margin: 14px 0 0; color: var(--pine); line-height: 1.75; }
+  .recommend { min-width: 250px; padding: 15px 18px; border: 2px solid var(--leaf); background: var(--paper-2); }
+  .recommend small { display: block; color: var(--pine); font: 600 11px/1.4 var(--mono); letter-spacing: .1em; }
+  .recommend strong { display: block; margin-top: 4px; font-size: 18px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 24px; padding: 12px 0; border-block: 1px solid var(--pine); color: var(--pine); font: 500 12px/1.5 var(--mono); }
+  .legend span::before { display: inline-block; width: 8px; height: 8px; margin-right: 7px; background: var(--leaf); content: ""; }
+  .grid { display: grid; grid-template-columns: repeat(4, minmax(290px, 1fr)); gap: 14px; align-items: start; }
+  article { overflow: hidden; border: 1px solid var(--pine); background: var(--paper-2); }
+  article.recommended { border-width: 3px; }
+  .card-head { min-height: 154px; padding: 20px; border-bottom: 1px solid var(--pine); }
+  .direction-no { color: var(--leaf); font: 600 11px/1.4 var(--mono); letter-spacing: .1em; }
+  h2 { margin: 7px 0 0; font-size: 22px; line-height: 1.25; }
+  .concept { margin: 9px 0 0; color: var(--pine); font-size: 14px; line-height: 1.65; }
+  .flag { display: inline-block; margin-left: 7px; padding: 2px 6px; background: var(--leaf); color: var(--ink); font: 600 10px/1.4 var(--mono); vertical-align: 2px; }
+  .theme { padding: 14px 12px 16px; }
+  .theme.dark { background: var(--ink); color: var(--paper); }
+  .theme.light { border-bottom: 1px solid var(--pine); background: var(--paper); color: var(--pine); }
+  .theme-label { display: flex; justify-content: space-between; margin-bottom: 12px; font: 500 10px/1.4 var(--mono); letter-spacing: .08em; }
+  .theme-label span:last-child { opacity: .7; }
+  .sizes { display: flex; flex-wrap: wrap; gap: 14px; align-items: end; min-height: 270px; }
+  figure { display: grid; justify-items: center; gap: 6px; margin: 0; }
+  figcaption { font: 500 10px/1 var(--mono); opacity: .72; }
+  .preview { display: block; width: var(--size); height: var(--size); background: currentColor; -webkit-mask: var(--asset) center / contain no-repeat; mask: var(--asset) center / contain no-repeat; }
+  .notes { display: grid; gap: 13px; min-height: 306px; padding: 18px 20px; border-bottom: 1px solid var(--pine); }
+  .note dt { margin: 0 0 4px; color: var(--leaf); font: 600 10px/1.4 var(--mono); letter-spacing: .08em; }
+  .note dd { margin: 0; color: var(--pine); font-size: 13px; line-height: 1.7; }
+  .note.risk { align-self: end; padding-top: 11px; border-top: 1px solid var(--cinnabar); }
+  .note.risk dt { color: var(--cinnabar); }
+  .realities { display: grid; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--pine); }
+  .sample-label { color: var(--pine); font: 600 10px/1.4 var(--mono); letter-spacing: .08em; }
+  .nav-sample { display: flex; align-items: center; gap: 9px; min-height: 52px; padding: 10px 12px; background: var(--ink); color: var(--paper); }
+  .nav-sample img { width: 28px; height: 28px; }
+  .nav-sample strong { font-size: 16px; font-weight: 900; letter-spacing: .06em; }
+  .tab-sample { display: flex; align-items: center; gap: 7px; min-width: 0; padding: 8px 10px; border: 1px solid var(--pine); background: var(--paper); }
+  .favicon { width: 16px; height: 16px; flex: none; background: var(--pine); -webkit-mask: var(--asset) center / contain no-repeat; mask: var(--asset) center / contain no-repeat; }
+  .tab-sample span:last-child { overflow: hidden; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+  .icons { padding: 18px 20px 20px; }
+  .icon-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+  .icon-cell { display: grid; justify-items: center; gap: 6px; padding: 10px 4px 8px; background: var(--paper); color: var(--pine); }
+  .icon-cell img { width: 24px; height: 24px; }
+  .icon-cell span { font: 500 10px/1 var(--mono); }
+  footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--pine); color: var(--pine); font: 500 11px/1.6 var(--mono); }
+  @media (max-width: 1260px) { .grid { grid-template-columns: repeat(2, minmax(290px, 1fr)); } .notes, .card-head { min-height: 0; } }
+  @media (max-width: 700px) { main { width: min(100% - 24px, 520px); padding-top: 28px; } .masthead { grid-template-columns: 1fr; } .recommend { min-width: 0; } .grid { grid-template-columns: 1fr; } .sizes { min-height: 0; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">Order Secretary / Brand Mark Study / Wave 5</p>
+      <h1>不是一個問號，是一套做事的方法。</h1>
+      <p class="lead">四個方向都從「抄單、確認、不亂猜」出發。尺寸列以輪廓色適配深淺背景；tile 與 UI 圖示保留 pine／leaf／paper 的兩色分層。</p>
+    </div>
+    <aside class="recommend"><small>RECOMMENDED</small><strong>02｜反白單據</strong></aside>
+  </header>
+
+  <div class="legend">
+    <span>16 px 使用專用減筆版</span><span>24 / 32 / 64 / 200 px 使用主標</span><span>橫筆略薄、圓弧略外擴</span><span>無漸層、陰影與材質</span>
+  </div>
+
+  <section class="grid" aria-label="四個品牌標方向比較">
+    <article>
+      <header class="card-head">
+        <div class="direction-no">DIRECTION 01 / ROWS</div>
+        <h2>訂單列成問號</h2>
+        <p class="concept">四張有節奏的訂單列，直接拼成「先問清楚」的問號。</p>
+      </header>
+      <div class="theme dark">
+        <div class="theme-label"><span>ON INK</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-rows-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-rows.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-rows.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-rows.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-rows.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <div class="theme light">
+        <div class="theme-label"><span>ON PAPER</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-rows-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-rows.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-rows.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-rows.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-rows.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <dl class="notes">
+        <div class="note"><dt>CONCEPT</dt><dd>把群組裡一筆筆叫貨列，依序排成問號；形與義不再分開。</dd></div>
+        <div class="note"><dt>CRAFT</dt><dd>橫向列厚 4px，視覺上比垂直轉折略輕；右側第二列多伸 1px，補回弧線外側的視覺重量。16px 改為連續主體，只保留「列」的平頂。</dd></div>
+        <div class="note risk"><dt>RISK</dt><dd>主標在 24px 以上最有個性；16px 減筆後，「訂單列」概念會退居第二讀。</dd></div>
+      </dl>
+      <div class="realities">
+        <div><div class="sample-label">NAV / 28 PX TILE</div><div class="nav-sample"><img src="./mark-rows-tile.svg" alt=""><strong>訂單秘書</strong></div></div>
+        <div><div class="sample-label">BROWSER TAB / 16 PX</div><div class="tab-sample"><i class="favicon" style="--asset:url('./mark-rows-16.svg')"></i><span>訂單秘書｜LINE 訂單整理</span></div></div>
+      </div>
+      <div class="icons"><div class="sample-label">UI ICON LANGUAGE / 24 PX</div><div class="icon-row"><div class="icon-cell"><img src="./icon-rows-order.svg" alt=""><span>ORDER</span></div><div class="icon-cell"><img src="./icon-rows-confirm.svg" alt=""><span>CONFIRM</span></div><div class="icon-cell"><img src="./icon-rows-ask.svg" alt=""><span>ASK</span></div></div></div>
+    </article>
+
+    <article class="recommended">
+      <header class="card-head">
+        <div class="direction-no">DIRECTION 02 / CUTOUT</div>
+        <h2>反白單據 <span class="flag">首選</span></h2>
+        <p class="concept">不是把問號放上去，而是從一張單裡把問號挖出來。</p>
+      </header>
+      <div class="theme dark">
+        <div class="theme-label"><span>ON INK</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-cutout-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-cutout.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-cutout.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-cutout.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-cutout.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <div class="theme light">
+        <div class="theme-label"><span>ON PAPER</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-cutout-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-cutout.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-cutout.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-cutout.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-cutout.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <dl class="notes">
+        <div class="note"><dt>CONCEPT</dt><dd>單據是實體，問號是它保留的空白：不確定，就讓人補上答案。</dd></div>
+        <div class="note"><dt>CRAFT</dt><dd>問號不是紙色色塊，而是真正透明的 counterform；外框上下多留 2px，讓實心單據與圓弧在視覺上等大。問號水平收尾略薄，右上折角放大到 7px。</dd></div>
+        <div class="note risk"><dt>RISK</dt><dd>實心量最大，在很密的工具列中會比線性 icon 更搶眼；圖示集需維持同樣的實心容器語言。</dd></div>
+      </dl>
+      <div class="realities">
+        <div><div class="sample-label">NAV / 28 PX TILE</div><div class="nav-sample"><img src="./mark-cutout-tile.svg" alt=""><strong>訂單秘書</strong></div></div>
+        <div><div class="sample-label">BROWSER TAB / 16 PX</div><div class="tab-sample"><i class="favicon" style="--asset:url('./mark-cutout-16.svg')"></i><span>訂單秘書｜LINE 訂單整理</span></div></div>
+      </div>
+      <div class="icons"><div class="sample-label">UI ICON LANGUAGE / 24 PX</div><div class="icon-row"><div class="icon-cell"><img src="./icon-cutout-order.svg" alt=""><span>ORDER</span></div><div class="icon-cell"><img src="./icon-cutout-confirm.svg" alt=""><span>CONFIRM</span></div><div class="icon-cell"><img src="./icon-cutout-ask.svg" alt=""><span>ASK</span></div></div></div>
+    </article>
+
+    <article>
+      <header class="card-head">
+        <div class="direction-no">DIRECTION 03 / STAMP</div>
+        <h2>確認方章</h2>
+        <p class="concept">有一道理性缺口的方章：看過、問過，才算確認過。</p>
+      </header>
+      <div class="theme dark">
+        <div class="theme-label"><span>ON INK</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-stamp-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-stamp.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-stamp.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-stamp.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-stamp.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <div class="theme light">
+        <div class="theme-label"><span>ON PAPER</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-stamp-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-stamp.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-stamp.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-stamp.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-stamp.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <dl class="notes">
+        <div class="note"><dt>CONCEPT</dt><dd>方框像蓋在出貨單上的章；四角兩開兩閉，表示確認前仍保留追問入口。</dd></div>
+        <div class="note"><dt>CRAFT</dt><dd>垂直邊 3px、水平邊 2.6px，修正等寬線的視覺笨重；框角外擴至 29px，讓方框與內部圓弧等重。16px 把細碎圓角改成四個硬邊章塊。</dd></div>
+        <div class="note risk"><dt>RISK</dt><dd>文化指向最強，但也是元素最多的一案；16px 雖可辨，框與問號仍比 cutout 擁擠。</dd></div>
+      </dl>
+      <div class="realities">
+        <div><div class="sample-label">NAV / 28 PX TILE</div><div class="nav-sample"><img src="./mark-stamp-tile.svg" alt=""><strong>訂單秘書</strong></div></div>
+        <div><div class="sample-label">BROWSER TAB / 16 PX</div><div class="tab-sample"><i class="favicon" style="--asset:url('./mark-stamp-16.svg')"></i><span>訂單秘書｜LINE 訂單整理</span></div></div>
+      </div>
+      <div class="icons"><div class="sample-label">UI ICON LANGUAGE / 24 PX</div><div class="icon-row"><div class="icon-cell"><img src="./icon-stamp-order.svg" alt=""><span>ORDER</span></div><div class="icon-cell"><img src="./icon-stamp-confirm.svg" alt=""><span>CONFIRM</span></div><div class="icon-cell"><img src="./icon-stamp-ask.svg" alt=""><span>ASK</span></div></div></div>
+    </article>
+
+    <article>
+      <header class="card-head">
+        <div class="direction-no">DIRECTION 04 / CARBON COPY</div>
+        <h2>複寫咬合 <span class="flag">自創</span></h2>
+        <p class="concept">兩張錯位複寫單咬成一體，把「抄單」變成可追的正式單。</p>
+      </header>
+      <div class="theme dark">
+        <div class="theme-label"><span>ON INK</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-carbon-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-carbon.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-carbon.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-carbon.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-carbon.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <div class="theme light">
+        <div class="theme-label"><span>ON PAPER</span><span>輪廓適配</span></div>
+        <div class="sizes">
+          <figure><i class="preview" style="--size:16px;--asset:url('./mark-carbon-16.svg')"></i><figcaption>16</figcaption></figure>
+          <figure><i class="preview" style="--size:24px;--asset:url('./mark-carbon.svg')"></i><figcaption>24</figcaption></figure>
+          <figure><i class="preview" style="--size:32px;--asset:url('./mark-carbon.svg')"></i><figcaption>32</figcaption></figure>
+          <figure><i class="preview" style="--size:64px;--asset:url('./mark-carbon.svg')"></i><figcaption>64</figcaption></figure>
+          <figure><i class="preview" style="--size:200px;--asset:url('./mark-carbon.svg')"></i><figcaption>200</figcaption></figure>
+        </div>
+      </div>
+      <dl class="notes">
+        <div class="note"><dt>CONCEPT</dt><dd>後張是傳統複寫紙，前張是系統整理後的清單；兩張靠錯位而不是陰影分層。</dd></div>
+        <div class="note"><dt>CRAFT</dt><dd>後張只露左側 5px、下緣 3px，刻意避開像投影的均勻位移；前張的三列以 3px／3px／3px 等節奏挖空，尾列收短形成核對感。16px 將錯位放大至 3px。</dd></div>
+        <div class="note risk"><dt>RISK</dt><dd>產業敘事最獨特，但第一眼較像文件產品；「不確定就問」需要靠 ask 圖示與文案補足。</dd></div>
+      </dl>
+      <div class="realities">
+        <div><div class="sample-label">NAV / 28 PX TILE</div><div class="nav-sample"><img src="./mark-carbon-tile.svg" alt=""><strong>訂單秘書</strong></div></div>
+        <div><div class="sample-label">BROWSER TAB / 16 PX</div><div class="tab-sample"><i class="favicon" style="--asset:url('./mark-carbon-16.svg')"></i><span>訂單秘書｜LINE 訂單整理</span></div></div>
+      </div>
+      <div class="icons"><div class="sample-label">UI ICON LANGUAGE / 24 PX</div><div class="icon-row"><div class="icon-cell"><img src="./icon-carbon-order.svg" alt=""><span>ORDER</span></div><div class="icon-cell"><img src="./icon-carbon-confirm.svg" alt=""><span>CONFIRM</span></div><div class="icon-cell"><img src="./icon-carbon-ask.svg" alt=""><span>ASK</span></div></div></div>
+    </article>
+  </section>
+
+  <footer><span>PALETTE: INK / INK-2 / PINE / LEAF / PAPER / PAPER-2</span><span>SVG PATHS / NO GRADIENT / NO SHADOW / NO RASTER</span></footer>
+</main>
+</body>
+</html>

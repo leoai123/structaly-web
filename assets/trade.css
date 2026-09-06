@@ -70,8 +70,7 @@ header.is-stuck { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22); border-bottom-colo
 .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--text-on-ink); text-decoration: none; }
 .brand-mark {
-  width: 28px; height: 28px; border-radius: 6px; background: var(--pine);
-  display: inline-grid; place-items: center; flex: none;
+  width: 28px; height: 28px; display: inline-grid; place-items: center; flex: none;
 }
 .brand-mark svg { display: block; }
 .brand-name { font-weight: 900; font-size: 17px; letter-spacing: 0.06em; }

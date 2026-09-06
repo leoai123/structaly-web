@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+<!-- CARBON：兩張錯位的複寫單咬合。深色分頁時整體反轉，維持對比。 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
   <style>
     .tile { fill: #1e4d3b; }
-    .mark { stroke: #edf0ea; }
+    .back { fill: #3fa878; }
+    .front{ fill: #edf0ea; }
     @media (prefers-color-scheme: dark) {
       .tile { fill: #edf0ea; }
-      .mark { stroke: #1e4d3b; }
+      .front{ fill: #1e4d3b; }
     }
   </style>
-  <rect class="tile" width="32" height="32" rx="6"/>
-  <path class="mark" d="M9.5 11a6.5 6.5 0 0 1 13 0c0 4.5-6.5 4.5-6.5 9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path class="mark" d="M16 25.5h.01" stroke-width="2.6" stroke-linecap="round"/>
+  <rect class="tile" width="16" height="16" rx="3"/>
+  <path class="back" d="M1.5 3.5h9v10h-9V3.5Z"/>
+  <path class="front" fill-rule="evenodd" d="M4.5 2h6l2.5 2.5V13h-8.5V2Zm2 4.5h4V5h-4v1.5Zm0 3h4V8h-4v1.5Zm0 2.5h3v-1.2h-3V12Z"/>
 </svg>

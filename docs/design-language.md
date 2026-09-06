@@ -91,23 +91,27 @@
 
 ## 品牌標用法
 
-品牌標是**一個問號**（2026-09-06 從三個方向裡選定）。理由：這個產品唯一真正
-與眾不同的地方是「沒把握就標起來問你一句，絕不亂猜」——市面上的接單工具都在
-比功能多，只有我們在講這件事。把那個承諾直接畫成標記，比畫一張清單有力。
+品牌標是 **CARBON：兩張錯位的複寫單互相咬合**（2026-09-06 第二輪，從四案選定）。
+後張 leaf 只露出左側與下緣，前張 pine 用 `fill-rule="evenodd"` 的負空間挖出清單列，
+右上角是 paper 的折角。講的是「人工抄單」變成「可核對、可追蹤的正式清單」。
 
-它的代價要知道：問號是通用符號，單獨看不會讓人聯想到訂單，**必須跟「訂單秘書」
-四個字一起出現才成立**。所以不要單獨使用純 mark 當作對外識別（favicon 與 app icon
-例外，那些場合旁邊本來就有頁面標題或 App 名稱）。
+第一輪選過一個純問號，但太素——那是因為當時的限制寫死成「單一線寬、無漸層、
+幾何作圖」。第二輪放開線寬變化、兩色分層與負空間之後才做得出東西。
 
-被換掉的方向 A（三列清單）與方向 C（多筆收斂）留在 `assets/brand/mark-a.svg`、
-`mark-c.svg`，比較表在 `contact-sheet.html`（不上線）。要重新評估時有東西可看。
+代價要知道：carbon 是「文件」外形，第一眼比較像文件類產品，**「不確定就問」
+這個承諾要靠 `icon-needs-confirmation` 與文案補強**，標記本身不承擔它。
+
+落選的方向都留著：第一輪在 `assets/brand/mark-a.svg` / `mark-c.svg`，
+第二輪的 rows / cutout / stamp 在 `assets/brand/proposals/`。整個 proposals
+資料夾已排除在部署外。要重新評估時有東西可看。
 
 ### 檔案
 
 | 檔案 | 用途 |
 |---|---|
 | `mark.svg` | 純符號，`currentColor` 描邊 |
-| `mark-tile.svg` | pine 圓角 tile 加 paper 符號。LINE 頭像、簡報等外部場合用 |
+| `mark-tile.svg` | 含 pine 圓角底的完整標記。**導覽列直接用這一支**（它自帶底，`.brand-mark` 不再上 pine 背景），LINE 頭像與簡報也用它 |
+| `mark-16.svg` | 16px 減筆專版：放大錯位量、減少列數 |
 | `logo.svg` | 彩色橫式組合，**淺底專用** |
 | `logo-on-ink.svg` | 淺色橫式組合，**深底專用** |
 | `logo-mono.svg` | 全 `currentColor` 單色版，見下方警告 |
@@ -123,14 +127,13 @@
 
 ### 改標記時怎麼做
 
-幾何的單一來源是 `tools/make-brand-icons.py` 裡的 `mark_polylines()`。
-改完跑一次 `python3 tools/make-brand-icons.py`，五張 PNG 會一起重產並自我驗證
-（尺寸、對比、apple-touch-icon 的不透明）。SVG 那幾支要手動同步，
-19 支 HTML 導覽列的 inline SVG 也要一起換。
+PNG 的單一來源是 `assets/brand/mark-tile.svg`。改完跑一次
+`python3 tools/make-brand-icons.py`，五張 PNG 會重產並自我驗證。
+SVG 那幾支與 26 支 HTML 導覽列的 inline SVG 要手動同步。
 
-註：PNG 不是用 `ImageDraw.line(joint="curve")` 畫的——那個做法在轉折處會留下
-鋸齒狀缺口（512px 的問號弧線上看得很清楚）。改成沿路徑密集蓋圓，
-等價於 `stroke-linecap:round` + `stroke-linejoin:round` 且沒有接縫。
+註：PNG 用 macOS 內建的 `qlmanage` 光柵化，不是自己畫。carbon 是實心 path
+加 `fill-rule="evenodd"` 負空間，自己寫光柵器要處理貝茲與奇偶填充規則，
+不划算也容易出錯。這台機器沒有 rsvg-convert 也沒有 cairosvg。
 
 ### 使用規則
 
